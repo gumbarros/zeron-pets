@@ -1,7 +1,7 @@
 {
   "id": "zeron-pets",
   "name": "Zeron Pets",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Animated pixel pets perched on your message box.",
   "entry": "init.luau",
   "permissions": [
@@ -63,12 +63,11 @@
     "key": "XJkKF5etC3ogdUyhzJfTutm-qyx_nitb4RBkH2rf_Is",
     "files": {
       "LICENSE": "e776600f641baae3fd37387829b40fe2d7c12d01785dc8b846658b7cbb0342e3",
-      "init.luau": "99ab814dbd07fc0ab2293726dc53494bc9813dd736f68b489cfd37ed91864419",
+      "init.luau": "7ace0373dd0081967443c39b55a514fdd2c9b071fc6e0fa8bedad29837f5c7cc",
       "zeron.luau": "178b79b55566c9643b26181539b8e1348482179a169da98ba384cd66f3f8a483",
       "AGENTS.md": "a6564eb3fec65a965ec19b6c399a76f1b0f22955e9845a7b4469d041b8ecaca4",
-      "README.md": "a1d7c678e0136b92e28ae016fe05f06fe80da1b7522f57eab1e0231cb93c15a6",
+      "README.md": "348e52a04e958db8693e47626bcc3eaf524dbc77e5693b51398e509d3dfa41f9",
       "pet-selection.luau": "335ee30b0858c6e7fbfeefcc4bd505e398022fc07f5a0cdce83538bacbe11c02",
-      "pet-walk.luau": "cb1290e7dd4d568177e236470648d5197077acba92327aef39ff21c4c1262dfb",
       "locales/en.json": "27e9742d12e2249b8afc10bf32853eb4921cc8cf39e3b003f81bbac6f5ed56c6",
       "locales/pt.json": "6b8c25867a2fe986c4961473ce6ab5e1783ee48233ec9e424fbe62fd11fca8a8",
       "art-src/preview.png": "4cbd5722162f8e59c06de8c4d63773d8aea6201f6cea4ee94f7133217304bc69",
@@ -77,7 +76,6 @@
       "scripts/sign.py": "4a92ff84025b856534dfdef1339b407bec6b7cf3b3b9609cfc34cbb29f66c26b",
       "scripts/test_sign.py": "973bc48782b874100ea96c1e5b88a26360f646a4052151034a68c56c75bfd6b8",
       "scripts/test_pet_selection.lua": "4f91c527310c47b1f541c945d20955b74329a87e98e27c8853f56ebcf75a6495",
-      "scripts/test_pet_walk.lua": "41a919bf4d39e060a3efbc3b5c6a28c4a259aa3bc285bad51a738b6c3320ebfd",
       "art/cat/idle.png": "0091ea7b61b102d8f75f0e3a589c8de10a841a9364ad9908d56d614a0ad2993b",
       "art/cat/blink.png": "f02440d3fe15c583a4a0849c4ed816c4d99e03787a4274f2aa4b983fe39292e6",
       "art/cat/tail-out.png": "aaacda06e0cc06b92e33d3a138fa31472ef858a1caeae480de9ebfac3b7b0f76",
@@ -160,6 +158,6 @@
       "art-src/hollow-knight/atlas.png": "ca624aa65b78cc6f35ac0dd230cc1427e454dacae7919b06b2f6a4121c6e98a3",
       "art-src/gordon-freeman/atlas.png": "f7d23a116b7b2d2feaab1fec78f7c4c0c83749360e6a1fdfe8745462ae76cfae"
     },
-    "sig": "zWTP2NjBu1mhaP2ntF-vi22gRbk6Agvw5K0X_4OwPU8vhaiujPICZNBPmUBoqYr_49OjWUXwoXpc-LHborruAg"
+    "sig": "8ALMGmmz4Y3csQggmzB88kFNBi3UHnaBIpq5BdsTdRjgPBgR6pEtXwfellKhr3TkIKMmOyAv_DzEpBj7JMYvAw"
   }
 }

@@ -3,13 +3,11 @@
 
 local zeron = require("./zeron")("zeron-pets")
 local choose_pet = require("./pet-selection")
-local walk = require("./pet-walk")
 
 -- The sprite's grid, a pixel's size (points), and where it sits: its
 -- outline's last row over the pill's top edge.
 local GRID_W, GRID_H, PIXEL = 40, 48, 2
 local FOOT = 46 * PIXEL
-local RIGHT = 84
 local LARGE_W, LARGE_H, LARGE_FOOT = 64, 64, 62
 local GAG_W, GAG_H, GAG_FOOT = 96, 80, 78
 
@@ -76,14 +74,14 @@ local function within(range: { number }): number
 end
 
 -- At most this many timers are ever pending (checked as each motion comes
--- round): one walking tick, one per motion's next turn, and its frames and
+-- round): one per motion's next turn, and its frames and
 -- its end. Fired timers are let go, so a composer left open all day holds
 -- no more than at its first minute.
 local LONGEST = 0
 for _, each in EVERY do
 	LONGEST = math.max(LONGEST, #each.motion)
 end
-local MOST = #EVERY + LONGEST + 2
+local MOST = #EVERY + LONGEST + 1
 
 local function Pet(): Node
 	local session = zeron.live("session")
@@ -105,14 +103,11 @@ local function Pet(): Node
 	local turns: { [number]: (() -> ())? } = {}
 	local steps: { () -> () } = {}
 	local width = ui.use_state(0)
-	local position = ui.use_state(RIGHT)
-	local bob = ui.use_state(0)
-	local direction, phase = 1, 0
-	local walking: (() -> ())? = nil
+	local position = ui.use_state(math.random())
 	local busy = false
 	local gone = false
 	local function pending(): number
-		local n = #steps + (if walking then 1 else 0)
+		local n = #steps
 		for i = 1, #EVERY do
 			if turns[i] then
 				n += 1
@@ -122,7 +117,6 @@ local function Pet(): Node
 	end
 	ui.on_cleanup(function()
 		gone = true
-		if walking then walking() end
 		for i = 1, #EVERY do
 			local cancel = turns[i]
 			if cancel then
@@ -140,7 +134,6 @@ local function Pet(): Node
 			return
 		end
 		busy = true
-		bob:set(0)
 		motion_pet = selected_pet()
 		steps = {}
 		local at = 0
@@ -158,22 +151,7 @@ local function Pet(): Node
 			steps = {}
 		end))
 	end
-	local function tick()
-		walking = nil
-		if gone then return end
-		if reduced() then
-			bob:set(0)
-		elseif not busy then
-			local x, facing, step, lift = walk(position:peek(), direction, phase,
-				width:peek(), (if large_pet() then LARGE_W else GRID_W) * PIXEL)
-			direction, phase = facing, step
-			position:set(x)
-			bob:set(lift)
-		end
-		walking = ui.after(80, tick)
-	end
 	if not reduced() then
-		walking = ui.after(80, tick)
 		for i, each in EVERY do
 			local function turn()
 				turns[i] = nil
@@ -204,10 +182,10 @@ local function Pet(): Node
 			absolute = true,
 			left = function(): number
 				local sprite_width = (if gag_playing() then GAG_W elseif large_pet() then LARGE_W else GRID_W) * PIXEL
-				return math.max(0, math.min(position:get(), width:get() - sprite_width))
+				return math.floor(position:get() * math.max(0, width:get() - sprite_width))
 			end,
 			top = function(): number
-				return if gag_playing() then -GAG_FOOT * PIXEL elseif large_pet() then -LARGE_FOOT * PIXEL - bob:get() else -FOOT - bob:get()
+				return if gag_playing() then -GAG_FOOT * PIXEL elseif large_pet() then -LARGE_FOOT * PIXEL else -FOOT
 			end,
 			w = function(): number
 				return (if gag_playing() then GAG_W elseif large_pet() then LARGE_W else GRID_W) * PIXEL
