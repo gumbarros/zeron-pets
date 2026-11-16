@@ -136,23 +136,40 @@ def character(pet, pose):
     # Shared frame names keep the runtime animation and reduced motion unchanged.
     hand_y = {"tail-out": 12, "tail-over": 9, "ear": 14}.get(pose, 16)
     if pet == "squidward":
-        teal, shade = "#91c6bb", "#568f8b"
-        d.ellipse((6, 1, 20, 11), fill=ink)
-        d.ellipse((7, 2, 19, 10), fill=teal)
-        d.rectangle((9, 12, 18, 18), fill="#93623e", outline=ink)
-        d.rectangle((11, 10, 16, 13), fill=teal)
-        for x in (9, 15):
-            d.rectangle((x, 5, x+3, 8), fill="#efe6b5")
-            d.line((x, 6 if blink else 5, x+3, 6 if blink else 5), fill=shade)
-            if not blink:
-                d.point((x+1, 7), fill="#9e4540")
-        d.ellipse((12, 7, 15, 13), fill=shade)
-        d.line((9, 11, 17, 11), fill=ink)
-        for x in (9, 15):
-            d.rectangle((x, 19, x+2, 21), fill=teal)
-            d.rectangle((x-2, 22, x+3, 22), fill=shade)
-        d.line((8, 14, 5, hand_y, 3, hand_y), fill=teal, width=2)
-        d.line((19, 14, 21, 18), fill=teal, width=2)
+        teal, shade, edge = "#a5c9be", "#729f96", "#345b58"
+        # His oversized dome and drooping nose carry the silhouette at 2x.
+        d.ellipse((6, 0, 21, 10), fill=edge)
+        d.ellipse((7, 1, 20, 10), fill=teal)
+        for xy in ((10, 3), (13, 2), (17, 3)):
+            d.point(xy, fill=shade)
+        d.rectangle((11, 12, 16, 16), fill=edge)
+        d.rectangle((12, 12, 15, 16), fill=teal)
+        d.polygon([(9, 15), (18, 15), (20, 18), (17, 18),
+                   (17, 19), (10, 19), (10, 18), (7, 18)],
+                  fill="#a5743f", outline=edge)
+        d.line((11, 15, 13, 17, 16, 15), fill="#e0b375")
+        for x, tip in ((10, 6), (15, 20)):
+            d.line((x, 20, x, 21, tip, 21), fill=edge, width=3)
+            d.line((x, 20, x, 21, tip, 21), fill=teal)
+        d.line((8, 17, 5, hand_y, 3, hand_y), fill=edge, width=3)
+        d.line((8, 17, 5, hand_y, 3, hand_y), fill=teal)
+        d.line((19, 17, 21, 19, 19, 20), fill=edge, width=3)
+        d.line((19, 17, 21, 19, 19, 20), fill=teal)
+        d.ellipse((7, 10, 20, 14), fill=edge)
+        d.rectangle((8, 10, 19, 12), fill=teal)
+        d.line((9, 12, 18, 12), fill=edge)
+        for x in (8, 14):
+            d.ellipse((x, 5, x+5, 10), fill=edge)
+            d.ellipse((x+1, 5, x+4, 9), fill="#f1e7b0")
+            d.rectangle((x+1, 5, x+4, 7), fill=shade)
+            d.line((x+1, 7, x+4, 7), fill=edge)
+            if blink:
+                d.rectangle((x+1, 8, x+4, 9), fill=teal)
+            else:
+                d.line((x+3, 8, x+3, 9), fill="#993e30")
+        d.ellipse((12, 8, 16, 14), fill=edge)
+        d.ellipse((12, 8, 15, 13), fill=teal)
+        d.line((15, 10, 15, 12), fill=shade)
     else:
         # Boots, seated legs, torso, and one gesturing arm.
         suit = {"darth-revan": "#453743", "the-witcher": "#555962",
