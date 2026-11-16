@@ -4,6 +4,7 @@
 local zeron = require("./zeron")("zeron-pets")
 local choose_pet = require("./pet-selection")
 local pet_position = require("./pet-position")
+local pet_handoff = require("./pet-handoff")
 local pet_setting = zeron.setting("pet")
 local position_setting = zeron.setting("position")
 
@@ -86,10 +87,11 @@ for _, each in EVERY do
 end
 local MOST = #EVERY + LONGEST + 1
 
-local function Pet(session: () -> any): Node
+local function Pet(session: () -> any, select_pet: any): Node
+	local preview_random = math.random()
 	local function selected_pet(): string
 		local current = session()
-		return choose_pet(pet_setting:get(), if current then current.id else nil)
+		return select_pet(pet_setting:get(), if current then current.id else nil, preview_random, zeron.sessions())
 	end
 	local function large_pet(): boolean
 		local pet = selected_pet()
@@ -205,11 +207,16 @@ end
 
 zeron.place { at = "#composer-toolbar", before = function(): Node
 	local session = zeron.live("session")
+	local select_pet = pet_handoff(choose_pet, function(id)
+		return zeron.store(`pet.{id}`, nil):peek()
+	end, function(id, pet)
+		zeron.store(`pet.{id}`, nil):set(pet)
+	end)
 	return ui.presence(function(): string?
 		local current = session()
-		local fraction = pet_position(position_setting:get(), if current then current.id else nil, 0.5)
-		return if fraction ~= nil then current.id else nil
+		select_pet(pet_setting:get(), if current then current.id else nil, math.random(), zeron.sessions())
+		return if current and current.id and current.id ~= "" then current.id else "new-chat"
 	end, function(): Node
-		return Pet(session)
+		return Pet(session, select_pet)
 	end)
 end }

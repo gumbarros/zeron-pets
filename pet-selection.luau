@@ -3,9 +3,12 @@ local pets = { "anti-sergio", "cat", "darth-revan", "gordon-freeman", "hollow-kn
 -- Rendering reads the same chat repeatedly; keep only its last choice.
 local last_key, last_pet
 
-return function(configured, session_id)
+return function(configured, session_id, preview_random)
+	if session_id == nil or session_id == "" then
+		return pets[math.floor((preview_random or 0) * #pets) + 1]
+	end
 	if configured == nil or configured == "random" then
-		local key = session_id or "new-chat"
+		local key = session_id
 		if key == last_key then
 			return last_pet
 		end

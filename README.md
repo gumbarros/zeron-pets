@@ -4,7 +4,7 @@ Pixel pets for [Zeron](https://github.com/zeronsh/zeron).
 
 ## Pets
 
-Choose a character in **Settings → Plugins → Zeron Pets → Pet**. **Random** is the default: each chat ID selects a stable pet, including after reopening the chat or restarting Zeron. Different chats can share a pet, changing the character roster can remap Random choices. Choose a specific character to use it in every chat. Pets appear only in created chats, never in an unsent new-chat window. Under **Pet position**, choose **Message box · Right** (the default), **Message box · Left**, or **Message box · Random**. Pets blink and make frequent gestures. Their position adjusts to stay inside the bar when it resizes. Respects system Reduce Motion and does not intercept mouse input.
+Choose a character in **Settings → Plugins → Zeron Pets → Pet**. **Random** is the default: each chat ID selects a stable pet, including after reopening the chat or restarting Zeron. Different chats can share a pet, changing the character roster can remap Random choices. Choose a specific character for existing chats. The new-chat window always shows a random pet; starting the chat keeps that pet, including after reopening or restarting Zeron. Changing the Pet setting applies your new choice. The plugin reads chat IDs to distinguish new chats from existing ones. Under **Pet position**, choose **Message box · Right** (the default), **Message box · Left**, or **Message box · Random**. Pets blink and make frequent gestures. Their position adjusts to stay inside the bar when it resizes. Respects system Reduce Motion and does not intercept mouse input.
 
 | Character | Preview |
 | --- | --- |
