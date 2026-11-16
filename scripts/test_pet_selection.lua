@@ -26,3 +26,15 @@ for _, legacy in ipairs({ "ginger", "black", "silver" }) do
 	assert(choose(legacy, "chat-a") == "cat", "Legacy cat selection broke")
 end
 print("Pet selection: stable per-chat distribution, explicit choices, new chats and legacy settings passed.")
+
+local position = dofile("pet-position.luau")
+for _, choice in ipairs({ "left", "right", "random", "activity" }) do
+	assert(position(choice, nil, 0.37) == nil, "A new-chat draft must not have a pet")
+	assert(position(choice, "", 0.37) == nil, "An empty chat ID must not have a pet")
+end
+assert(position("left", "chat-a", 0.37) == 0)
+assert(position("right", "chat-a", 0.37) == 1)
+assert(position("random", "chat-a", 0.37) == 0.37)
+assert(position(nil, "chat-a", 0.37) == 0.37)
+assert(position("activity", "chat-a", 0.37) == nil, "Activity mode must hide the composer pet")
+print("Pet position: existing chats only, left, right, random and activity passed.")

@@ -3,6 +3,7 @@
 
 local zeron = require("./zeron")("zeron-pets")
 local choose_pet = require("./pet-selection")
+local pet_position = require("./pet-position")
 
 -- The sprite's grid, a pixel's size (points), and where it sits: its
 -- outline's last row over the pill's top edge.
@@ -83,8 +84,7 @@ for _, each in EVERY do
 end
 local MOST = #EVERY + LONGEST + 1
 
-local function Pet(): Node
-	local session = zeron.live("session")
+local function Pet(session: () -> any, activity: boolean?): Node
 	local function selected_pet(): string
 		local current = session()
 		return choose_pet(zeron.setting("pet"):get(), if current then current.id else nil)
@@ -166,7 +166,12 @@ local function Pet(): Node
 		end
 	end
 	return ui.div {
-		absolute = true, left = 0, right = 0, top = 0, h = 0,
+		relative = true,
+		w = if activity then function(): number
+			return (if gag_playing() then GAG_W elseif large_pet() then LARGE_W else GRID_W) * PIXEL
+		end else nil,
+		shrink = 0,
+		absolute = not activity, left = 0, right = if activity then nil else 0, top = 0, h = if activity then 26 else 0,
 		pointer_events = "none", aria_hidden = true,
 		on_resize = function(size)
 			width:set(size.w)
@@ -182,10 +187,12 @@ local function Pet(): Node
 			absolute = true,
 			left = function(): number
 				local sprite_width = (if gag_playing() then GAG_W elseif large_pet() then LARGE_W else GRID_W) * PIXEL
-				return math.floor(position:get() * math.max(0, width:get() - sprite_width))
+				local current = session()
+				local fraction = pet_position(zeron.setting("position"):get(), if current then current.id else nil, position:get()) or 0
+				return if activity then 0 else math.floor(fraction * math.max(0, width:get() - sprite_width))
 			end,
 			top = function(): number
-				return if gag_playing() then -GAG_FOOT * PIXEL elseif large_pet() then -LARGE_FOOT * PIXEL else -FOOT
+				return (if activity then 26 else 0) - (if gag_playing() then GAG_FOOT * PIXEL elseif large_pet() then LARGE_FOOT * PIXEL else FOOT)
 			end,
 			w = function(): number
 				return (if gag_playing() then GAG_W elseif large_pet() then LARGE_W else GRID_W) * PIXEL
@@ -199,4 +206,24 @@ local function Pet(): Node
 	}
 end
 
-zeron.place { at = "#composer-toolbar", before = Pet }
+zeron.place { at = "#composer-toolbar", before = function(): Node
+	local session = zeron.live("session")
+	return ui.presence(function(): string?
+		local current = session()
+		local fraction = pet_position(zeron.setting("position"):get(), if current then current.id else nil, 0.5)
+		return if fraction ~= nil then current.id else nil
+	end, function(): Node
+		return Pet(session)
+	end)
+end }
+
+-- shortcut: matches the host's English working label; use a stable ID when Zeron exposes one.
+zeron.place { at = '#transcript >> role:generic "Working"', before = function(): Node
+	local session = zeron.live("session")
+	return ui.presence(function(): string?
+		local current = session()
+		return if current and current.id ~= "" and zeron.setting("position"):get() == "activity" then current.id else nil
+	end, function(): Node
+		return Pet(session, true)
+	end)
+end }
