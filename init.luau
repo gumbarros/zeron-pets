@@ -95,7 +95,7 @@ local function Pet(session: () -> any, select_pet: any): Node
 	end
 	local function large_pet(): boolean
 		local pet = selected_pet()
-		return pet == "whiplash" or pet == "anti-sergio" or pet == "squidward"
+		return pet == "whiplash" or pet == "anti-sergio" or pet == "squidward" or pet == "ornstein-smough"
 	end
 	local frame = ui.use_state("idle")
 	local motion_pet = selected_pet()

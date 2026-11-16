@@ -9,9 +9,13 @@ Choose a character in **Settings → Plugins → Zeron Pets → Pet**. **Random*
 | Character | Preview |
 | --- | --- |
 | Anti Sergio | <img src="art/anti-sergio/idle.png" alt="Anti Sergio pixel sprite" width="128" height="128"> |
+| Creeper | <img src="art/creeper/idle.png" alt="Minecraft Creeper pixel sprite" width="80" height="96"> |
 | Darth Revan | <img src="art/darth-revan/idle.png" alt="Darth Revan pixel sprite" width="80" height="96"> |
 | Gordon Freeman | <img src="art/gordon-freeman/idle.png" alt="Gordon Freeman pixel sprite" width="80" height="96"> |
 | Hollow Knight | <img src="art/hollow-knight/idle.png" alt="Hollow Knight pixel sprite" width="80" height="96"> |
+| Hornet | <img src="art/hornet/idle.png" alt="Hornet pixel sprite" width="80" height="96"> |
+| Zombie | <img src="art/zombie/idle.png" alt="Zombie pixel sprite" width="80" height="96"> |
+| Ornstein & Smough | <img src="art/ornstein-smough/idle.png" alt="Ornstein and Smough pixel sprite" width="128" height="128"> |
 | Omniman | <img src="art/omniman/idle.png" alt="Omniman pixel sprite" width="80" height="96"> |
 | Siamese | <img src="art/cat/idle.png" alt="Siamese pixel sprite" width="80" height="96"> |
 | Squidward | <img src="art/squidward/idle.png" alt="Squidward pixel sprite" width="128" height="128"> |
@@ -28,7 +32,7 @@ Then allow **Zeron Pets** in Zeron's plugin review. It only requests `ui.add`; n
 
 ### Develop
 
-The plugin source lives at the repository root. Each pet has its own source sheet at `art-src/<pet>/atlas.png` and runtime frames at `art/<pet>/<frame>.png`. Edit its sheet to change the artwork; `art-src/sprite.py` imports it into runtime sprites. Regenerate the 71 PNG frames with Python and Pillow:
+The plugin source lives at the repository root. Each pet has its own source sheet at `art-src/<pet>/atlas.png` and runtime frames at `art/<pet>/<frame>.png`. Edit its sheet to change the artwork; `art-src/sprite.py` imports it into runtime sprites. Regenerate the 91 PNG frames with Python and Pillow:
 
 ```sh
 python art-src/sprite.py
