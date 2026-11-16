@@ -1,17 +1,7 @@
--- Composer cat: a Siamese pixel-art cat with a tiny tail sitting on the message box's top edge
--- ("ui.add"), placed in the composer (before its footer, #composer-toolbar)
--- and laid absolute against the composer's body, so it sits on the pill
--- wherever the composer is and however wide. It takes no pointer:
--- everything under it works as before.
---
--- The cat is a sprite: a 28 by 24 grid (art/cat-*.png, drawn by
--- art-src/sprite.py), each pixel 2 points, sampled nearest so every pixel
--- stays square and hard-edged at any scale. Its life is frames: now and then
--- it blinks, flicks its tail, or twitches an ear, one at a time. Between
--- those nothing changes, so nothing is drawn. With Reduce motion it sits
--- still.
+-- Zeron Pets: animated pixel companions on the message box.
+-- Frame names are shared: characters gesture where cats flick their tails.
 
-local zeron = require("./zeron")("composer-cat")
+local zeron = require("./zeron")("zeron-pets")
 
 -- The sprite's grid, a pixel's size (points), and where it sits: its
 -- outline's last row over the pill's top edge, 84 in from the composer's
@@ -50,7 +40,7 @@ for _, each in EVERY do
 end
 local MOST = #EVERY + LONGEST + 1
 
-local function Cat(): Node
+local function Pet(): Node
 	local frame = ui.use_state("idle")
 	-- Each motion's next turn (its one pending timer, replaced as it fires),
 	-- and the playing motion's frame timers (let go when it ends).
@@ -108,15 +98,16 @@ local function Cat(): Node
 				turns[i] = nil
 				play(each.motion)
 				turns[i] = ui.after(within(each.range), turn)
-				assert(pending() <= MOST, "composer-cat: timers left pending")
+				assert(pending() <= MOST, "zeron-pets: timers left pending")
 			end
 			turns[i] = ui.after(within(each.range), turn)
 		end
 	end
 	return ui.image {
-		id = "composer-cat",
+		id = "zeron-pets",
 		src = function(): string
-			return `art/cat-{frame:get()}.png`
+			local pet = zeron.setting("pet"):get() or "cat"
+			return `art/{pet}-{frame:get()}.png`
 		end,
 		image_rendering = "pixelated",
 		absolute = true,
@@ -129,4 +120,4 @@ local function Cat(): Node
 	}
 end
 
-zeron.place { at = "#composer-toolbar", before = Cat }
+zeron.place { at = "#composer-toolbar", before = Pet }

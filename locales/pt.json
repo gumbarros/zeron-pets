@@ -1,0 +1,27 @@
+{
+  "hello": {
+    "label": "Dizer olá",
+    "toast": "Olá do Zeron Pets"
+  },
+  "plugin": {
+    "name": "Zeron Pets",
+    "description": "Pets animados em pixel art sobre sua caixa de mensagem."
+  },
+  "settings": {
+    "pet": {
+      "label": "Pet",
+      "description": "Escolha o pet que fica sobre sua caixa de mensagem.",
+      "options": {
+        "cat": "Siamês",
+        "ginger": "Laranja",
+        "black": "Preto",
+        "silver": "Prateado",
+        "squidward": "Lula Molusco",
+        "darth-revan": "Darth Revan",
+        "the-witcher": "The Witcher",
+        "omniman": "Omniman",
+        "whiplash": "Whiplash"
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "hello": {
+    "label": "Say hello",
+    "toast": "Hello from Zeron Pets"
+  },
+  "plugin": {
+    "name": "Zeron Pets",
+    "description": "Animated pixel pets perched on your message box."
+  },
+  "settings": {
+    "pet": {
+      "label": "Pet",
+      "description": "Choose the pet perched on your message box.",
+      "options": {
+        "cat": "Siamese",
+        "ginger": "Ginger",
+        "black": "Black",
+        "silver": "Silver",
+        "squidward": "Squidward",
+        "darth-revan": "Darth Revan",
+        "the-witcher": "The Witcher",
+        "omniman": "Omniman",
+        "whiplash": "Whiplash"
+      }
+    }
+  }
+}

@@ -2,32 +2,49 @@
 
 Pixel pets for [Zeron](https://github.com/zeronsh/zeron).
 
-## Composer Cat
+## Pets
 
-A blue-eyed Siamese cat with a cream coat, seal-brown points, and a tiny tail. It sits on the message box, blinks, flicks its tail, and twitches an ear. Respects system Reduce Motion and does not intercept mouse input.
+Choose a Siamese, Ginger, Black, Silver, Squidward, Darth Revan, The Witcher (Geralt), Omniman, or Whiplash (Fletcher) in **Settings → Plugins → Zeron Pets → Pet**. Siamese remains the default. The selection is saved across restarts. Pets sit on the message box, blink, and make small gestures. Cats also flick their tiny tails. Respects system Reduce Motion and does not intercept mouse input.
 
 ### Install
 
 Ask your Zeron agent:
 
-> Install the plugin at https://github.com/gumbarros/zeron-pets/tree/main/composer-cat
+> Install the plugin at https://github.com/gumbarros/zeron-pets
 
-Then allow **Composer Cat** in Zeron's plugin review. It only requests `ui.add`.
+Then allow **Zeron Pets** in Zeron's plugin review. It only requests `ui.add`; no network, commands, or message access.
 
 ### Develop
 
-The complete signed plugin lives in `composer-cat/`. Edit `art-src/sprite.py` to change its pixel art. Regenerate the five PNG frames with Python and Pillow:
+The plugin source lives at the repository root. Edit `art-src/sprite.py` to change its pixel art. Regenerate the 45 PNG frames with Python and Pillow:
 
 ```sh
-python composer-cat/art-src/sprite.py
+python art-src/sprite.py
 ```
 
 An optional argument writes an enlarged animation-frame preview:
 
 ```sh
-python composer-cat/art-src/sprite.py /tmp/siamese-preview.png
+python art-src/sprite.py /tmp/siamese-preview.png
 ```
 
-Editing files invalidates the plugin signature. To publish changes, copy the plugin into your local Zeron plugins directory, then sign it with `zeron plugin sign composer-cat` and copy the signed folder back before committing. Do not edit the signature manually.
+Editing files invalidates the plugin signature. Before distributing changes, copy the repository contents (excluding `.git/`) into Zeron’s plugins folder as `zeron-pets/`, run `zeron plugin sign zeron-pets`, and copy the signed `zeron-plugin.json` back to the repository root. Check it with `zeron plugin verify .`. The current Zeron CLI only signs plugins in its plugins folder. Do not edit the signature manually.
 
-Adapted from Zeron's [Composer Cat development plugin](https://github.com/zeronsh/zeron/tree/main/apps/zgx/plugins-dev/composer-cat). Original MIT license retained in [composer-cat/LICENSE](composer-cat/LICENSE).
+Adapted from Zeron's [Composer Cat development plugin](https://github.com/zeronsh/zeron/tree/main/apps/zgx/plugins-dev/composer-cat). Original MIT license retained in [LICENSE](LICENSE).
+
+### Custom pets
+
+The current Zeron settings API has no file-upload control and does not allow plugins to draw their own settings UI. An upload button directly in plugin settings requires a Zeron host change. A separate plugin page with a file dialog would need additional permissions and image handling; this plugin does not implement it.
+
+Renaming the plugin changes its ID: existing installations of the original plugin must be disabled and Zeron Pets installed separately. Select your pet again after installing.
+
+### Translations
+
+English and Portuguese catalogs live in `locales/en.json` and
+`locales/pt.json`. Zeron resolves Portuguese variants such as `pt-BR`
+through `pt`, with English as the fallback. Use `zeron.t` or `zeron.s`
+for plugin-rendered text.
+
+Zeron currently displays manifest names, descriptions, and setting options
+as literal strings. The catalogs include their translations, but showing
+those translations in the host settings requires localization support in Zeron.

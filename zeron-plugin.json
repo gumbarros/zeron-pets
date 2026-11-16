@@ -1,0 +1,58 @@
+{
+  "id": "zeron-pets",
+  "name": "Zeron Pets",
+  "version": "0.3.0",
+  "description": "Animated pixel pets perched on your message box.",
+  "entry": "init.luau",
+  "permissions": [
+    "ui.add"
+  ],
+  "settings": [
+    {
+      "id": "pet",
+      "kind": "choice",
+      "label": "Pet",
+      "description": "Choose the pet perched on your message box.",
+      "style": "select",
+      "default": "cat",
+      "options": [
+        {
+          "value": "cat",
+          "label": "Siamese"
+        },
+        {
+          "value": "ginger",
+          "label": "Ginger"
+        },
+        {
+          "value": "black",
+          "label": "Black"
+        },
+        {
+          "value": "silver",
+          "label": "Silver"
+        },
+        {
+          "value": "squidward",
+          "label": "Squidward"
+        },
+        {
+          "value": "darth-revan",
+          "label": "Darth Revan"
+        },
+        {
+          "value": "the-witcher",
+          "label": "The Witcher"
+        },
+        {
+          "value": "omniman",
+          "label": "Omniman"
+        },
+        {
+          "value": "whiplash",
+          "label": "Whiplash"
+        }
+      ]
+    }
+  ]
+}
