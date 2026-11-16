@@ -1,0 +1,27 @@
+{
+  "id": "composer-cat",
+  "name": "Composer Cat",
+  "version": "0.1.1",
+  "description": "A blue-eyed Siamese pixel cat with a tiny tail, perched on your message box.",
+  "entry": "init.luau",
+  "permissions": [
+    "ui.add"
+  ],
+  "signature": {
+    "key": "1jDunS9-dlIPgQ7b0NK0rNHseSw1sRVqDSr32YzmnEc",
+    "files": {
+      "LICENSE": "e776600f641baae3fd37387829b40fe2d7c12d01785dc8b846658b7cbb0342e3",
+      "README.md": "5cefa348b745440baff7a4e69fef7f29c013e492b0174e71aa2f0489c93b6cf1",
+      "art-src/sprite.py": "3a1ba4063336fad31ec49b3bb3e315168e2273c5be735ac75d2284f547dd8478",
+      "art/cat-blink.png": "692be5459d80911257f9e2004e6efb773a1c10c09c459bb947a86aa23303b94d",
+      "art/cat-ear.png": "8aa395ca109c9187884900e40560302d2c6c0bb98d75396886822a0befb59ae3",
+      "art/cat-idle.png": "471b81babd205a1d3fcc02999aa05035932afce6f97016f271737de64ac202ac",
+      "art/cat-tail-out.png": "3ec69a1c59fe0ad39fe5aef0fb65367e9b630f04b80d6163b1fb81786fc1e720",
+      "art/cat-tail-over.png": "6758f19b74083137aeb73364751bcd742eb8ebdac77101e2908021f71c51f113",
+      "init.luau": "009951d9a439e0baaae37f41a0cf38b61e945c5d6af19116f427ed12797c8de5",
+      "locales/en.json": "9a8c0c062a5c9dd590186e74819495a5118843c5d782bd8993e420f38ef2ebf6",
+      "zeron.luau": "178b79b55566c9643b26181539b8e1348482179a169da98ba384cd66f3f8a483"
+    },
+    "sig": "XBft2iRx0BzjzdzvGR5UV0jij_6pKqL9hXZaNguW7ss8M2Kv448_GtetzTgG5sTJW7MSJAUZkwDrupOQa4N5BA"
+  }
+}
