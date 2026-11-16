@@ -28,7 +28,30 @@ An optional argument writes an enlarged animation-frame preview:
 python art-src/sprite.py /tmp/siamese-preview.png
 ```
 
-Editing files invalidates the plugin signature. Before distributing changes, copy the repository contents (excluding `.git/`) into Zeron’s plugins folder as `zeron-pets/`, run `zeron plugin sign zeron-pets`, and copy the signed `zeron-plugin.json` back to the repository root. Check it with `zeron plugin verify .`. The current Zeron CLI only signs plugins in its plugins folder. Do not edit the signature manually.
+Editing files invalidates the plugin signature. Sign offline using Python 3.10+
+and OpenSSL; no running Zeron or Python packages are required:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python scripts/test_sign.py
+python scripts/sign.py
+python scripts/sign.py --verify
+```
+
+The private Ed25519 PEM key defaults to
+`~/.config/zeron-pets/signing-key.pem`; pass `--key /path/to/key.pem` to override.
+Keep and back up this key outside the repository. For a brand-new signing identity
+only, create it once (never overwrite an existing key):
+
+```sh
+mkdir -p ~/.config/zeron-pets
+(umask 077; set -C; openssl genpkey -algorithm ED25519 > ~/.config/zeron-pets/signing-key.pem)
+```
+
+Commit the updated `zeron-plugin.json` with every change, and sign again if any
+file changes afterward. Zeron hashes non-hidden files regardless of `.gitignore`;
+remove generated `__pycache__` folders and `.pyc` files before signing. A new key
+changes the signer and may require reinstalling an existing plugin. An unregistered
+key appears as an unknown author; users still allow the plugin in Zeron's review.
 
 Adapted from Zeron's [Composer Cat development plugin](https://github.com/zeronsh/zeron/tree/main/apps/zgx/plugins-dev/composer-cat). Original MIT license retained in [LICENSE](LICENSE).
 
