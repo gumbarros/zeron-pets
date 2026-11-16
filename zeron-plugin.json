@@ -1,7 +1,7 @@
 {
   "id": "zeron-pets",
   "name": "Zeron Pets",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Animated pixel pets perched on your message box.",
   "entry": "init.luau",
   "permissions": [
@@ -63,11 +63,12 @@
     "key": "XJkKF5etC3ogdUyhzJfTutm-qyx_nitb4RBkH2rf_Is",
     "files": {
       "LICENSE": "e776600f641baae3fd37387829b40fe2d7c12d01785dc8b846658b7cbb0342e3",
-      "init.luau": "fa07effb92c330c485906a3a040cca228f1bf2667c94e258621a3ee19acf3c5f",
+      "init.luau": "ae4f5a06a161ca2b237d053e88a23f9c18b33b41d8cfc69fce5e1c06d1686444",
       "zeron.luau": "178b79b55566c9643b26181539b8e1348482179a169da98ba384cd66f3f8a483",
-      "AGENTS.md": "827a6eb0dce7e6b564dcd7786241cef9b55a1f103fb087e43823590ab2b23f49",
-      "README.md": "7aab4a8539b3a335ba831ace403947b000aa288185f0a9331698a13d2dccde5d",
+      "AGENTS.md": "a6564eb3fec65a965ec19b6c399a76f1b0f22955e9845a7b4469d041b8ecaca4",
+      "README.md": "a1d7c678e0136b92e28ae016fe05f06fe80da1b7522f57eab1e0231cb93c15a6",
       "pet-selection.luau": "335ee30b0858c6e7fbfeefcc4bd505e398022fc07f5a0cdce83538bacbe11c02",
+      "pet-walk.luau": "bb9032d39596d2667265c328bc9ea6973ccaad08883ec87ad68d90568ee4d56a",
       "locales/en.json": "27e9742d12e2249b8afc10bf32853eb4921cc8cf39e3b003f81bbac6f5ed56c6",
       "locales/pt.json": "6b8c25867a2fe986c4961473ce6ab5e1783ee48233ec9e424fbe62fd11fca8a8",
       "art-src/preview.png": "4cbd5722162f8e59c06de8c4d63773d8aea6201f6cea4ee94f7133217304bc69",
@@ -76,6 +77,7 @@
       "scripts/sign.py": "4a92ff84025b856534dfdef1339b407bec6b7cf3b3b9609cfc34cbb29f66c26b",
       "scripts/test_sign.py": "973bc48782b874100ea96c1e5b88a26360f646a4052151034a68c56c75bfd6b8",
       "scripts/test_pet_selection.lua": "4f91c527310c47b1f541c945d20955b74329a87e98e27c8853f56ebcf75a6495",
+      "scripts/test_pet_walk.lua": "a7fdc7874fd4b491c9971a958de103e0da709a164bab03fb3b99d708d16f36cc",
       "art/cat/idle.png": "0091ea7b61b102d8f75f0e3a589c8de10a841a9364ad9908d56d614a0ad2993b",
       "art/cat/blink.png": "f02440d3fe15c583a4a0849c4ed816c4d99e03787a4274f2aa4b983fe39292e6",
       "art/cat/tail-out.png": "aaacda06e0cc06b92e33d3a138fa31472ef858a1caeae480de9ebfac3b7b0f76",
@@ -158,6 +160,6 @@
       "art-src/hollow-knight/atlas.png": "ca624aa65b78cc6f35ac0dd230cc1427e454dacae7919b06b2f6a4121c6e98a3",
       "art-src/gordon-freeman/atlas.png": "f7d23a116b7b2d2feaab1fec78f7c4c0c83749360e6a1fdfe8745462ae76cfae"
     },
-    "sig": "UHPm7eeVyXiNClTJB2-pDP_tuRz_pm1X5P80wbLTQ71lJBUejrvosON98ESZe9f0jVL5z9WHYo256_vDJ0ljDw"
+    "sig": "1A9_EfUh2p-x3KL5puT1AQndDcj5vfh2LItQ2HOsa4vmRD-yOzRsQsjga0gSrcy5tTIzoP2B3y7s_3Z2h8Q4Aw"
   }
 }

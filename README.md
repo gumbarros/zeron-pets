@@ -4,7 +4,7 @@ Pixel pets for [Zeron](https://github.com/zeronsh/zeron).
 
 ## Pets
 
-Choose a character in **Settings → Plugins → Zeron Pets → Pet**. **Random** is the default: each chat ID selects a stable pet, including after reopening the chat or restarting Zeron. Different chats can share a pet, changing the character roster can remap Random choices. Choose a specific character to use it in every chat. Pets sit on the message box, blink, and make small gestures. . Respects system Reduce Motion and does not intercept mouse input.
+Choose a character in **Settings → Plugins → Zeron Pets → Pet**. **Random** is the default: each chat ID selects a stable pet, including after reopening the chat or restarting Zeron. Different chats can share a pet, changing the character roster can remap Random choices. Choose a specific character to use it in every chat. Pets walk across the message box with a pixel-step bounce, blink, and make frequent gestures. Walking pauses during gestures and special gags. Respects system Reduce Motion and does not intercept mouse input.
 
 | Character | Preview |
 | --- | --- |
@@ -39,6 +39,9 @@ An optional argument writes a labeled preview of every pet and frame:
 ```sh
 python art-src/sprite.py /tmp/pets-preview.png
 ```
+
+Run movement and chat-selection checks with `lua scripts/test_pet_walk.lua` and
+`lua scripts/test_pet_selection.lua`.
 
 Editing files invalidates the plugin signature. Sign offline using Python 3.10+
 and OpenSSL; no running Zeron or Python packages are required:

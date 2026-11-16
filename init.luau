@@ -3,10 +3,10 @@
 
 local zeron = require("./zeron")("zeron-pets")
 local choose_pet = require("./pet-selection")
+local walk = require("./pet-walk")
 
 -- The sprite's grid, a pixel's size (points), and where it sits: its
--- outline's last row over the pill's top edge, 84 in from the composer's
--- right edge (clear of the draft's first line).
+-- outline's last row over the pill's top edge.
 local GRID_W, GRID_H, PIXEL = 40, 48, 2
 local FOOT = 46 * PIXEL
 local RIGHT = 84
@@ -58,12 +58,12 @@ local DESTROY = {
 }
 -- How often each comes (seconds, a range).
 local EVERY = {
-	{ motion = BLINK, range = { 3.5, 7 } },
-	{ motion = FLICK, range = { 7, 12 } },
-	{ motion = TWITCH, range = { 10, 18 } },
-	{ motion = THROW, range = { 20, 40 }, pet = "whiplash" },
-	{ motion = DOG, range = { 18, 32 }, pet = "anti-sergio" },
-	{ motion = DESTROY, range = { 28, 50 }, pet = "squidward" },
+	{ motion = BLINK, range = { 2, 4 } },
+	{ motion = FLICK, range = { 3, 6 } },
+	{ motion = TWITCH, range = { 5, 9 } },
+	{ motion = THROW, range = { 10, 20 }, pet = "whiplash" },
+	{ motion = DOG, range = { 9, 16 }, pet = "anti-sergio" },
+	{ motion = DESTROY, range = { 14, 25 }, pet = "squidward" },
 }
 
 local function reduced(): boolean
@@ -76,14 +76,14 @@ local function within(range: { number }): number
 end
 
 -- At most this many timers are ever pending (checked as each motion comes
--- round): one per motion's next turn, and the playing motion's frames and
+-- round): one walking tick, one per motion's next turn, and its frames and
 -- its end. Fired timers are let go, so a composer left open all day holds
 -- no more than at its first minute.
 local LONGEST = 0
 for _, each in EVERY do
 	LONGEST = math.max(LONGEST, #each.motion)
 end
-local MOST = #EVERY + LONGEST + 1
+local MOST = #EVERY + LONGEST + 2
 
 local function Pet(): Node
 	local session = zeron.live("session")
@@ -104,10 +104,15 @@ local function Pet(): Node
 	-- and the playing motion's frame timers (let go when it ends).
 	local turns: { [number]: (() -> ())? } = {}
 	local steps: { () -> () } = {}
+	local width = ui.use_state(0)
+	local position = ui.use_state(RIGHT)
+	local bob = ui.use_state(0)
+	local direction, phase = 1, 0
+	local walking: (() -> ())? = nil
 	local busy = false
 	local gone = false
 	local function pending(): number
-		local n = #steps
+		local n = #steps + (if walking then 1 else 0)
 		for i = 1, #EVERY do
 			if turns[i] then
 				n += 1
@@ -117,6 +122,7 @@ local function Pet(): Node
 	end
 	ui.on_cleanup(function()
 		gone = true
+		if walking then walking() end
 		for i = 1, #EVERY do
 			local cancel = turns[i]
 			if cancel then
@@ -130,10 +136,11 @@ local function Pet(): Node
 	-- A motion's frames one after another, then idle. (One at a time: one
 	-- that comes while another plays waits for its next turn.)
 	local function play(motion: { { any } })
-		if gone or busy then
+		if gone or busy or reduced() then
 			return
 		end
 		busy = true
+		bob:set(0)
 		motion_pet = selected_pet()
 		steps = {}
 		local at = 0
@@ -151,7 +158,22 @@ local function Pet(): Node
 			steps = {}
 		end))
 	end
+	local function tick()
+		walking = nil
+		if gone then return end
+		if reduced() then
+			bob:set(0)
+		elseif not busy then
+			local x, facing, step, lift = walk(position:peek(), direction, phase,
+				width:peek(), (if large_pet() then LARGE_W else GRID_W) * PIXEL)
+			direction, phase = facing, step
+			position:set(x)
+			bob:set(lift)
+		end
+		walking = ui.after(80, tick)
+	end
 	if not reduced() then
+		walking = ui.after(80, tick)
 		for i, each in EVERY do
 			local function turn()
 				turns[i] = nil
@@ -165,27 +187,37 @@ local function Pet(): Node
 			turns[i] = ui.after(within(each.range), turn)
 		end
 	end
-	return ui.image {
-		id = "zeron-pets",
-		src = function(): string
-			local pet = selected_pet()
-			local name = if pet == motion_pet then frame:get() else "idle"
-			return `art/{pet}/{name}.png`
+	return ui.div {
+		absolute = true, left = 0, right = 0, top = 0, h = 0,
+		pointer_events = "none", aria_hidden = true,
+		on_resize = function(size)
+			width:set(size.w)
 		end,
-		image_rendering = "pixelated",
-		absolute = true,
-		right = RIGHT,
-		top = function(): number
-			return if gag_playing() then -GAG_FOOT * PIXEL elseif large_pet() then -LARGE_FOOT * PIXEL else -FOOT
-		end,
-		w = function(): number
-			return (if gag_playing() then GAG_W elseif large_pet() then LARGE_W else GRID_W) * PIXEL
-		end,
-		h = function(): number
-			return (if gag_playing() then GAG_H elseif large_pet() then LARGE_H else GRID_H) * PIXEL
-		end,
-		pointer_events = "none",
-		aria_hidden = true,
+		ui.image {
+			id = "zeron-pets",
+			src = function(): string
+				local pet = selected_pet()
+				local name = if pet == motion_pet then frame:get() else "idle"
+				return `art/{pet}/{name}.png`
+			end,
+			image_rendering = "pixelated",
+			absolute = true,
+			left = function(): number
+				local sprite_width = (if gag_playing() then GAG_W elseif large_pet() then LARGE_W else GRID_W) * PIXEL
+				return math.max(0, math.min(position:get(), width:get() - sprite_width))
+			end,
+			top = function(): number
+				return if gag_playing() then -GAG_FOOT * PIXEL elseif large_pet() then -LARGE_FOOT * PIXEL - bob:get() else -FOOT - bob:get()
+			end,
+			w = function(): number
+				return (if gag_playing() then GAG_W elseif large_pet() then LARGE_W else GRID_W) * PIXEL
+			end,
+			h = function(): number
+				return (if gag_playing() then GAG_H elseif large_pet() then LARGE_H else GRID_H) * PIXEL
+			end,
+			pointer_events = "none",
+			aria_hidden = true,
+		},
 	}
 end
 

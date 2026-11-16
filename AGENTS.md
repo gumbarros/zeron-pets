@@ -64,12 +64,12 @@ and a head tilt with cloak movement. The source prompt uses the existing Darth
 Revan atlas for the SNES pixel style, with a horned white mask, black eye holes,
 a dark blue-gray cloak and a silver nail.
 Fletcher has a separate 4×2 sheet: idle, blink, windup, lift, release, flight,
-follow-through, and recover. He never plays drums; every 20–40 seconds he throws
+follow-through, and recover. He never plays drums; every 10–20 seconds he throws
 a metal rehearsal chair, then returns to idle. Reduce Motion disables the throw.
 His source prompt preserves the reference character and pixel style, removes all
 drums and drumsticks, and specifies a planted full-body chair-throw sequence.
 Anti Sergio uses a 4×2 sheet: idle, blink, two thumbs-up poses, head tilt,
-dog arriving, petting the dog, and dog leaving. The dog visits every 18–32
+dog arriving, petting the dog, and dog leaving. The dog visits every 9–16
 seconds for about three seconds; Reduce Motion keeps Anti Sergio alone and still.
 His artwork uses the supplied photos for short straight side-swept black hair
 with trimmed sides, an oval face, smaller almond-shaped eyes, a thin mustache
@@ -86,7 +86,7 @@ uses 96×80 frames (192×160 points) for the machinery details; normal poses kee
 their existing size. Source keyframes 0, 15, 45, 60, 65, 80, 95, 110, 125, 140,
 155, 175, 195, 205, 220, 235, 250, 265, 280 and 297 supply the pose timing for the
 full 9.93-second sequence; the three empty-machine phases cycle every 100 ms. This is a pixel-art restaging, not the original video.
-It runs every 28–50 seconds and returns to idle after the final empty rollers;
+It runs every 14–25 seconds and returns to idle after the final empty rollers;
 Reduce Motion disables it. The generation prompt uses the existing character
 atlas for style and sampled GIF frames for the action, with no dust-cloud,
 pancake or reinflation ending.
