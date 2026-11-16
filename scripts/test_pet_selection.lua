@@ -9,6 +9,8 @@ for _, pet in ipairs(pets) do
 end
 
 local original = choose("random", "chat-a")
+assert(choose("cat", "chat-a") == "cat", "Cached random choice must not override explicit settings")
+assert(choose(nil, "chat-a") == original, "Returning to Random must retain the chat's choice")
 for i = 1, 1000 do
 	local id = "chat-" .. i
 	local pet = choose("random", id)
@@ -35,6 +37,6 @@ end
 assert(position("left", "chat-a", 0.37) == 0)
 assert(position("right", "chat-a", 0.37) == 1)
 assert(position("random", "chat-a", 0.37) == 0.37)
-assert(position(nil, "chat-a", 0.37) == 0.37)
-assert(position("activity", "chat-a", 0.37) == nil, "Activity mode must hide the composer pet")
-print("Pet position: existing chats only, left, right, random and activity passed.")
+assert(position(nil, "chat-a", 0.37) == 1, "Unset position must default to Right")
+assert(position("activity", "chat-a", 0.37) == 1, "Removed activity setting must fall back to Right")
+print("Pet position: existing chats only, left, right, random and default fallback passed.")

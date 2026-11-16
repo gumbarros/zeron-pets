@@ -30,8 +30,7 @@
       "options": {
         "right": "Message box · Right",
         "left": "Message box · Left",
-        "random": "Message box · Random",
-        "activity": "Beside activity indicator"
+        "random": "Message box · Random"
       }
     }
   }

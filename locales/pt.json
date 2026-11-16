@@ -30,8 +30,7 @@
       "options": {
         "right": "Caixa de mensagem · Direita",
         "left": "Caixa de mensagem · Esquerda",
-        "random": "Caixa de mensagem · Aleatória",
-        "activity": "Ao lado do indicador de atividade"
+        "random": "Caixa de mensagem · Aleatória"
       }
     }
   }
