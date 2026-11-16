@@ -1,5 +1,5 @@
 -- A chat ID supplies a stable pseudo-random choice, including after reopening.
-local pets = { "anti-sergio", "cat", "darth-revan", "gordon-freeman", "hollow-knight", "omniman", "squidward", "the-witcher", "whiplash", "hornet", "zombie", "ornstein-smough", "creeper" }
+local pets = { "anti-sergio", "cat", "darth-revan", "gordon-freeman", "hollow-knight", "omniman", "squidward", "the-witcher", "whiplash", "silksong", "zombie", "ornstein-smough", "creeper" }
 -- Rendering reads the same chat repeatedly; keep only its last choice.
 local last_key, last_pet
 
@@ -22,5 +22,5 @@ return function(configured, session_id, preview_random)
 	if configured == "ginger" or configured == "black" or configured == "silver" then
 		return "cat"
 	end
-	return configured
+	return configured == "hornet" and "silksong" or configured
 end

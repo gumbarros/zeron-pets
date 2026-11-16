@@ -7,7 +7,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parent.parent
-PETS = ("cat", "squidward", "darth-revan", "the-witcher", "omniman", "whiplash", "anti-sergio", "hollow-knight", "gordon-freeman", "hornet", "zombie", "ornstein-smough", "creeper")
+PETS = ("cat", "squidward", "darth-revan", "the-witcher", "omniman", "whiplash", "anti-sergio", "hollow-knight", "gordon-freeman", "silksong", "zombie", "ornstein-smough", "creeper")
 FRAMES = ("idle", "blink", "tail-out", "tail-over", "ear")
 PET_FRAMES = {pet: FRAMES for pet in PETS}
 PET_FRAMES["whiplash"] = ("idle", "blink", "windup", "lift", "release", "flight", "follow-through", "recover")

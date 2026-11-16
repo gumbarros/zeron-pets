@@ -13,7 +13,7 @@ Choose a character in **Settings → Plugins → Zeron Pets → Pet**. **Random*
 | Darth Revan | <img src="art/darth-revan/idle.png" alt="Darth Revan pixel sprite" width="80" height="96"> |
 | Gordon Freeman | <img src="art/gordon-freeman/idle.png" alt="Gordon Freeman pixel sprite" width="80" height="96"> |
 | Hollow Knight | <img src="art/hollow-knight/idle.png" alt="Hollow Knight pixel sprite" width="80" height="96"> |
-| Hornet | <img src="art/hornet/idle.png" alt="Hornet pixel sprite" width="80" height="96"> |
+| Silksong | <img src="art/silksong/idle.png" alt="Silksong pixel sprite" width="80" height="96"> |
 | Zombie | <img src="art/zombie/idle.png" alt="Zombie pixel sprite" width="80" height="96"> |
 | Ornstein & Smough | <img src="art/ornstein-smough/idle.png" alt="Ornstein and Smough pixel sprite" width="128" height="128"> |
 | Omniman | <img src="art/omniman/idle.png" alt="Omniman pixel sprite" width="80" height="96"> |

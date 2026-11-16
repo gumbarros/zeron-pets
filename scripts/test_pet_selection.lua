@@ -1,6 +1,6 @@
 -- Run from the repository root: lua scripts/test_pet_selection.lua
 local choose = dofile("pet-selection.luau")
-local pets = { "anti-sergio", "cat", "darth-revan", "gordon-freeman", "hollow-knight", "omniman", "squidward", "the-witcher", "whiplash", "hornet", "zombie", "ornstein-smough", "creeper" }
+local pets = { "anti-sergio", "cat", "darth-revan", "gordon-freeman", "hollow-knight", "omniman", "squidward", "the-witcher", "whiplash", "silksong", "zombie", "ornstein-smough", "creeper" }
 local seen = {}
 for _, pet in ipairs(pets) do
 	seen[pet] = 0
@@ -77,3 +77,7 @@ local delayed = handoff(choose, function() return nil end, function() end)
 local delayed_pet = delayed("cat", nil, 0.01, {})
 assert(delayed("cat", "pending-save", 0.99, {}) == delayed_pet)
 assert(delayed("cat", "pending-save", 0.99, {}) == delayed_pet, "Pending persistence must not cause a pet switch")
+
+assert(choose("hornet", "chat-a") == "silksong", "Legacy Hornet setting must resolve to Silksong")
+local legacy = handoff(choose, function() return { pet = "hornet", configured = "random" } end, function() end)
+assert(legacy("random", "legacy-chat", 0.5, {}) == "silksong", "Saved Hornet pet must resolve to Silksong")

@@ -23,7 +23,7 @@ return function(choose, load, save)
 			preview, existing = nil, nil
 		end
 		if inherited and inherited.configured == (configured or "random") then
-			return inherited.pet
+			return choose(inherited.pet, session_id, random)
 		end
 		return choose(configured, session_id, random)
 	end
