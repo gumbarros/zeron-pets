@@ -1,4 +1,13 @@
 local walk = dofile("pet-walk.luau")
+local random = math.random
+math.random = function() return 0 end
+local x, direction = walk(84, 1, 0, 600, 80)
+assert(x == 81 and direction == -1, "Random turn must walk left at the slower speed")
+x, direction = walk(x, direction, 0, 600, 80)
+assert(x == 84 and direction == 1, "Random turn must also walk right")
+x, direction = walk(x, direction, 1, 600, 80)
+assert(x == 87 and direction == 1, "Only consider random turns once per step cycle")
+math.random = function() return 1 end
 for _, sprite in ipairs({80, 128}) do
 	local x, direction, phase, bob = 84, 1, 0, 0
 	local left, right, lifted, planted = false, false, false, false
@@ -18,4 +27,5 @@ for _, sprite in ipairs({80, 128}) do
 		if width <= sprite then assert(x == 0 and bob == 0) end
 	end
 end
+math.random = random
 print("Pet walking: both edges, step animation, resizing and narrow composers passed.")

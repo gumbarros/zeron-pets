@@ -5,7 +5,10 @@ return function(x, direction, phase, width, sprite_width)
 	if limit == 0 then
 		return 0, direction, 0, 0
 	end
-	x = x + direction * 4
+	if phase == 0 and math.random() < 0.15 then
+		direction = -direction
+	end
+	x = x + direction * 3
 	if x >= limit then
 		x, direction = limit, -1
 	elseif x <= 0 then

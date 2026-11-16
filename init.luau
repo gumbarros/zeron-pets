@@ -72,7 +72,7 @@ local function reduced(): boolean
 end
 
 local function within(range: { number }): number
-	return (range[1] + math.random() * (range[2] - range[1])) * 1000
+	return (range[1] + math.random() * (range[2] - range[1])) * 1200
 end
 
 -- At most this many timers are ever pending (checked as each motion comes
