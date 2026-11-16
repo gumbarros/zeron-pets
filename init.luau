@@ -1,24 +1,69 @@
 -- Zeron Pets: animated pixel companions on the message box.
--- Frame names are shared: characters gesture where cats flick their tails.
+-- Character-specific gags share the same bounded animation scheduler.
 
 local zeron = require("./zeron")("zeron-pets")
+local choose_pet = require("./pet-selection")
 
 -- The sprite's grid, a pixel's size (points), and where it sits: its
 -- outline's last row over the pill's top edge, 84 in from the composer's
 -- right edge (clear of the draft's first line).
-local GRID_W, GRID_H, PIXEL = 28, 24, 2
-local FOOT = 22 * PIXEL
+local GRID_W, GRID_H, PIXEL = 40, 48, 2
+local FOOT = 46 * PIXEL
 local RIGHT = 84
+local LARGE_W, LARGE_H, LARGE_FOOT = 64, 64, 62
+local GAG_W, GAG_H, GAG_FOOT = 96, 80, 78
 
 -- Each motion: its frames and how long each shows (ms), back to idle after.
 local BLINK = { { "blink", 140 } }
 local FLICK = { { "tail-out", 130 }, { "idle", 90 }, { "tail-over", 130 }, { "idle", 90 }, { "tail-out", 110 } }
 local TWITCH = { { "ear", 120 }, { "idle", 80 }, { "ear", 120 } }
+local THROW = {
+	{ "windup", 220 }, { "lift", 180 }, { "release", 100 },
+	{ "flight", 120 }, { "follow-through", 180 }, { "recover", 200 },
+}
+local DOG = { { "dog-arrive", 350 }, { "dog-pet", 2600 }, { "dog-leave", 450 } }
+local DESTROY = {
+	{ "machine-01", 500 },
+	{ "machine-02", 1000 },
+	{ "machine-03", 500 },
+	{ "machine-04", 170 },
+	{ "machine-05", 100 },
+	{ "machine-06", 100 },
+	{ "machine-07", 100 },
+	{ "machine-05", 100 },
+	{ "machine-06", 100 },
+	{ "machine-07", 100 },
+	{ "machine-05", 100 },
+	{ "machine-06", 100 },
+	{ "machine-07", 100 },
+	{ "machine-05", 100 },
+	{ "machine-06", 100 },
+	{ "machine-07", 100 },
+	{ "machine-05", 100 },
+	{ "machine-06", 100 },
+	{ "machine-07", 100 },
+	{ "machine-08", 500 },
+	{ "machine-09", 500 },
+	{ "machine-10", 500 },
+	{ "machine-11", 660 },
+	{ "machine-12", 670 },
+	{ "machine-13", 330 },
+	{ "machine-14", 500 },
+	{ "machine-15", 500 },
+	{ "machine-16", 500 },
+	{ "machine-17", 500 },
+	{ "machine-18", 500 },
+	{ "machine-19", 570 },
+	{ "machine-20", 30 },
+}
 -- How often each comes (seconds, a range).
 local EVERY = {
 	{ motion = BLINK, range = { 3.5, 7 } },
 	{ motion = FLICK, range = { 7, 12 } },
 	{ motion = TWITCH, range = { 10, 18 } },
+	{ motion = THROW, range = { 20, 40 }, pet = "whiplash" },
+	{ motion = DOG, range = { 18, 32 }, pet = "anti-sergio" },
+	{ motion = DESTROY, range = { 28, 50 }, pet = "squidward" },
 }
 
 local function reduced(): boolean
@@ -41,7 +86,20 @@ end
 local MOST = #EVERY + LONGEST + 1
 
 local function Pet(): Node
+	local session = zeron.live("session")
+	local function selected_pet(): string
+		local current = session()
+		return choose_pet(zeron.setting("pet"):get(), if current then current.id else nil)
+	end
+	local function large_pet(): boolean
+		local pet = selected_pet()
+		return pet == "whiplash" or pet == "anti-sergio" or pet == "squidward"
+	end
 	local frame = ui.use_state("idle")
+	local motion_pet = selected_pet()
+	local function gag_playing(): boolean
+		return selected_pet() == "squidward" and motion_pet == "squidward" and string.sub(frame:get(), 1, 8) == "machine-"
+	end
 	-- Each motion's next turn (its one pending timer, replaced as it fires),
 	-- and the playing motion's frame timers (let go when it ends).
 	local turns: { [number]: (() -> ())? } = {}
@@ -76,6 +134,7 @@ local function Pet(): Node
 			return
 		end
 		busy = true
+		motion_pet = selected_pet()
 		steps = {}
 		local at = 0
 		for _, step in motion do
@@ -96,7 +155,10 @@ local function Pet(): Node
 		for i, each in EVERY do
 			local function turn()
 				turns[i] = nil
-				play(each.motion)
+				local pet = selected_pet()
+				if each.pet == pet or (each.pet == nil and (pet ~= "whiplash" or each.motion == BLINK)) then
+					play(each.motion)
+				end
 				turns[i] = ui.after(within(each.range), turn)
 				assert(pending() <= MOST, "zeron-pets: timers left pending")
 			end
@@ -106,15 +168,22 @@ local function Pet(): Node
 	return ui.image {
 		id = "zeron-pets",
 		src = function(): string
-			local pet = zeron.setting("pet"):get() or "cat"
-			return `art/{pet}-{frame:get()}.png`
+			local pet = selected_pet()
+			local name = if pet == motion_pet then frame:get() else "idle"
+			return `art/{pet}/{name}.png`
 		end,
 		image_rendering = "pixelated",
 		absolute = true,
 		right = RIGHT,
-		top = -FOOT,
-		w = GRID_W * PIXEL,
-		h = GRID_H * PIXEL,
+		top = function(): number
+			return if gag_playing() then -GAG_FOOT * PIXEL elseif large_pet() then -LARGE_FOOT * PIXEL else -FOOT
+		end,
+		w = function(): number
+			return (if gag_playing() then GAG_W elseif large_pet() then LARGE_W else GRID_W) * PIXEL
+		end,
+		h = function(): number
+			return (if gag_playing() then GAG_H elseif large_pet() then LARGE_H else GRID_H) * PIXEL
+		end,
 		pointer_events = "none",
 		aria_hidden = true,
 	}

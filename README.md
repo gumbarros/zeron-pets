@@ -4,7 +4,19 @@ Pixel pets for [Zeron](https://github.com/zeronsh/zeron).
 
 ## Pets
 
-Choose a Siamese, Ginger, Black, Silver, Squidward, Darth Revan, The Witcher (Geralt), Omniman, or Whiplash (Fletcher) in **Settings → Plugins → Zeron Pets → Pet**. Siamese remains the default. The selection is saved across restarts. Pets sit on the message box, blink, and make small gestures. Cats also flick their tiny tails. Respects system Reduce Motion and does not intercept mouse input.
+Choose a character in **Settings → Plugins → Zeron Pets → Pet**. **Random** is the default: each chat ID selects a stable pet, including after reopening the chat or restarting Zeron. Different chats can share a pet, changing the character roster can remap Random choices. Choose a specific character to use it in every chat. Pets sit on the message box, blink, and make small gestures. . Respects system Reduce Motion and does not intercept mouse input.
+
+| Character | Preview |
+| --- | --- |
+| Anti Sergio | <img src="art/anti-sergio/idle.png" alt="Anti Sergio pixel sprite" width="128" height="128"> |
+| Darth Revan | <img src="art/darth-revan/idle.png" alt="Darth Revan pixel sprite" width="80" height="96"> |
+| Gordon Freeman | <img src="art/gordon-freeman/idle.png" alt="Gordon Freeman pixel sprite" width="80" height="96"> |
+| Hollow Knight | <img src="art/hollow-knight/idle.png" alt="Hollow Knight pixel sprite" width="80" height="96"> |
+| Omniman | <img src="art/omniman/idle.png" alt="Omniman pixel sprite" width="80" height="96"> |
+| Siamese | <img src="art/cat/idle.png" alt="Siamese pixel sprite" width="80" height="96"> |
+| Squidward | <img src="art/squidward/idle.png" alt="Squidward pixel sprite" width="128" height="128"> |
+| The Witcher | <img src="art/the-witcher/idle.png" alt="The Witcher pixel sprite" width="80" height="96"> |
+| Whiplash | <img src="art/whiplash/idle.png" alt="Whiplash pixel sprite" width="128" height="128"> |
 
 ### Install
 
@@ -16,16 +28,16 @@ Then allow **Zeron Pets** in Zeron's plugin review. It only requests `ui.add`; n
 
 ### Develop
 
-The plugin source lives at the repository root. Edit `art-src/sprite.py` to change its pixel art. Regenerate the 45 PNG frames with Python and Pillow:
+The plugin source lives at the repository root. Each pet has its own source sheet at `art-src/<pet>/atlas.png` and runtime frames at `art/<pet>/<frame>.png`. Edit its sheet to change the artwork; `art-src/sprite.py` imports it into runtime sprites. Regenerate the 71 PNG frames with Python and Pillow:
 
 ```sh
 python art-src/sprite.py
 ```
 
-An optional argument writes an enlarged animation-frame preview:
+An optional argument writes a labeled preview of every pet and frame:
 
 ```sh
-python art-src/sprite.py /tmp/siamese-preview.png
+python art-src/sprite.py /tmp/pets-preview.png
 ```
 
 Editing files invalidates the plugin signature. Sign offline using Python 3.10+
@@ -54,12 +66,6 @@ changes the signer and may require reinstalling an existing plugin. An unregiste
 key appears as an unknown author; users still allow the plugin in Zeron's review.
 
 Adapted from Zeron's [Composer Cat development plugin](https://github.com/zeronsh/zeron/tree/main/apps/zgx/plugins-dev/composer-cat). Original MIT license retained in [LICENSE](LICENSE).
-
-### Custom pets
-
-The current Zeron settings API has no file-upload control and does not allow plugins to draw their own settings UI. An upload button directly in plugin settings requires a Zeron host change. A separate plugin page with a file dialog would need additional permissions and image handling; this plugin does not implement it.
-
-Renaming the plugin changes its ID: existing installations of the original plugin must be disabled and Zeron Pets installed separately. Select your pet again after installing.
 
 ### Translations
 

@@ -13,14 +13,15 @@
       "description": "Escolha o pet que fica sobre sua caixa de mensagem.",
       "options": {
         "cat": "Siamês",
-        "ginger": "Laranja",
-        "black": "Preto",
-        "silver": "Prateado",
         "squidward": "Lula Molusco",
         "darth-revan": "Darth Revan",
         "the-witcher": "The Witcher",
         "omniman": "Omniman",
-        "whiplash": "Whiplash"
+        "whiplash": "Whiplash",
+        "anti-sergio": "Anti Sergio",
+        "random": "Aleatório",
+        "hollow-knight": "Hollow Knight",
+        "gordon-freeman": "Gordon Freeman"
       }
     }
   }
