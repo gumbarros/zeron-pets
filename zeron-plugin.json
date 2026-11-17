@@ -1,7 +1,7 @@
 {
   "id": "zeron-pixel-pets",
   "name": "Zeron Pets",
-  "version": "0.4.9",
+  "version": "0.4.10",
   "description": "Animated pixel pets perched on your message box.",
   "entry": "init.luau",
   "permissions": [
@@ -111,7 +111,7 @@
     "files": {
       "AGENTS.md": "c58b9bf1da5af8c62a6b26b7ed428bd6f56573bbfacbc2fdf134c12a3243196b",
       "LICENSE": "e776600f641baae3fd37387829b40fe2d7c12d01785dc8b846658b7cbb0342e3",
-      "README.md": "6c5277373f48e2a53799355e84d0510150c093c774d429d8167e9efe609e20e6",
+      "README.md": "360f00fedba986fcddc6b8cda941290f3d331cfb05bfea27069242b076f107fe",
       "art-src/anti-sergio/atlas.png": "093eddc3157f6429d9f38e32b93205266c31487d60db585caa18783aa351550d",
       "art-src/cat/atlas.png": "bc6217ad4aa06258858d851fc9d72bf05abfee888844f826f182fa80f955047c",
       "art-src/creeper/atlas.png": "8f65cbcbab6664988030d814c25afdf6e1f8e193aa95b9b16048283fd399b910",
@@ -239,15 +239,16 @@
       "art/zombie/idle.png": "808849b861420e0386be8302d207d97914e384bf1ed1236e0c1b8e927d812746",
       "art/zombie/tail-out.png": "170cf5f9202c63c35ec68b17c9acb09052fe71ba2ca1259e3fd9b0d9121a9eff",
       "art/zombie/tail-over.png": "feb38dec6f189c68a4f611f0c3a6543960f313428d9cf6abe101e702219ebf1f",
-      "init.luau": "9cecdee689cb098843c3873f75559454e984b89195630ce0963b959f02583c83",
-      "locales/en.json": "ee77c9c1df4fc7e3fba5b17d0f95cf5656fdb414e46470154e9d6443cc8f1b93",
-      "locales/pt.json": "0d632fea8bbe0be2d3303483d0d9e7488347559e6874d1db276d916a9e6f4934",
+      "init.luau": "5510c3fc66c05b8d34a5d87d4e2e99ba3e3fde7f46bac6b1741cfd97924f9454",
+      "locales/en.json": "b471d9a341246307eff0c979286190a76e91f7df1bb50468ca571dbeb76cc154",
+      "locales/pt.json": "3cc1e58e7811a9c3d2e83b537616f171dcc9f8153d34397854ca47464fe8e9f9",
       "pet-handoff.luau": "7920f1ef34621c836346e2be051565077c507a83b58566a6140203052d17d2d3",
       "pet-position.luau": "9fa28ace6287a14385fdb8be4805503dfc7028c978f781e5b7bb679ddfd06b12",
       "pet-selection.luau": "37c6bb7882dc0472ed5f69516c8084bd82a05b542a277c24e910830bc4a256e1",
+      "scripts/test_pet_click.lua": "0fbdd0aa4ae6863f24e078569f762ff55729ec6cdf0294421f433d54a10d12e1",
       "scripts/test_pet_selection.lua": "835b770daa3ea5cd060819c9b284c5c121bd4a459a14d9e8b9e001d48daed02f",
       "zeron.luau": "178b79b55566c9643b26181539b8e1348482179a169da98ba384cd66f3f8a483"
     },
-    "sig": "FJRmXU10O4BlwEYVmv0aNNebpvadxF8Si9V8ATLQmdCCMul_QdzMDmP52LXy-SxFlLooukXccH4ncNEGpwdECw"
+    "sig": "wv27y2AdpNxgbDE4vjfeiTfaojuBx7XXYCkw3R8ibRqeaFUl7ov0EATzo25QDDzo_28cI1gpYH2b7vvUXYl4BQ"
   }
 }

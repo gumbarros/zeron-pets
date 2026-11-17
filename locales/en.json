@@ -39,5 +39,8 @@
         "random": "Message box · Random"
       }
     }
+  },
+  "pet": {
+    "animate": "Play special animation"
   }
 }

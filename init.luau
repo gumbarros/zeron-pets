@@ -171,20 +171,40 @@ local function Pet(session: () -> any, select_pet: any): Node
 			turns[i] = ui.after(within(each.range), turn)
 		end
 	end
+	local function click_motion(): { { any } }?
+		local pet = selected_pet()
+		for _, each in EVERY do
+			if each.pet == pet then
+				return each.motion
+			end
+		end
+		return nil
+	end
+	local function interactive(): boolean
+		return click_motion() ~= nil and not reduced()
+	end
 	return ui.div {
 		absolute = true, left = 0, right = 0, top = 0, h = 0,
-		pointer_events = "none", aria_hidden = true,
+		pointer_events = "none",
 		on_resize = function(size)
 			width:set(size.w)
 		end,
-		ui.image {
+		ui.button {
 			id = "zeron-pixel-pets",
-			src = function(): string
-				local pet = selected_pet()
-				local name = if pet == motion_pet then frame:get() else "idle"
-				return `art/{pet}/{name}.png`
+			label = zeron.t("pet.animate"),
+			p = 0, bg = "#00000000",
+			hover = { bg = "#00000000" },
+			active = { bg = "#00000000" },
+			disabled = function(): boolean return not interactive() end,
+			aria_hidden = function(): boolean return not interactive() end,
+			pointer_events = function(): string return if interactive() then "auto" else "none" end,
+			cursor = function(): string return if interactive() then "pointer" else "default" end,
+			on_click = function()
+				local motion = click_motion()
+				if motion then
+					play(motion)
+				end
 			end,
-			image_rendering = "pixelated",
 			absolute = true,
 			left = function(): number
 				local sprite_width = (if gag_playing() then GAG_W elseif large_pet() then LARGE_W else GRID_W) * PIXEL
@@ -201,8 +221,16 @@ local function Pet(session: () -> any, select_pet: any): Node
 			h = function(): number
 				return (if gag_playing() then GAG_H elseif large_pet() then LARGE_H else GRID_H) * PIXEL
 			end,
-			pointer_events = "none",
-			aria_hidden = true,
+			ui.image {
+				src = function(): string
+					local pet = selected_pet()
+					local name = if pet == motion_pet then frame:get() else "idle"
+					return `art/{pet}/{name}.png`
+				end,
+				w = "100%", h = "100%",
+				image_rendering = "pixelated",
+				pointer_events = "none", aria_hidden = true,
+			},
 		},
 	}
 end
