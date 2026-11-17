@@ -23,13 +23,14 @@ PET_FRAMES["ezio"] = (*FRAMES, *EZIO_GAG)
 LARA_GAG = tuple(f"relic-{i:02}" for i in range(1, 9))
 PET_FRAMES["lara-croft"] = (*FRAMES, *LARA_GAG)
 PET_FRAMES["otis"] = (*FRAMES, "milk-ready", "milk-jet", "milk-end")
-WIDTH, HEIGHT, BASELINE = 40, 48, 46
+WIDTH, HEIGHT, BASELINE = 64, 64, 62
 DIMENSIONS = {pet: (WIDTH, HEIGHT, BASELINE) for pet in PETS}
-DIMENSIONS["otis"] = DIMENSIONS["bergamini-cow"] = DIMENSIONS["whiplash"] = DIMENSIONS["anti-sergio"] = DIMENSIONS["squidward"] = DIMENSIONS["ornstein-smough"] = (64, 64, 62)
+DIMENSIONS["ornstein-smough"] = (96, 64, 62)
+DIMENSIONS["whiplash"] = (96, 96, 94)
 GAG_DIMENSIONS = (96, 80, 78)
-EZIO_GAG_DIMENSIONS = (76, 64, 62)
+EZIO_GAG_DIMENSIONS = (100, 80, 78)
 LARA_GAG_DIMENSIONS = (64, 64, 62)
-SCALE, GAP, LABEL = 6, 20, 100
+SCALE, GAP, LABEL = 4, 20, 100
 
 
 def remove_specks(cell):

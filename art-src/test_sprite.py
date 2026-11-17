@@ -42,10 +42,18 @@ class SpriteTests(unittest.TestCase):
                 self.assertEqual(im.getbbox()[3], baseline + 1)
                 self.assertLessEqual(set(im.getchannel("A").tobytes()), {0, 255})
 
+    def test_idle_characters_fill_their_runtime_frames(self):
+        sprite = self.load_generator()
+        frames = sprite.generate()
+        for pet in sprite.PETS:
+            with self.subTest(pet=pet):
+                bounds = frames[f"{pet}/idle"].getbbox()
+                self.assertGreaterEqual(bounds[3] - bounds[1], 53)
+
     def test_runtime_motion_frames_exist_in_character_folders(self):
         sprite = self.load_generator()
         runtime = (sprite.ROOT / "init.luau").read_text()
-        self.assertIn("local LARGE_W, LARGE_H, LARGE_FOOT = 64, 64, 62", runtime)
+        self.assertIn("local WIDE_W = 96", runtime)
         self.assertIn("art/{pet}/{name}.png", runtime)
         self.assertEqual(list((sprite.ROOT / "art").glob("*.png")), [])
         for motion in ("BLINK", "FLICK", "TWITCH", "THROW", "DOG", "DESTROY", "EXPLODE", "CART", "ASSASSINATE", "RELIC", "MILK"):
@@ -96,7 +104,7 @@ class SpriteTests(unittest.TestCase):
                          (sprite.EZIO_GAG_DIMENSIONS[:2],) * len(sprite.EZIO_GAG))
         runtime = (sprite.ROOT / "init.luau").read_text()
         self.assertIn('motion = ASSASSINATE, range = { 14, 24 }, pet = "ezio"', runtime)
-        self.assertIn('local EZIO_GAG_W = 76', runtime)
+        self.assertIn('local EZIO_GAG_W, EZIO_GAG_H, EZIO_GAG_FOOT = 100, 80, 78', runtime)
 
     def test_lara_relic_sequence_uses_large_scene(self):
         sprite = self.load_generator()
@@ -105,7 +113,7 @@ class SpriteTests(unittest.TestCase):
                          (sprite.LARA_GAG_DIMENSIONS[:2],) * len(sprite.LARA_GAG))
         runtime = (sprite.ROOT / "init.luau").read_text()
         self.assertIn('motion = RELIC, range = { 14, 24 }, pet = "lara-croft"', runtime)
-        self.assertIn('local function relic_playing()', runtime)
+        self.assertEqual(sprite.DIMENSIONS["lara-croft"], (64, 64, 62))
 
     def test_detached_source_specks_do_not_shift_the_scene(self):
         sprite = self.load_generator()

@@ -49,12 +49,12 @@ Never read, print, copy into the repository, or replace private signing keys.
 
 # Development
 
-Generation is deterministic: regular pets use a 40×48 pixel grid;
-Squidward, Fletcher and Anti Sergio use 64×64 to leave room for their gags.
+Generation is deterministic: pets use a 64×64 pixel grid;
+Ornstein & Smough uses 96×64, and Fletcher uses 96×96 for his chair throw.
 Each pet has a compact shared palette. Frames use hard alpha, nearest-neighbor
 sampling, and a fixed foot baseline. The generator checks pet settings, source
 layout, transparency, palette size, baseline, and distinct poses before writing.
-The runtime displays each pixel at 2× (80×96 points; Squidward, Fletcher and Anti Sergio 128×128), without smoothing.
+The runtime displays each pixel at 2× (128×128 points; Ornstein & Smough 192×128 and Fletcher 192×192), without smoothing.
 The source atlas was created with the built-in image generator using the supplied
 Super Mario World references: crisp SNES pixel clusters, dark outlines, upper-left
 highlights, warm lights/cool shadows, consistent character identities, and five
@@ -144,7 +144,7 @@ points). The source atlas and built-in image-generation prompt are in
 then idle; it also plays on click. Bergamini Cow and Creeper special motions
 use the scheduler's 15–25 range, currently about 18–30 seconds because `within`
 multiplies by 1200 ms. Creeper's source gag is `explosion-atlas.png`.
-Ornstein & Smough also uses the 64×64 grid.
+Ornstein & Smough uses the 96×64 grid.
 
 # Localization
 

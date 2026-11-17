@@ -10,10 +10,11 @@ local position_setting = zeron.setting("position")
 
 -- The sprite's grid, a pixel's size (points), and where it sits: its
 -- outline's last row over the pill's top edge.
-local GRID_W, GRID_H, PIXEL = 40, 48, 2
-local FOOT = 46 * PIXEL
-local LARGE_W, LARGE_H, LARGE_FOOT = 64, 64, 62
-local EZIO_GAG_W = 76
+local GRID_W, GRID_H, PIXEL = 64, 64, 2
+local FOOT = 62 * PIXEL
+local WIDE_W = 96
+local TALL_H, TALL_FOOT = 96, 94
+local EZIO_GAG_W, EZIO_GAG_H, EZIO_GAG_FOOT = 100, 80, 78
 local GAG_W, GAG_H, GAG_FOOT = 96, 80, 78
 
 -- Each motion: its frames and how long each shows (ms), back to idle after.
@@ -114,9 +115,12 @@ local function Pet(session: () -> any, select_pet: any): Node
 		local current = session()
 		return select_pet(pet_setting:get(), if current then current.id else nil, preview_random, zeron.sessions())
 	end
-	local function large_pet(): boolean
+	local function wide_pet(): boolean
 		local pet = selected_pet()
-		return pet == "otis" or pet == "bergamini-cow" or pet == "whiplash" or pet == "anti-sergio" or pet == "squidward" or pet == "ornstein-smough"
+		return pet == "whiplash" or pet == "ornstein-smough"
+	end
+	local function tall_pet(): boolean
+		return selected_pet() == "whiplash"
 	end
 	local frame = ui.use_state("idle")
 	local motion_pet = selected_pet()
@@ -125,9 +129,6 @@ local function Pet(session: () -> any, select_pet: any): Node
 	end
 	local function assassination_playing(): boolean
 		return selected_pet() == "ezio" and motion_pet == "ezio" and string.sub(frame:get(), 1, 12) == "assassinate-"
-	end
-	local function relic_playing(): boolean
-		return selected_pet() == "lara-croft" and motion_pet == "lara-croft" and string.sub(frame:get(), 1, 6) == "relic-"
 	end
 	-- Each motion's next turn (its one pending timer, replaced as it fires),
 	-- and the playing motion's frame timers (let go when it ends).
@@ -232,19 +233,19 @@ local function Pet(session: () -> any, select_pet: any): Node
 			end,
 			absolute = true,
 			left = function(): number
-				local sprite_width = (if gag_playing() then GAG_W elseif assassination_playing() then EZIO_GAG_W elseif large_pet() or relic_playing() then LARGE_W else GRID_W) * PIXEL
+				local sprite_width = (if gag_playing() then GAG_W elseif assassination_playing() then EZIO_GAG_W elseif wide_pet() then WIDE_W else GRID_W) * PIXEL
 				local current = session()
 				local fraction = pet_position(position_setting:get(), if current then current.id else nil, position:get()) or 0
 				return math.floor(fraction * math.max(0, width:get() - sprite_width))
 			end,
 			top = function(): number
-				return if gag_playing() then -GAG_FOOT * PIXEL elseif large_pet() or assassination_playing() or relic_playing() then -LARGE_FOOT * PIXEL else -FOOT
+				return if gag_playing() then -GAG_FOOT * PIXEL elseif assassination_playing() then -EZIO_GAG_FOOT * PIXEL elseif tall_pet() then -TALL_FOOT * PIXEL else -FOOT
 			end,
 			w = function(): number
-				return (if gag_playing() then GAG_W elseif assassination_playing() then EZIO_GAG_W elseif large_pet() or relic_playing() then LARGE_W else GRID_W) * PIXEL
+				return (if gag_playing() then GAG_W elseif assassination_playing() then EZIO_GAG_W elseif wide_pet() then WIDE_W else GRID_W) * PIXEL
 			end,
 			h = function(): number
-				return (if gag_playing() then GAG_H elseif large_pet() or assassination_playing() or relic_playing() then LARGE_H else GRID_H) * PIXEL
+				return (if gag_playing() then GAG_H elseif assassination_playing() then EZIO_GAG_H elseif tall_pet() then TALL_H else GRID_H) * PIXEL
 			end,
 			ui.image {
 				src = function(): string
