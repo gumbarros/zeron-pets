@@ -7,7 +7,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parent.parent
-PETS = ("otis", "bergamini-cow", "cat", "squidward", "darth-revan", "the-witcher", "omniman", "whiplash", "anti-sergio", "hollow-knight", "gordon-freeman", "kratos", "ellie", "joel", "la-casa-de-papel", "ezio", "silksong", "zombie", "ornstein-smough", "creeper", "grand-admiral-thrawn", "jak-and-daxter")
+PETS = ("otis", "bergamini-cow", "cat", "squidward", "darth-revan", "the-witcher", "omniman", "whiplash", "anti-sergio", "hollow-knight", "gordon-freeman", "kratos", "ellie", "joel", "la-casa-de-papel", "ezio", "lara-croft", "silksong", "zombie", "ornstein-smough", "creeper", "grand-admiral-thrawn", "jak-and-daxter")
 FRAMES = ("idle", "blink", "tail-out", "tail-over", "ear")
 PET_FRAMES = {pet: FRAMES for pet in PETS}
 PET_FRAMES["whiplash"] = ("idle", "blink", "windup", "lift", "release", "flight", "follow-through", "recover")
@@ -20,12 +20,15 @@ BERGAMINI_GAG = ("cart-arrive", "cart-explode", "cart-smoke")
 PET_FRAMES["bergamini-cow"] = (*FRAMES, *BERGAMINI_GAG)
 EZIO_GAG = tuple(f"assassinate-{i:02}" for i in range(1, 9))
 PET_FRAMES["ezio"] = (*FRAMES, *EZIO_GAG)
+LARA_GAG = tuple(f"relic-{i:02}" for i in range(1, 9))
+PET_FRAMES["lara-croft"] = (*FRAMES, *LARA_GAG)
 PET_FRAMES["otis"] = (*FRAMES, "milk-ready", "milk-jet", "milk-end")
 WIDTH, HEIGHT, BASELINE = 40, 48, 46
 DIMENSIONS = {pet: (WIDTH, HEIGHT, BASELINE) for pet in PETS}
 DIMENSIONS["otis"] = DIMENSIONS["bergamini-cow"] = DIMENSIONS["whiplash"] = DIMENSIONS["anti-sergio"] = DIMENSIONS["squidward"] = DIMENSIONS["ornstein-smough"] = (64, 64, 62)
 GAG_DIMENSIONS = (96, 80, 78)
 EZIO_GAG_DIMENSIONS = (76, 64, 62)
+LARA_GAG_DIMENSIONS = (64, 64, 62)
 SCALE, GAP, LABEL = 6, 20, 100
 
 
@@ -53,6 +56,8 @@ def dimensions(pet, name):
         return GAG_DIMENSIONS
     if pet == "ezio" and name in EZIO_GAG:
         return EZIO_GAG_DIMENSIONS
+    if pet == "lara-croft" and name in LARA_GAG:
+        return LARA_GAG_DIMENSIONS
     return DIMENSIONS[pet]
 
 
@@ -64,7 +69,7 @@ def generate():
     sprites = {}
     groups = []
     for pet in PETS:
-        names = FRAMES if pet in ("squidward", "creeper", "grand-admiral-thrawn", "ezio") else PET_FRAMES[pet]
+        names = FRAMES if pet in ("squidward", "creeper", "grand-admiral-thrawn", "ezio", "lara-croft") else PET_FRAMES[pet]
         layout = (4, len(names) // 4) if len(names) > 5 else (5, 1)
         groups.append((pet, names, "atlas.png", layout, DIMENSIONS[pet]))
         if pet == "creeper":
@@ -73,11 +78,13 @@ def generate():
             groups.append((pet, SQUIDWARD_GAG, "machine-atlas.png", (4, 5), GAG_DIMENSIONS))
         if pet == "ezio":
             groups.append((pet, EZIO_GAG, "assassination-atlas.png", (4, 2), EZIO_GAG_DIMENSIONS))
+        if pet == "lara-croft":
+            groups.append((pet, LARA_GAG, "relic-atlas.png", (4, 2), LARA_GAG_DIMENSIONS))
     for pet, names, filename, (columns, rows), (width, height, baseline) in groups:
         with Image.open(Path(__file__).parent / pet / filename) as source:
             atlas = source.convert("RGBA")
         cell_w, cell_h = (atlas.width + columns - 1) // columns, (atlas.height + rows - 1) // rows
-        preserve_layout = pet in ("otis", "bergamini-cow", "whiplash", "anti-sergio", "squidward", "ornstein-smough") or filename == "assassination-atlas.png"
+        preserve_layout = pet in ("otis", "bergamini-cow", "whiplash", "anti-sergio", "squidward", "ornstein-smough") or filename in ("assassination-atlas.png", "relic-atlas.png")
         cells = []
         for index in range(len(names)):
             col, row = index % columns, index // columns

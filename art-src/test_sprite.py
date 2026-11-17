@@ -22,7 +22,7 @@ class SpriteTests(unittest.TestCase):
         sprite = self.load_generator()
         frames = sprite.generate()
         again = sprite.generate()
-        self.assertEqual(len(frames), 154)
+        self.assertEqual(len(frames), 167)
         for name, im in frames.items():
             with self.subTest(frame=name), Image.open(sprite.ROOT / "art" / f"{name}.png") as saved:
                 self.assertEqual(im.tobytes(), saved.convert("RGBA").tobytes())
@@ -48,11 +48,11 @@ class SpriteTests(unittest.TestCase):
         self.assertIn("local LARGE_W, LARGE_H, LARGE_FOOT = 64, 64, 62", runtime)
         self.assertIn("art/{pet}/{name}.png", runtime)
         self.assertEqual(list((sprite.ROOT / "art").glob("*.png")), [])
-        for motion in ("BLINK", "FLICK", "TWITCH", "THROW", "DOG", "DESTROY", "EXPLODE", "CART", "ASSASSINATE", "MILK"):
+        for motion in ("BLINK", "FLICK", "TWITCH", "THROW", "DOG", "DESTROY", "EXPLODE", "CART", "ASSASSINATE", "RELIC", "MILK"):
             body = re.search(rf"local {motion} = (.*?)(?=\n--|\nlocal)", runtime, re.S).group(1)
             names = re.findall(r'\{ "([^" ]+)", \d+ \}', body)
             self.assertTrue(names)
-            pets = {"MILK": ("otis",), "CART": ("bergamini-cow",), "THROW": ("whiplash",), "DOG": ("anti-sergio",), "DESTROY": ("squidward",), "EXPLODE": ("creeper",), "ASSASSINATE": ("ezio",)}.get(motion, sprite.PETS)
+            pets = {"MILK": ("otis",), "CART": ("bergamini-cow",), "THROW": ("whiplash",), "DOG": ("anti-sergio",), "DESTROY": ("squidward",), "EXPLODE": ("creeper",), "ASSASSINATE": ("ezio",), "RELIC": ("lara-croft",)}.get(motion, sprite.PETS)
             for pet in pets:
                 if pet == "whiplash" and motion in ("FLICK", "TWITCH"):
                     continue
@@ -97,6 +97,15 @@ class SpriteTests(unittest.TestCase):
         runtime = (sprite.ROOT / "init.luau").read_text()
         self.assertIn('motion = ASSASSINATE, range = { 14, 24 }, pet = "ezio"', runtime)
         self.assertIn('local EZIO_GAG_W = 76', runtime)
+
+    def test_lara_relic_sequence_uses_large_scene(self):
+        sprite = self.load_generator()
+        frames = sprite.generate()
+        self.assertEqual(tuple(frames[f"lara-croft/{name}"].size for name in sprite.LARA_GAG),
+                         (sprite.LARA_GAG_DIMENSIONS[:2],) * len(sprite.LARA_GAG))
+        runtime = (sprite.ROOT / "init.luau").read_text()
+        self.assertIn('motion = RELIC, range = { 14, 24 }, pet = "lara-croft"', runtime)
+        self.assertIn('local function relic_playing()', runtime)
 
     def test_detached_source_specks_do_not_shift_the_scene(self):
         sprite = self.load_generator()
