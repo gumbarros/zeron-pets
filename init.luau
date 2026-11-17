@@ -24,6 +24,7 @@ local THROW = {
 	{ "flight", 120 }, { "follow-through", 180 }, { "recover", 200 },
 }
 local EXPLODE = { { "charge", 500 }, { "charged", 600 }, { "explode", 180 }, { "smoke", 550 } }
+local CART = { { "cart-arrive", 650 }, { "cart-explode", 220 }, { "cart-smoke", 850 } }
 local DOG = { { "dog-arrive", 350 }, { "dog-pet", 2600 }, { "dog-leave", 450 } }
 local DESTROY = {
 	{ "machine-01", 500 },
@@ -64,6 +65,7 @@ local EVERY = {
 	{ motion = BLINK, range = { 2, 4 } },
 	{ motion = FLICK, range = { 3, 6 } },
 	{ motion = TWITCH, range = { 5, 9 } },
+	{ motion = CART, range = { 15, 25 }, pet = "bergamini-cow" },
 	{ motion = THROW, range = { 10, 20 }, pet = "whiplash" },
 	{ motion = DOG, range = { 9, 16 }, pet = "anti-sergio" },
 	{ motion = EXPLODE, range = { 15, 25 }, pet = "creeper" },
@@ -97,7 +99,7 @@ local function Pet(session: () -> any, select_pet: any): Node
 	end
 	local function large_pet(): boolean
 		local pet = selected_pet()
-		return pet == "whiplash" or pet == "anti-sergio" or pet == "squidward" or pet == "ornstein-smough"
+		return pet == "bergamini-cow" or pet == "whiplash" or pet == "anti-sergio" or pet == "squidward" or pet == "ornstein-smough"
 	end
 	local frame = ui.use_state("idle")
 	local motion_pet = selected_pet()

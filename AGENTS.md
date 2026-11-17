@@ -102,3 +102,73 @@ cream body and blue eyes preserved. Its gesture frames retain the shared
 Importing the module does not write files. Run generator checks with
 `PYTHONDONTWRITEBYTECODE=1 python art-src/test_sprite.py`.
 Run the chat-selection checks with `lua scripts/test_pet_selection.lua` (Lua 5.1+).
+
+
+# Developer workflow and implementation notes
+
+The plugin source lives at the repository root. Python with Pillow generates
+artwork; Lua 5.1+ runs the selection and click checks. These tools are not needed
+by users installing the signed plugin. Zeron runs the bundled Luau code and PNG
+frames inside its plugin sandbox.
+
+Edit `art-src/<pet>/atlas.png` to change artwork. Regenerate runtime frames and
+the complete labeled preview with:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python art-src/sprite.py art-src/preview.png
+```
+
+Without the preview argument, the generator writes runtime frames only. Run:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python art-src/test_sprite.py
+lua scripts/test_pet_selection.lua
+lua scripts/test_pet_click.lua
+```
+
+Random selection uses chat IDs and persists across reopening and restarting.
+Different chats can share a pet; roster changes can remap Random choices.
+A new-chat preview ignores the configured character, then keeps its pet when
+that chat is created. Explicit setting changes override the inherited choice.
+The `sessions.read` permission reads IDs, not messages; `ui.add` draws the pet.
+
+Click animations reuse the bounded scheduler in `init.luau`: one motion at a
+time, return to idle after its final frame, ignore clicks while busy, and honor
+Reduce Motion. Only pets with a special motion capture pointer input within
+their sprite bounds or receive keyboard focus. Do not use the button's disabled
+state for decorative pets: it reduces opacity. Position adjusts to the bar width.
+
+Bergamini Cow uses an eight-pose 4×2 atlas and a 64×64 runtime grid (128×128
+points). The source atlas and built-in image-generation prompt are in
+`art-src/bergamini-cow/`. The sequence is cart arrival, cartoon explosion, smoke,
+then idle; it also plays on click. Bergamini Cow and Creeper special motions
+use the scheduler's 15–25 range, currently about 18–30 seconds because `within`
+multiplies by 1200 ms. Creeper's source gag is `explosion-atlas.png`.
+Ornstein & Smough also uses the 64×64 grid.
+
+# Localization
+
+English and Portuguese catalogs live in `locales/en.json` and `locales/pt.json`.
+Zeron resolves Portuguese variants such as `pt-BR` through `pt`, with English
+as fallback. Use `zeron.t` or `zeron.s` for plugin-rendered text.
+
+Manifest names, descriptions and setting options currently display as literal
+strings. Their catalog translations require host localization support before
+Zeron can show them in settings.
+
+# Distribution notes and attribution
+
+The current plugin ID is `zeron-pixel-pets`. The legacy `zeron-pets` plugin used
+a standalone signing key that Zeron cannot transfer. Install the current package
+as a new plugin and disable the old one; settings and per-chat pet choices do
+not migrate. A locally valid signature alone does not establish a publicly
+verified author: the author must sign in and claim a username in Zeron.
+
+Follow the Plugin signing section above for every change, including docs.
+Export with `zeron plugin export zeron-pixel-pets` for distribution. After export,
+verify the repository again; if export re-signed the installed plugin, copy its
+manifest back and verify again. Commit the signed manifest with the changes.
+
+See Zeron's [sharing and installation guide](https://github.com/zeronsh/zeron/blob/main/apps/zgx/docs/plugins.md#sharing-and-installing).
+Adapted from Zeron's [Composer Cat development plugin](https://github.com/zeronsh/zeron/tree/main/apps/zgx/plugins-dev/composer-cat).
+Original MIT license retained in [LICENSE](LICENSE).

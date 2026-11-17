@@ -7,7 +7,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parent.parent
-PETS = ("cat", "squidward", "darth-revan", "the-witcher", "omniman", "whiplash", "anti-sergio", "hollow-knight", "gordon-freeman", "kratos", "ellie", "joel", "la-casa-de-papel", "silksong", "zombie", "ornstein-smough", "creeper", "grand-admiral-thrawn", "jak-and-daxter")
+PETS = ("bergamini-cow", "cat", "squidward", "darth-revan", "the-witcher", "omniman", "whiplash", "anti-sergio", "hollow-knight", "gordon-freeman", "kratos", "ellie", "joel", "la-casa-de-papel", "silksong", "zombie", "ornstein-smough", "creeper", "grand-admiral-thrawn", "jak-and-daxter")
 FRAMES = ("idle", "blink", "tail-out", "tail-over", "ear")
 PET_FRAMES = {pet: FRAMES for pet in PETS}
 PET_FRAMES["whiplash"] = ("idle", "blink", "windup", "lift", "release", "flight", "follow-through", "recover")
@@ -16,9 +16,11 @@ PET_FRAMES["squidward"] = (*FRAMES, *SQUIDWARD_GAG)
 PET_FRAMES["anti-sergio"] = (*FRAMES, "dog-arrive", "dog-pet", "dog-leave")
 CREEPER_GAG = ("charge", "charged", "explode", "smoke")
 PET_FRAMES["creeper"] = (*FRAMES, *CREEPER_GAG)
+BERGAMINI_GAG = ("cart-arrive", "cart-explode", "cart-smoke")
+PET_FRAMES["bergamini-cow"] = (*FRAMES, *BERGAMINI_GAG)
 WIDTH, HEIGHT, BASELINE = 40, 48, 46
 DIMENSIONS = {pet: (WIDTH, HEIGHT, BASELINE) for pet in PETS}
-DIMENSIONS["whiplash"] = DIMENSIONS["anti-sergio"] = DIMENSIONS["squidward"] = DIMENSIONS["ornstein-smough"] = (64, 64, 62)
+DIMENSIONS["bergamini-cow"] = DIMENSIONS["whiplash"] = DIMENSIONS["anti-sergio"] = DIMENSIONS["squidward"] = DIMENSIONS["ornstein-smough"] = (64, 64, 62)
 GAG_DIMENSIONS = (96, 80, 78)
 SCALE, GAP, LABEL = 6, 20, 100
 
@@ -76,8 +78,8 @@ def generate():
                 remove_specks(cell)
             bounds = cell.getbbox()
             assert bounds, (pet, col, "empty source cell")
-            cells.append(cell if pet in ("whiplash", "anti-sergio", "squidward", "ornstein-smough") else cell.crop(bounds))
-        if pet in ("whiplash", "anti-sergio", "squidward", "ornstein-smough"):
+            cells.append(cell if pet in ("bergamini-cow", "whiplash", "anti-sergio", "squidward", "ornstein-smough") else cell.crop(bounds))
+        if pet in ("bergamini-cow", "whiplash", "anti-sergio", "squidward", "ornstein-smough"):
             # Preserve horizontal space for props and companions without shifting the character.
             bounds = [cell.getbbox() for cell in cells]
             left, right = min(b[0] for b in bounds), max(b[2] for b in bounds)

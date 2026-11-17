@@ -1,7 +1,7 @@
 {
   "id": "zeron-pixel-pets",
   "name": "Zeron Pets",
-  "version": "0.4.14",
+  "version": "0.4.17",
   "description": "Animated pixel pets perched on your message box.",
   "entry": "init.luau",
   "permissions": [
@@ -20,6 +20,10 @@
         {
           "value": "anti-sergio",
           "label": "Anti Sergio"
+        },
+        {
+          "value": "bergamini-cow",
+          "label": "Bergamini Cow"
         },
         {
           "value": "creeper",
@@ -123,12 +127,14 @@
     }
   ],
   "signature": {
-    "key": "V4_WrL-_VOR23Mv03SjNPUcWyN9EHlLqu2AENLKQOWY",
+    "key": "1jDunS9-dlIPgQ7b0NK0rNHseSw1sRVqDSr32YzmnEc",
     "files": {
-      "AGENTS.md": "e848e82383e4724ca78d7bbfdcff02f68dcd52cd9242ab8d3ac1f8a5b7f5e808",
-      "LICENSE": "2c46b021915b3fd3dafc4e87b5c0ad38afb7f4e95cdd9fab1fd9e71c1f7c2a83",
-      "README.md": "eaac925c94dfd15f31ef39efd31ec7ea9ae5652f5e9430a546099742f0be353f",
+      "AGENTS.md": "8a8235d085380c0f41954118b30c76b5a7c617dc514f6cea4121f20cdc539d2e",
+      "LICENSE": "e776600f641baae3fd37387829b40fe2d7c12d01785dc8b846658b7cbb0342e3",
+      "README.md": "cc8ffab00582be1ae26031a9f6a2ab8760c2e32767d0ffdebf34f36ec6f656fb",
       "art-src/anti-sergio/atlas.png": "093eddc3157f6429d9f38e32b93205266c31487d60db585caa18783aa351550d",
+      "art-src/bergamini-cow/atlas.png": "a72bd11b50734e166eab7a58ae7bc3acb91c74ea11a0906a79ef1457e51209c7",
+      "art-src/bergamini-cow/prompt.txt": "82340c27fb87fcdd021fce102f1e72c81cf32fc53eecf1ccfbd2c6f10bc67b52",
       "art-src/cat/atlas.png": "bc6217ad4aa06258858d851fc9d72bf05abfee888844f826f182fa80f955047c",
       "art-src/creeper/atlas.png": "8f65cbcbab6664988030d814c25afdf6e1f8e193aa95b9b16048283fd399b910",
       "art-src/creeper/explosion-atlas.png": "794741aa6724654cd576bf2734cd03029926d31226a1c545b5c845cb87c67bb9",
@@ -136,21 +142,21 @@
       "art-src/ellie/atlas.png": "41a858ed41247ae86cf8a86ec37d506bff7bec05cd167518bac36df446f3b807",
       "art-src/gordon-freeman/atlas.png": "f7d23a116b7b2d2feaab1fec78f7c4c0c83749360e6a1fdfe8745462ae76cfae",
       "art-src/grand-admiral-thrawn/atlas.png": "240bf2b0ca9b39f853a8299e82964802b94d7af2eec199aa5796dce484d1a41c",
-      "art-src/grand-admiral-thrawn/prompt.txt": "dfdccc24a4c6271e088b23b8022f0bc6d923c2d803f85332d9790be84213de37",
+      "art-src/grand-admiral-thrawn/prompt.txt": "c630292a07957292cd86d2a3bc53d8fd8d1174d2f2cdbd45419b127dd4167f2d",
       "art-src/hollow-knight/atlas.png": "ca624aa65b78cc6f35ac0dd230cc1427e454dacae7919b06b2f6a4121c6e98a3",
       "art-src/jak-and-daxter/atlas.png": "6d9577fa96b1a145874cf7938828470524398ddcabe8366048e208e38ade1b76",
-      "art-src/jak-and-daxter/prompt.txt": "8fcf43bdc7fe6db0eb8e3fb63712d0755b49eb44cef939c86a904fa86c5d3383",
+      "art-src/jak-and-daxter/prompt.txt": "b724718902bd426d1f7e7fa55e22ae0a595ade9a65451779deb94fcec4f54dda",
       "art-src/joel/atlas.png": "c3a3d3986005fd2d7678ed0125d0389ed1469074d475093c4aa40fb35f11e039",
       "art-src/kratos/atlas.png": "08ea118ce66f1f48b2cfa1c85f083b51c83f8f84d6c12c98ef6b20fe154cbbad",
       "art-src/la-casa-de-papel/atlas.png": "3e25dc753c01250766fddede9c874aa9ab70161c2a55443d6eaf608aa3a77dc0",
       "art-src/omniman/atlas.png": "ae0542e140b454cbde4a2cd73b4df0fd587a424a520ca841e3aea9758207b2f0",
       "art-src/ornstein-smough/atlas.png": "d7f5f7e5462916ba9082a28452f8d8911de56afec1018e59ba69aad1753feaaa",
-      "art-src/preview.png": "cf9678a06597f084c794b487160f02fe05d8db42be86d12f487c2a5fe00cee44",
+      "art-src/preview.png": "45805ee8cfaec1b8fabbfc55f386dc2513326282bbe22b084e7c6770ad2fa0a0",
       "art-src/silksong/atlas.png": "64fc471ea3ac061046a2fe925bc619e3aa563a7c73659388fa776fa778a438f5",
-      "art-src/sprite.py": "2320b4aefbd9d0295e99a141d1b639d356057909b5f89c869288f9de8d759594",
+      "art-src/sprite.py": "8fdf9400f2b71976ab33bdfc6236d1a2070a30452cffbb681d6ad567e5b56f43",
       "art-src/squidward/atlas.png": "9ef598876d39cf6b38f3a0e188d99098027a78dfb9919b9e43be505ce2612565",
       "art-src/squidward/machine-atlas.png": "db62926bfe0d79b88693b8353a85f18cdec28d4e2d00161e7c4fe16718b326da",
-      "art-src/test_sprite.py": "40db29f0fb98da61e6f94e895120f545ef0c04982710bdd436bd4b6b6683c924",
+      "art-src/test_sprite.py": "7cbc0e58b9016c1e568eb9f9089102a6d8b2fbbf2ef2cd69cfa0ccd125978837",
       "art-src/the-witcher/atlas.png": "7f2f1dc43ac891baa750f97699fa5ad94f403a171d7a41e00254bde029825882",
       "art-src/whiplash/atlas.png": "00c309a86373c22c2fd415309be612ef4e35948c561336f23b0d74f0790c31e0",
       "art-src/zombie/atlas.png": "e550da7075cbf157cb21eb28c672e860c9c21ec8caed7165bdd5c9e28268aeda",
@@ -162,6 +168,14 @@
       "art/anti-sergio/idle.png": "3edff8ff951d3d9ad66db58fe5b9ba74a026aa8affbeb32cc7b05acc001460c9",
       "art/anti-sergio/tail-out.png": "da4167256ed112a876ae22b690407fb1b0fb3f6a42c550b041d85a65ae49037c",
       "art/anti-sergio/tail-over.png": "510e2a767bb3ea103dbb1f813bd9d17ee19abcedc6e5ab32007928db0a47129c",
+      "art/bergamini-cow/blink.png": "b0d36c135e6d69fdc6cdf681b59ea147fb5d9cc4f996880e6ca1b18315abbe43",
+      "art/bergamini-cow/cart-arrive.png": "b9985a1f1a04b06cf81120739240e6a8ba5b83aaade80d8dbd674859fe7cedd4",
+      "art/bergamini-cow/cart-explode.png": "8d042d41f371aa20704b2ebe942e10d7e92aa45e17118b7c86bb5457fd57fdd6",
+      "art/bergamini-cow/cart-smoke.png": "4dc72e525c1cf5301cd03c45495a5c14eb6e28ef63a7d76550d2b877912e0a70",
+      "art/bergamini-cow/ear.png": "bfb49e04ea62b944fc57df8e889dcb82c0faadbc59f6617dc4bc8a2f28dcf597",
+      "art/bergamini-cow/idle.png": "c47183b59a6be25a8ba27d2eeecefcda97df085d0578ad13d87559541953c9b8",
+      "art/bergamini-cow/tail-out.png": "9e1462af5d033fa8d36d1343055155e1d4541e64a3cbfad3f33f78055c945004",
+      "art/bergamini-cow/tail-over.png": "89551e855fc8451917ac6fcff09641a15c8f1c61bc6630370a131f07b7842640",
       "art/cat/blink.png": "f02440d3fe15c583a4a0849c4ed816c4d99e03787a4274f2aa4b983fe39292e6",
       "art/cat/ear.png": "41b24c3f743def18abacbd03c739b0d2662485f56f34d13f95e42cc1a0bd94ff",
       "art/cat/idle.png": "0091ea7b61b102d8f75f0e3a589c8de10a841a9364ad9908d56d614a0ad2993b",
@@ -279,16 +293,16 @@
       "art/zombie/idle.png": "808849b861420e0386be8302d207d97914e384bf1ed1236e0c1b8e927d812746",
       "art/zombie/tail-out.png": "170cf5f9202c63c35ec68b17c9acb09052fe71ba2ca1259e3fd9b0d9121a9eff",
       "art/zombie/tail-over.png": "feb38dec6f189c68a4f611f0c3a6543960f313428d9cf6abe101e702219ebf1f",
-      "init.luau": "1d98e9042b2e4f13d138e24adaeb7d508df7b017832c21c35a685e6ea6d24ba9",
-      "locales/en.json": "01cefe441aa9d746d8674550b69f6dd25363121ef5a1325225d576163a1bf86c",
-      "locales/pt.json": "38ac8629ef9885457bdf2ac31149db532dea1496add52e1831b068cc9bdf957f",
-      "pet-handoff.luau": "1b6bd01bcf5fcf25f69a687ae5abe2b2378995d498d8180fd65aa2bb947be500",
-      "pet-position.luau": "7a53b8b9a6e069d1eafb4984b944cfab735d3f27485633933cab369db2878263",
-      "pet-selection.luau": "10f80ca79da237bd195dd46e3344b507f4886c3ac997de586a21964a51cdc496",
-      "scripts/test_pet_click.lua": "b123d811d6c89246d446ff78804ba408010bcfc145638ecf9e7de591aa7631da",
-      "scripts/test_pet_selection.lua": "fbaf338df713c1b2244c7963c20532fd9f361b4d34ef95528eb71f89a87f47b6",
-      "zeron.luau": "b7b603c0b2e2e4d51a5ed3764141038d12a2c2af96ac793a09843ad3b7ff0d39"
+      "init.luau": "c4c1a833c042d9445588f112efa617ccddbe9d9e0e8c0f1d472996463a33c34d",
+      "locales/en.json": "1ce5e59a00218bd8de78da559ae263f03b3e52ab26461edc84190ca7c05bf869",
+      "locales/pt.json": "68543aa6ed17e670884203d9ec3cc88a0fc59efff30ad87343d2d8d6de384a46",
+      "pet-handoff.luau": "7920f1ef34621c836346e2be051565077c507a83b58566a6140203052d17d2d3",
+      "pet-position.luau": "9fa28ace6287a14385fdb8be4805503dfc7028c978f781e5b7bb679ddfd06b12",
+      "pet-selection.luau": "47986e67de7d729767b7a7310703e8fb21dbc26422128ff5b2767a576d3f31e3",
+      "scripts/test_pet_click.lua": "2349d19470d07ae624d011f6e24e26668a069e06e07e0898c9db865a8f53bd6c",
+      "scripts/test_pet_selection.lua": "745d96098a4d81364a048b3621c5004bb7c1ef855000a7493428500aea1400df",
+      "zeron.luau": "178b79b55566c9643b26181539b8e1348482179a169da98ba384cd66f3f8a483"
     },
-    "sig": "8gBcVr5at2RzH2e5p4oHqhohc-_biRtjEh4YXm0HIcdjHhUpaTjBu_hiaSt36djQwJtckqXFIenYo9sfn6LKDg"
+    "sig": "dDxfs-RpxAB24apisryN_8NPD1CH3A1kvK7u8BFJNJPe3--dN-DZLpneGwetRpNoJenW_tBUsOoZs7g4DyQ0Cg"
   }
 }

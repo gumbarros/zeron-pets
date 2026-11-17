@@ -1,0 +1,14 @@
+Use case: stylized-concept. Asset type: production pixel-art sprite atlas for Zeron Pets.
+Create ONE transparent sprite sheet with exactly 8 equally sized square cells in a 4 columns x 2 rows grid, no borders, labels or text outside sprites.
+References: image 1 is character identity Bergamini Cow, image 2 is the Bergamini shopping cart emblem (orange b-shaped cart, dark handle and wheels); images 3 and 4 are mandatory existing character atlas STYLE references. Translate the cow into precisely that established Super Mario World/SNES-inspired pixel style: crisp square pixel clusters, dark outlines, compact coordinated palette, upper-left highlights, warm lights and cool shadows, no smooth rendering, no antialiasing or gradients.
+Bergamini Cow: friendly upright orange-red cow mascot with cream muzzle, cream forehead tuft and small white horns, large brown eyes, blue denim overalls with yellow straps/buttons and a white chest badge carrying a tiny orange lowercase b. Orange hooves. Short stout chibi proportions matching reference atlas. Full-body three-quarter front, face to viewer, consistent same scale, same position, foot baseline throughout. Each cell is a square 64x64 logical pixel canvas enlarged nearest-neighbor. Cow occupies ~38x52 logical pixels toward LEFT of every cell, leaving 20 logical pixels on the right for cart. Feet same baseline near bottom. Entire sheet 4:2 aspect ratio.
+Exact row-major cells:
+1 idle smiling alone.
+2 blink alone, same body.
+3 raises right hoof in greeting alone.
+4 waves higher alone.
+5 head tilt and ears perked alone.
+6 same full-size cow looks surprised as a SMALL orange Bergamini shopping cart with black handle and wheels rolls in immediately to cow's right, cow keeps exact size/position.
+7 a bold compact yellow orange starburst cartoon explosion covers cow and cart, a few blue overall scraps and horn silhouettes, comedic no gore, burst remains grounded on same baseline.
+8 gray-blue pixel smoke puffs dissipate around a surprised soot-smudged cow, exact same body scale/position, small cart tilted beside him. No gore or injury.
+Keep every pose isolated within cell with generous transparent gutters; NO environment, ground line, checkerboard or drop shadow; hard alpha transparent background. All 8 cells distinct. Preserve source atlas style and identity.
