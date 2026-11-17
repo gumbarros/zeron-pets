@@ -1,7 +1,7 @@
 {
   "id": "zeron-pixel-pets",
   "name": "Zeron Pets",
-  "version": "0.4.8",
+  "version": "0.4.9",
   "description": "Animated pixel pets perched on your message box.",
   "entry": "init.luau",
   "permissions": [
@@ -111,7 +111,7 @@
     "files": {
       "AGENTS.md": "c58b9bf1da5af8c62a6b26b7ed428bd6f56573bbfacbc2fdf134c12a3243196b",
       "LICENSE": "e776600f641baae3fd37387829b40fe2d7c12d01785dc8b846658b7cbb0342e3",
-      "README.md": "df73784f568c4ddb81f68d5a93d68e3a156be73738e383c0534568797bd6a619",
+      "README.md": "6c5277373f48e2a53799355e84d0510150c093c774d429d8167e9efe609e20e6",
       "art-src/anti-sergio/atlas.png": "093eddc3157f6429d9f38e32b93205266c31487d60db585caa18783aa351550d",
       "art-src/cat/atlas.png": "bc6217ad4aa06258858d851fc9d72bf05abfee888844f826f182fa80f955047c",
       "art-src/creeper/atlas.png": "8f65cbcbab6664988030d814c25afdf6e1f8e193aa95b9b16048283fd399b910",
@@ -248,6 +248,6 @@
       "scripts/test_pet_selection.lua": "835b770daa3ea5cd060819c9b284c5c121bd4a459a14d9e8b9e001d48daed02f",
       "zeron.luau": "178b79b55566c9643b26181539b8e1348482179a169da98ba384cd66f3f8a483"
     },
-    "sig": "nI7To4VD6-H3vgjbOe_Chtk_IgzfFp4a8aLoFR8KjmAszEVUYx1p6YcHmjOzelZKpdLYe_qI_LdI_FqbIP4nCQ"
+    "sig": "FJRmXU10O4BlwEYVmv0aNNebpvadxF8Si9V8ATLQmdCCMul_QdzMDmP52LXy-SxFlLooukXccH4ncNEGpwdECw"
   }
 }
