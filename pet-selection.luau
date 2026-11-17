@@ -1,5 +1,5 @@
 -- A chat ID supplies a stable pseudo-random choice, including after reopening.
-local pets = { "anti-sergio", "cat", "darth-revan", "gordon-freeman", "hollow-knight", "kratos", "omniman", "squidward", "the-witcher", "whiplash", "silksong", "zombie", "ornstein-smough", "creeper", "grand-admiral-thrawn", "jak-and-daxter" }
+local pets = { "anti-sergio", "cat", "darth-revan", "ellie", "gordon-freeman", "hollow-knight", "joel", "kratos", "la-casa-de-papel", "omniman", "squidward", "the-witcher", "whiplash", "silksong", "zombie", "ornstein-smough", "creeper", "grand-admiral-thrawn", "jak-and-daxter" }
 -- Rendering reads the same chat repeatedly; keep only its last choice.
 local last_key, last_pet
 

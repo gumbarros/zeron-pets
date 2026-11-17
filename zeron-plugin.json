@@ -1,7 +1,7 @@
 {
   "id": "zeron-pixel-pets",
   "name": "Zeron Pets",
-  "version": "0.4.12",
+  "version": "0.4.14",
   "description": "Animated pixel pets perched on your message box.",
   "entry": "init.luau",
   "permissions": [
@@ -30,6 +30,10 @@
           "label": "Darth Revan"
         },
         {
+          "value": "ellie",
+          "label": "Ellie"
+        },
+        {
           "value": "gordon-freeman",
           "label": "Gordon Freeman"
         },
@@ -46,8 +50,16 @@
           "label": "Jak and Daxter"
         },
         {
+          "value": "joel",
+          "label": "Joel"
+        },
+        {
           "value": "kratos",
           "label": "Kratos"
+        },
+        {
+          "value": "la-casa-de-papel",
+          "label": "La Casa de Papel"
         },
         {
           "value": "omniman",
@@ -115,27 +127,30 @@
     "files": {
       "AGENTS.md": "e848e82383e4724ca78d7bbfdcff02f68dcd52cd9242ab8d3ac1f8a5b7f5e808",
       "LICENSE": "2c46b021915b3fd3dafc4e87b5c0ad38afb7f4e95cdd9fab1fd9e71c1f7c2a83",
-      "README.md": "9926b6de358970a27e7b6ea1549180e27e09f03d9aadae881aa977e7c1fd7f31",
+      "README.md": "eaac925c94dfd15f31ef39efd31ec7ea9ae5652f5e9430a546099742f0be353f",
       "art-src/anti-sergio/atlas.png": "093eddc3157f6429d9f38e32b93205266c31487d60db585caa18783aa351550d",
       "art-src/cat/atlas.png": "bc6217ad4aa06258858d851fc9d72bf05abfee888844f826f182fa80f955047c",
       "art-src/creeper/atlas.png": "8f65cbcbab6664988030d814c25afdf6e1f8e193aa95b9b16048283fd399b910",
       "art-src/creeper/explosion-atlas.png": "794741aa6724654cd576bf2734cd03029926d31226a1c545b5c845cb87c67bb9",
       "art-src/darth-revan/atlas.png": "2127ca71fb061955b59319a7d236868b708fd24d586e851639f4b9b9d8ed1931",
+      "art-src/ellie/atlas.png": "41a858ed41247ae86cf8a86ec37d506bff7bec05cd167518bac36df446f3b807",
       "art-src/gordon-freeman/atlas.png": "f7d23a116b7b2d2feaab1fec78f7c4c0c83749360e6a1fdfe8745462ae76cfae",
       "art-src/grand-admiral-thrawn/atlas.png": "240bf2b0ca9b39f853a8299e82964802b94d7af2eec199aa5796dce484d1a41c",
       "art-src/grand-admiral-thrawn/prompt.txt": "dfdccc24a4c6271e088b23b8022f0bc6d923c2d803f85332d9790be84213de37",
       "art-src/hollow-knight/atlas.png": "ca624aa65b78cc6f35ac0dd230cc1427e454dacae7919b06b2f6a4121c6e98a3",
       "art-src/jak-and-daxter/atlas.png": "6d9577fa96b1a145874cf7938828470524398ddcabe8366048e208e38ade1b76",
       "art-src/jak-and-daxter/prompt.txt": "8fcf43bdc7fe6db0eb8e3fb63712d0755b49eb44cef939c86a904fa86c5d3383",
+      "art-src/joel/atlas.png": "c3a3d3986005fd2d7678ed0125d0389ed1469074d475093c4aa40fb35f11e039",
       "art-src/kratos/atlas.png": "08ea118ce66f1f48b2cfa1c85f083b51c83f8f84d6c12c98ef6b20fe154cbbad",
+      "art-src/la-casa-de-papel/atlas.png": "3e25dc753c01250766fddede9c874aa9ab70161c2a55443d6eaf608aa3a77dc0",
       "art-src/omniman/atlas.png": "ae0542e140b454cbde4a2cd73b4df0fd587a424a520ca841e3aea9758207b2f0",
       "art-src/ornstein-smough/atlas.png": "d7f5f7e5462916ba9082a28452f8d8911de56afec1018e59ba69aad1753feaaa",
-      "art-src/preview.png": "c770669780514834f2cb48f21cb3cc75ff4c38c8bf034c1b1c80e2e0f0a7806f",
+      "art-src/preview.png": "cf9678a06597f084c794b487160f02fe05d8db42be86d12f487c2a5fe00cee44",
       "art-src/silksong/atlas.png": "64fc471ea3ac061046a2fe925bc619e3aa563a7c73659388fa776fa778a438f5",
-      "art-src/sprite.py": "253b3e79531c3637847857e0b9e2e6c1e2336e6d6f75a44034b60298d1ef71fc",
+      "art-src/sprite.py": "2320b4aefbd9d0295e99a141d1b639d356057909b5f89c869288f9de8d759594",
       "art-src/squidward/atlas.png": "9ef598876d39cf6b38f3a0e188d99098027a78dfb9919b9e43be505ce2612565",
       "art-src/squidward/machine-atlas.png": "db62926bfe0d79b88693b8353a85f18cdec28d4e2d00161e7c4fe16718b326da",
-      "art-src/test_sprite.py": "85ec2bdb0ffbeff53323d3dfa2d1b7a80a29f9d2366129e1a9fe5626de9bbf65",
+      "art-src/test_sprite.py": "40db29f0fb98da61e6f94e895120f545ef0c04982710bdd436bd4b6b6683c924",
       "art-src/the-witcher/atlas.png": "7f2f1dc43ac891baa750f97699fa5ad94f403a171d7a41e00254bde029825882",
       "art-src/whiplash/atlas.png": "00c309a86373c22c2fd415309be612ef4e35948c561336f23b0d74f0790c31e0",
       "art-src/zombie/atlas.png": "e550da7075cbf157cb21eb28c672e860c9c21ec8caed7165bdd5c9e28268aeda",
@@ -166,6 +181,11 @@
       "art/darth-revan/idle.png": "2e38e244feec5617b80ba4253d7cbce9518444457ef9b7d031641b169a05156e",
       "art/darth-revan/tail-out.png": "f9c8f4aca6949482ac7cdf5bc3d20bc17dc86dd9e6073eecaa9aa9148ca8590a",
       "art/darth-revan/tail-over.png": "dce7f9e080e05d5220d907606395ee86f47bcb6a2aecd0f784361a84eaf6f962",
+      "art/ellie/blink.png": "0c8dd8eb5c857f7caf8116d840b200572109599321c76ec53c15bf26a660f5a5",
+      "art/ellie/ear.png": "37561048f690c148171d85b305c7abea0a44914c8bdf8f07341b60ab627a22a1",
+      "art/ellie/idle.png": "2cef30ae04923165921b467c1c7a33fea905919f6c0331e46e73536adf37f4dc",
+      "art/ellie/tail-out.png": "b6001dc0a98af69e534bd287448f4406bd30a0581ee9279d3389f2325ed20084",
+      "art/ellie/tail-over.png": "4bb5f62b5db350574717a4902e6e2f46e9611f88db55143fc31223c1272f7353",
       "art/gordon-freeman/blink.png": "1f9fde18bc6cf08e3ed25f2e88c35b9786d39d9600185fb117fde6facde9acad",
       "art/gordon-freeman/ear.png": "684fe5dd1da2de68a6cd14b2a57acb92ee084b4a3a84db8028ead819dca386da",
       "art/gordon-freeman/idle.png": "7a109e27d78f712296cc022c31141d3523af27d6170be65ffffd68cede53876c",
@@ -186,11 +206,21 @@
       "art/jak-and-daxter/idle.png": "4a42c321a001f47211eb650e1db2d51d1aac2efe3e15ea347e4fd6e043364228",
       "art/jak-and-daxter/tail-out.png": "89baebd972faae5f72cd7c796a08013300c9f65bbb8d7929576913eb35bc726b",
       "art/jak-and-daxter/tail-over.png": "5a129abdc240ee0552ff786d588d47bed948ea5bdf18362cffe4273fa04b1195",
+      "art/joel/blink.png": "c493c770778af8e819bebc0866da7e36a6385a8dd33c23129f5f3ba77e0a64cc",
+      "art/joel/ear.png": "d28c26ea169498cc5237894280fe652768e0bba42835077d3e6f21b82dc154ed",
+      "art/joel/idle.png": "906ccf423df08e000418152b1067f577b6519be1bc4df8cbb779265e5d8c1bd3",
+      "art/joel/tail-out.png": "3c6a2c867928fe07dea5cef1af6ce57dd33009e480b3c183d63cba2280f363fb",
+      "art/joel/tail-over.png": "a6d3ed4d0f43e674ba87b1888cfa59331b6ca374cb9ce479855930035a505467",
       "art/kratos/blink.png": "3feb1cb1987c8083c209958620bf1952b2dbf94d198c14dc554a828b88d50884",
       "art/kratos/ear.png": "74d02e07dbff1c2cdd40324247f89c0d8b3f6436282bec99b84781256d42254d",
       "art/kratos/idle.png": "84db6b5e2cd4cadc1008736e5f50ef1ecf4e8c2330d8092a8cbf9d5e7587e36e",
       "art/kratos/tail-out.png": "28d4650f743660683482c3a567ccc884688617f8bf6136bf8793b40550728007",
       "art/kratos/tail-over.png": "cb696d04de437481c5b687a6d500ad2dc90d08c2a8984aa5c9376f5c3086740c",
+      "art/la-casa-de-papel/blink.png": "8157055a884a4b27ba0351544f231aa0c313126e81e77fff8a7d2ebb5ad15fc4",
+      "art/la-casa-de-papel/ear.png": "e3f11b63e0902d61123603fd08b36e77813ebf44b48c447e24a8ea6910d56089",
+      "art/la-casa-de-papel/idle.png": "ab4f30e634084e6ece88ef80c668e6a1d5efcec7f4ad6e04e877e8fc746e3eb0",
+      "art/la-casa-de-papel/tail-out.png": "0d85e8d976c27d8dc1cbb4941c068d5fc9fea2d481f6ad10a82d61da0a8494f1",
+      "art/la-casa-de-papel/tail-over.png": "346acb125853ac3d80a9fbb4390131e86293ef423dab06e2015e0231746c91e7",
       "art/omniman/blink.png": "f7820d414e1a05e7f4115ddacd6f7aa96ca5202c4dda501abd89ca13f228b091",
       "art/omniman/ear.png": "5bcc2c04984ca02169f996cfbdff2ca05b604d837df00285f0a9851c6f31d74f",
       "art/omniman/idle.png": "896b16ad4b7a20fc04d8abf008d0f3cad831d22caa9f1769d4c47c91ac0e16ed",
@@ -254,11 +284,11 @@
       "locales/pt.json": "38ac8629ef9885457bdf2ac31149db532dea1496add52e1831b068cc9bdf957f",
       "pet-handoff.luau": "1b6bd01bcf5fcf25f69a687ae5abe2b2378995d498d8180fd65aa2bb947be500",
       "pet-position.luau": "7a53b8b9a6e069d1eafb4984b944cfab735d3f27485633933cab369db2878263",
-      "pet-selection.luau": "9b7f1e91ca1a2823908f751bbb87470c5fbb049643b33531594ebe77f846e30d",
+      "pet-selection.luau": "10f80ca79da237bd195dd46e3344b507f4886c3ac997de586a21964a51cdc496",
       "scripts/test_pet_click.lua": "b123d811d6c89246d446ff78804ba408010bcfc145638ecf9e7de591aa7631da",
-      "scripts/test_pet_selection.lua": "15e80abd810548929b068913dbadb6f685493321ccebd04d57ca667c1eca23fc",
+      "scripts/test_pet_selection.lua": "fbaf338df713c1b2244c7963c20532fd9f361b4d34ef95528eb71f89a87f47b6",
       "zeron.luau": "b7b603c0b2e2e4d51a5ed3764141038d12a2c2af96ac793a09843ad3b7ff0d39"
     },
-    "sig": "9TtUSscdyqIOiXgisTmNtangk2F19m7XvOmrkwMWL7ZkeYa6lQgb71U4E9WubzMfrfR3Qkk978fuW12X4rwyAA"
+    "sig": "8gBcVr5at2RzH2e5p4oHqhohc-_biRtjEh4YXm0HIcdjHhUpaTjBu_hiaSt36djQwJtckqXFIenYo9sfn6LKDg"
   }
 }

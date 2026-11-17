@@ -11,10 +11,13 @@ Choose a character in **Settings → Plugins → Zeron Pets → Pet**. **Random*
 | Anti Sergio | <img src="art/anti-sergio/idle.png" alt="Anti Sergio pixel sprite" width="128" height="128"> |
 | Creeper | <img src="art/creeper/idle.png" alt="Minecraft Creeper pixel sprite" width="80" height="96"> |
 | Darth Revan | <img src="art/darth-revan/idle.png" alt="Darth Revan pixel sprite" width="80" height="96"> |
+| Ellie | <img src="art/ellie/idle.png" alt="Ellie pixel sprite" width="80" height="96"> |
 | Gordon Freeman | <img src="art/gordon-freeman/idle.png" alt="Gordon Freeman pixel sprite" width="80" height="96"> |
 | Grand Admiral Thrawn | <img src="art/grand-admiral-thrawn/idle.png" alt="Grand Admiral Thrawn pixel sprite" width="80" height="96"> |
 | Jak and Daxter | <img src="art/jak-and-daxter/idle.png" alt="Jak and Daxter together pixel sprite" width="80" height="96"> |
+| Joel | <img src="art/joel/idle.png" alt="Joel pixel sprite" width="80" height="96"> |
 | Kratos | <img src="art/kratos/idle.png" alt="Kratos pixel sprite" width="80" height="96"> |
+| La Casa de Papel | <img src="art/la-casa-de-papel/idle.png" alt="La Casa de Papel masked pixel sprite" width="80" height="96"> |
 | Hollow Knight | <img src="art/hollow-knight/idle.png" alt="Hollow Knight pixel sprite" width="80" height="96"> |
 | Silksong | <img src="art/silksong/idle.png" alt="Silksong pixel sprite" width="80" height="96"> |
 | Zombie | <img src="art/zombie/idle.png" alt="Zombie pixel sprite" width="80" height="96"> |
