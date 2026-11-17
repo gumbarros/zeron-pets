@@ -1,7 +1,7 @@
 {
   "id": "zeron-pixel-pets",
   "name": "Zeron Pets",
-  "version": "0.4.11",
+  "version": "0.4.12",
   "description": "Animated pixel pets perched on your message box.",
   "entry": "init.luau",
   "permissions": [
@@ -44,6 +44,10 @@
         {
           "value": "jak-and-daxter",
           "label": "Jak and Daxter"
+        },
+        {
+          "value": "kratos",
+          "label": "Kratos"
         },
         {
           "value": "omniman",
@@ -107,11 +111,11 @@
     }
   ],
   "signature": {
-    "key": "1jDunS9-dlIPgQ7b0NK0rNHseSw1sRVqDSr32YzmnEc",
+    "key": "V4_WrL-_VOR23Mv03SjNPUcWyN9EHlLqu2AENLKQOWY",
     "files": {
-      "AGENTS.md": "c58b9bf1da5af8c62a6b26b7ed428bd6f56573bbfacbc2fdf134c12a3243196b",
-      "LICENSE": "e776600f641baae3fd37387829b40fe2d7c12d01785dc8b846658b7cbb0342e3",
-      "README.md": "360f00fedba986fcddc6b8cda941290f3d331cfb05bfea27069242b076f107fe",
+      "AGENTS.md": "e848e82383e4724ca78d7bbfdcff02f68dcd52cd9242ab8d3ac1f8a5b7f5e808",
+      "LICENSE": "2c46b021915b3fd3dafc4e87b5c0ad38afb7f4e95cdd9fab1fd9e71c1f7c2a83",
+      "README.md": "9926b6de358970a27e7b6ea1549180e27e09f03d9aadae881aa977e7c1fd7f31",
       "art-src/anti-sergio/atlas.png": "093eddc3157f6429d9f38e32b93205266c31487d60db585caa18783aa351550d",
       "art-src/cat/atlas.png": "bc6217ad4aa06258858d851fc9d72bf05abfee888844f826f182fa80f955047c",
       "art-src/creeper/atlas.png": "8f65cbcbab6664988030d814c25afdf6e1f8e193aa95b9b16048283fd399b910",
@@ -119,18 +123,19 @@
       "art-src/darth-revan/atlas.png": "2127ca71fb061955b59319a7d236868b708fd24d586e851639f4b9b9d8ed1931",
       "art-src/gordon-freeman/atlas.png": "f7d23a116b7b2d2feaab1fec78f7c4c0c83749360e6a1fdfe8745462ae76cfae",
       "art-src/grand-admiral-thrawn/atlas.png": "240bf2b0ca9b39f853a8299e82964802b94d7af2eec199aa5796dce484d1a41c",
-      "art-src/grand-admiral-thrawn/prompt.txt": "c630292a07957292cd86d2a3bc53d8fd8d1174d2f2cdbd45419b127dd4167f2d",
+      "art-src/grand-admiral-thrawn/prompt.txt": "dfdccc24a4c6271e088b23b8022f0bc6d923c2d803f85332d9790be84213de37",
       "art-src/hollow-knight/atlas.png": "ca624aa65b78cc6f35ac0dd230cc1427e454dacae7919b06b2f6a4121c6e98a3",
       "art-src/jak-and-daxter/atlas.png": "6d9577fa96b1a145874cf7938828470524398ddcabe8366048e208e38ade1b76",
-      "art-src/jak-and-daxter/prompt.txt": "b724718902bd426d1f7e7fa55e22ae0a595ade9a65451779deb94fcec4f54dda",
+      "art-src/jak-and-daxter/prompt.txt": "8fcf43bdc7fe6db0eb8e3fb63712d0755b49eb44cef939c86a904fa86c5d3383",
+      "art-src/kratos/atlas.png": "08ea118ce66f1f48b2cfa1c85f083b51c83f8f84d6c12c98ef6b20fe154cbbad",
       "art-src/omniman/atlas.png": "ae0542e140b454cbde4a2cd73b4df0fd587a424a520ca841e3aea9758207b2f0",
       "art-src/ornstein-smough/atlas.png": "d7f5f7e5462916ba9082a28452f8d8911de56afec1018e59ba69aad1753feaaa",
-      "art-src/preview.png": "42eb8b989344f5dea98c4538d5dc827190b6ccee4c05709720f389371a392677",
+      "art-src/preview.png": "c770669780514834f2cb48f21cb3cc75ff4c38c8bf034c1b1c80e2e0f0a7806f",
       "art-src/silksong/atlas.png": "64fc471ea3ac061046a2fe925bc619e3aa563a7c73659388fa776fa778a438f5",
-      "art-src/sprite.py": "90bae6bf738b738c865650bd78ebcb87869e9d3ce5107f5ab65c0dfa54ef1424",
+      "art-src/sprite.py": "253b3e79531c3637847857e0b9e2e6c1e2336e6d6f75a44034b60298d1ef71fc",
       "art-src/squidward/atlas.png": "9ef598876d39cf6b38f3a0e188d99098027a78dfb9919b9e43be505ce2612565",
       "art-src/squidward/machine-atlas.png": "db62926bfe0d79b88693b8353a85f18cdec28d4e2d00161e7c4fe16718b326da",
-      "art-src/test_sprite.py": "e35473c049e07a6feee0999e7522d7be7fdf74b3b29ff844455dfeeb77aa64fd",
+      "art-src/test_sprite.py": "85ec2bdb0ffbeff53323d3dfa2d1b7a80a29f9d2366129e1a9fe5626de9bbf65",
       "art-src/the-witcher/atlas.png": "7f2f1dc43ac891baa750f97699fa5ad94f403a171d7a41e00254bde029825882",
       "art-src/whiplash/atlas.png": "00c309a86373c22c2fd415309be612ef4e35948c561336f23b0d74f0790c31e0",
       "art-src/zombie/atlas.png": "e550da7075cbf157cb21eb28c672e860c9c21ec8caed7165bdd5c9e28268aeda",
@@ -181,6 +186,11 @@
       "art/jak-and-daxter/idle.png": "4a42c321a001f47211eb650e1db2d51d1aac2efe3e15ea347e4fd6e043364228",
       "art/jak-and-daxter/tail-out.png": "89baebd972faae5f72cd7c796a08013300c9f65bbb8d7929576913eb35bc726b",
       "art/jak-and-daxter/tail-over.png": "5a129abdc240ee0552ff786d588d47bed948ea5bdf18362cffe4273fa04b1195",
+      "art/kratos/blink.png": "3feb1cb1987c8083c209958620bf1952b2dbf94d198c14dc554a828b88d50884",
+      "art/kratos/ear.png": "74d02e07dbff1c2cdd40324247f89c0d8b3f6436282bec99b84781256d42254d",
+      "art/kratos/idle.png": "84db6b5e2cd4cadc1008736e5f50ef1ecf4e8c2330d8092a8cbf9d5e7587e36e",
+      "art/kratos/tail-out.png": "28d4650f743660683482c3a567ccc884688617f8bf6136bf8793b40550728007",
+      "art/kratos/tail-over.png": "cb696d04de437481c5b687a6d500ad2dc90d08c2a8984aa5c9376f5c3086740c",
       "art/omniman/blink.png": "f7820d414e1a05e7f4115ddacd6f7aa96ca5202c4dda501abd89ca13f228b091",
       "art/omniman/ear.png": "5bcc2c04984ca02169f996cfbdff2ca05b604d837df00285f0a9851c6f31d74f",
       "art/omniman/idle.png": "896b16ad4b7a20fc04d8abf008d0f3cad831d22caa9f1769d4c47c91ac0e16ed",
@@ -239,16 +249,16 @@
       "art/zombie/idle.png": "808849b861420e0386be8302d207d97914e384bf1ed1236e0c1b8e927d812746",
       "art/zombie/tail-out.png": "170cf5f9202c63c35ec68b17c9acb09052fe71ba2ca1259e3fd9b0d9121a9eff",
       "art/zombie/tail-over.png": "feb38dec6f189c68a4f611f0c3a6543960f313428d9cf6abe101e702219ebf1f",
-      "init.luau": "0c06ae788eb4cb0a5b64956f8bcc70026ce7ce50e50112bed2716c5c12f25afc",
-      "locales/en.json": "b471d9a341246307eff0c979286190a76e91f7df1bb50468ca571dbeb76cc154",
-      "locales/pt.json": "3cc1e58e7811a9c3d2e83b537616f171dcc9f8153d34397854ca47464fe8e9f9",
-      "pet-handoff.luau": "7920f1ef34621c836346e2be051565077c507a83b58566a6140203052d17d2d3",
-      "pet-position.luau": "9fa28ace6287a14385fdb8be4805503dfc7028c978f781e5b7bb679ddfd06b12",
-      "pet-selection.luau": "37c6bb7882dc0472ed5f69516c8084bd82a05b542a277c24e910830bc4a256e1",
-      "scripts/test_pet_click.lua": "b45d0d9a39d95ee54bf24e37e3eb2f50704cd69f305d709b3f988ceca6644b0c",
-      "scripts/test_pet_selection.lua": "835b770daa3ea5cd060819c9b284c5c121bd4a459a14d9e8b9e001d48daed02f",
-      "zeron.luau": "178b79b55566c9643b26181539b8e1348482179a169da98ba384cd66f3f8a483"
+      "init.luau": "1d98e9042b2e4f13d138e24adaeb7d508df7b017832c21c35a685e6ea6d24ba9",
+      "locales/en.json": "01cefe441aa9d746d8674550b69f6dd25363121ef5a1325225d576163a1bf86c",
+      "locales/pt.json": "38ac8629ef9885457bdf2ac31149db532dea1496add52e1831b068cc9bdf957f",
+      "pet-handoff.luau": "1b6bd01bcf5fcf25f69a687ae5abe2b2378995d498d8180fd65aa2bb947be500",
+      "pet-position.luau": "7a53b8b9a6e069d1eafb4984b944cfab735d3f27485633933cab369db2878263",
+      "pet-selection.luau": "9b7f1e91ca1a2823908f751bbb87470c5fbb049643b33531594ebe77f846e30d",
+      "scripts/test_pet_click.lua": "b123d811d6c89246d446ff78804ba408010bcfc145638ecf9e7de591aa7631da",
+      "scripts/test_pet_selection.lua": "15e80abd810548929b068913dbadb6f685493321ccebd04d57ca667c1eca23fc",
+      "zeron.luau": "b7b603c0b2e2e4d51a5ed3764141038d12a2c2af96ac793a09843ad3b7ff0d39"
     },
-    "sig": "u_AS7lyzpD47_sU-f_V2mDOkRmkyxw5k2zQdk-lkJYC8rCzFMP2gKGJfoguLmvYZjacTd84Ze2rfQGV9cb2nBQ"
+    "sig": "9TtUSscdyqIOiXgisTmNtangk2F19m7XvOmrkwMWL7ZkeYa6lQgb71U4E9WubzMfrfR3Qkk978fuW12X4rwyAA"
   }
 }
