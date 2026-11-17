@@ -195,7 +195,7 @@ local function Pet(session: () -> any, select_pet: any): Node
 			p = 0, bg = "#00000000",
 			hover = { bg = "#00000000" },
 			active = { bg = "#00000000" },
-			disabled = function(): boolean return not interactive() end,
+			focusable = interactive,
 			aria_hidden = function(): boolean return not interactive() end,
 			pointer_events = function(): string return if interactive() then "auto" else "none" end,
 			cursor = function(): string return if interactive() then "pointer" else "default" end,

@@ -21,3 +21,7 @@ end
 selected = "cat"
 assert(lookup() == nil, "Normal pets must remain noninteractive")
 print("Pet click: all four special animations and noninteractive fallback passed.")
+
+-- Inert pets must not inherit the button's disabled opacity.
+assert(not source:find("disabled =", 1, true), "Disabled buttons dim decorative pets")
+assert(source:find("focusable = interactive", 1, true), "Only interactive pets should take keyboard focus")
