@@ -22,7 +22,7 @@ class SpriteTests(unittest.TestCase):
         sprite = self.load_generator()
         frames = sprite.generate()
         again = sprite.generate()
-        self.assertEqual(len(frames), 133)
+        self.assertEqual(len(frames), 146)
         for name, im in frames.items():
             with self.subTest(frame=name), Image.open(sprite.ROOT / "art" / f"{name}.png") as saved:
                 self.assertEqual(im.tobytes(), saved.convert("RGBA").tobytes())
@@ -48,11 +48,11 @@ class SpriteTests(unittest.TestCase):
         self.assertIn("local LARGE_W, LARGE_H, LARGE_FOOT = 64, 64, 62", runtime)
         self.assertIn("art/{pet}/{name}.png", runtime)
         self.assertEqual(list((sprite.ROOT / "art").glob("*.png")), [])
-        for motion in ("BLINK", "FLICK", "TWITCH", "THROW", "DOG", "DESTROY", "EXPLODE", "CART"):
+        for motion in ("BLINK", "FLICK", "TWITCH", "THROW", "DOG", "DESTROY", "EXPLODE", "CART", "ASSASSINATE"):
             body = re.search(rf"local {motion} = (.*?)(?=\n--|\nlocal)", runtime, re.S).group(1)
             names = re.findall(r'\{ "([^" ]+)", \d+ \}', body)
             self.assertTrue(names)
-            pets = {"CART": ("bergamini-cow",), "THROW": ("whiplash",), "DOG": ("anti-sergio",), "DESTROY": ("squidward",), "EXPLODE": ("creeper",)}.get(motion, sprite.PETS)
+            pets = {"CART": ("bergamini-cow",), "THROW": ("whiplash",), "DOG": ("anti-sergio",), "DESTROY": ("squidward",), "EXPLODE": ("creeper",), "ASSASSINATE": ("ezio",)}.get(motion, sprite.PETS)
             for pet in pets:
                 if pet == "whiplash" and motion in ("FLICK", "TWITCH"):
                     continue
@@ -85,6 +85,18 @@ class SpriteTests(unittest.TestCase):
         runtime = (sprite.ROOT / "init.luau").read_text()
         self.assertIn('motion = EXPLODE, range = { 15, 25 }, pet = "creeper"', runtime)
         self.assertIn('gone or busy or reduced()', runtime)
+
+    def test_ezio_assassination_keeps_character_scale(self):
+        sprite = self.load_generator()
+        frames = sprite.generate()
+        idle = frames["ezio/idle"].getbbox()
+        final = frames["ezio/assassinate-08"].getbbox()
+        self.assertLessEqual(abs((idle[3] - idle[1]) - (final[3] - final[1])), 2)
+        self.assertEqual(tuple(frames[f"ezio/{name}"].size for name in sprite.EZIO_GAG),
+                         (sprite.EZIO_GAG_DIMENSIONS[:2],) * len(sprite.EZIO_GAG))
+        runtime = (sprite.ROOT / "init.luau").read_text()
+        self.assertIn('motion = ASSASSINATE, range = { 14, 24 }, pet = "ezio"', runtime)
+        self.assertIn('local EZIO_GAG_W = 76', runtime)
 
     def test_detached_source_specks_do_not_shift_the_scene(self):
         sprite = self.load_generator()

@@ -1,6 +1,6 @@
 -- Run from the repository root: lua scripts/test_pet_selection.lua
 local choose = dofile("pet-selection.luau")
-local pets = { "bergamini-cow", "anti-sergio", "cat", "darth-revan", "ellie", "gordon-freeman", "hollow-knight", "joel", "kratos", "la-casa-de-papel", "omniman", "squidward", "the-witcher", "whiplash", "silksong", "zombie", "ornstein-smough", "creeper", "grand-admiral-thrawn", "jak-and-daxter" }
+local pets = { "bergamini-cow", "anti-sergio", "cat", "darth-revan", "ellie", "ezio", "gordon-freeman", "hollow-knight", "joel", "kratos", "la-casa-de-papel", "omniman", "squidward", "the-witcher", "whiplash", "silksong", "zombie", "ornstein-smough", "creeper", "grand-admiral-thrawn", "jak-and-daxter" }
 local seen = {}
 for _, pet in ipairs(pets) do
 	seen[pet] = 0

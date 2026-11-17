@@ -13,6 +13,7 @@ local position_setting = zeron.setting("position")
 local GRID_W, GRID_H, PIXEL = 40, 48, 2
 local FOOT = 46 * PIXEL
 local LARGE_W, LARGE_H, LARGE_FOOT = 64, 64, 62
+local EZIO_GAG_W = 76
 local GAG_W, GAG_H, GAG_FOOT = 96, 80, 78
 
 -- Each motion: its frames and how long each shows (ms), back to idle after.
@@ -24,6 +25,12 @@ local THROW = {
 	{ "flight", 120 }, { "follow-through", 180 }, { "recover", 200 },
 }
 local EXPLODE = { { "charge", 500 }, { "charged", 600 }, { "explode", 180 }, { "smoke", 550 } }
+local ASSASSINATE = {
+	{ "assassinate-01", 220 }, { "assassinate-02", 180 },
+	{ "assassinate-03", 140 }, { "assassinate-04", 100 },
+	{ "assassinate-05", 130 }, { "assassinate-06", 200 },
+	{ "assassinate-07", 300 }, { "assassinate-08", 220 },
+}
 local CART = { { "cart-arrive", 650 }, { "cart-explode", 220 }, { "cart-smoke", 850 } }
 local DOG = { { "dog-arrive", 350 }, { "dog-pet", 2600 }, { "dog-leave", 450 } }
 local DESTROY = {
@@ -69,6 +76,7 @@ local EVERY = {
 	{ motion = THROW, range = { 10, 20 }, pet = "whiplash" },
 	{ motion = DOG, range = { 9, 16 }, pet = "anti-sergio" },
 	{ motion = EXPLODE, range = { 15, 25 }, pet = "creeper" },
+	{ motion = ASSASSINATE, range = { 14, 24 }, pet = "ezio" },
 	{ motion = DESTROY, range = { 14, 25 }, pet = "squidward" },
 }
 
@@ -105,6 +113,9 @@ local function Pet(session: () -> any, select_pet: any): Node
 	local motion_pet = selected_pet()
 	local function gag_playing(): boolean
 		return selected_pet() == "squidward" and motion_pet == "squidward" and string.sub(frame:get(), 1, 8) == "machine-"
+	end
+	local function assassination_playing(): boolean
+		return selected_pet() == "ezio" and motion_pet == "ezio" and string.sub(frame:get(), 1, 12) == "assassinate-"
 	end
 	-- Each motion's next turn (its one pending timer, replaced as it fires),
 	-- and the playing motion's frame timers (let go when it ends).
@@ -209,19 +220,19 @@ local function Pet(session: () -> any, select_pet: any): Node
 			end,
 			absolute = true,
 			left = function(): number
-				local sprite_width = (if gag_playing() then GAG_W elseif large_pet() then LARGE_W else GRID_W) * PIXEL
+				local sprite_width = (if gag_playing() then GAG_W elseif assassination_playing() then EZIO_GAG_W elseif large_pet() then LARGE_W else GRID_W) * PIXEL
 				local current = session()
 				local fraction = pet_position(position_setting:get(), if current then current.id else nil, position:get()) or 0
 				return math.floor(fraction * math.max(0, width:get() - sprite_width))
 			end,
 			top = function(): number
-				return if gag_playing() then -GAG_FOOT * PIXEL elseif large_pet() then -LARGE_FOOT * PIXEL else -FOOT
+				return if gag_playing() then -GAG_FOOT * PIXEL elseif large_pet() or assassination_playing() then -LARGE_FOOT * PIXEL else -FOOT
 			end,
 			w = function(): number
-				return (if gag_playing() then GAG_W elseif large_pet() then LARGE_W else GRID_W) * PIXEL
+				return (if gag_playing() then GAG_W elseif assassination_playing() then EZIO_GAG_W elseif large_pet() then LARGE_W else GRID_W) * PIXEL
 			end,
 			h = function(): number
-				return (if gag_playing() then GAG_H elseif large_pet() then LARGE_H else GRID_H) * PIXEL
+				return (if gag_playing() then GAG_H elseif large_pet() or assassination_playing() then LARGE_H else GRID_H) * PIXEL
 			end,
 			ui.image {
 				src = function(): string

@@ -7,7 +7,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parent.parent
-PETS = ("bergamini-cow", "cat", "squidward", "darth-revan", "the-witcher", "omniman", "whiplash", "anti-sergio", "hollow-knight", "gordon-freeman", "kratos", "ellie", "joel", "la-casa-de-papel", "silksong", "zombie", "ornstein-smough", "creeper", "grand-admiral-thrawn", "jak-and-daxter")
+PETS = ("bergamini-cow", "cat", "squidward", "darth-revan", "the-witcher", "omniman", "whiplash", "anti-sergio", "hollow-knight", "gordon-freeman", "kratos", "ellie", "joel", "la-casa-de-papel", "ezio", "silksong", "zombie", "ornstein-smough", "creeper", "grand-admiral-thrawn", "jak-and-daxter")
 FRAMES = ("idle", "blink", "tail-out", "tail-over", "ear")
 PET_FRAMES = {pet: FRAMES for pet in PETS}
 PET_FRAMES["whiplash"] = ("idle", "blink", "windup", "lift", "release", "flight", "follow-through", "recover")
@@ -18,10 +18,13 @@ CREEPER_GAG = ("charge", "charged", "explode", "smoke")
 PET_FRAMES["creeper"] = (*FRAMES, *CREEPER_GAG)
 BERGAMINI_GAG = ("cart-arrive", "cart-explode", "cart-smoke")
 PET_FRAMES["bergamini-cow"] = (*FRAMES, *BERGAMINI_GAG)
+EZIO_GAG = tuple(f"assassinate-{i:02}" for i in range(1, 9))
+PET_FRAMES["ezio"] = (*FRAMES, *EZIO_GAG)
 WIDTH, HEIGHT, BASELINE = 40, 48, 46
 DIMENSIONS = {pet: (WIDTH, HEIGHT, BASELINE) for pet in PETS}
 DIMENSIONS["bergamini-cow"] = DIMENSIONS["whiplash"] = DIMENSIONS["anti-sergio"] = DIMENSIONS["squidward"] = DIMENSIONS["ornstein-smough"] = (64, 64, 62)
 GAG_DIMENSIONS = (96, 80, 78)
+EZIO_GAG_DIMENSIONS = (76, 64, 62)
 SCALE, GAP, LABEL = 6, 20, 100
 
 
@@ -45,7 +48,11 @@ def remove_specks(cell):
 
 
 def dimensions(pet, name):
-    return GAG_DIMENSIONS if pet == "squidward" and name in SQUIDWARD_GAG else DIMENSIONS[pet]
+    if pet == "squidward" and name in SQUIDWARD_GAG:
+        return GAG_DIMENSIONS
+    if pet == "ezio" and name in EZIO_GAG:
+        return EZIO_GAG_DIMENSIONS
+    return DIMENSIONS[pet]
 
 
 def generate():
@@ -56,17 +63,20 @@ def generate():
     sprites = {}
     groups = []
     for pet in PETS:
-        names = FRAMES if pet in ("squidward", "creeper", "grand-admiral-thrawn") else PET_FRAMES[pet]
+        names = FRAMES if pet in ("squidward", "creeper", "grand-admiral-thrawn", "ezio") else PET_FRAMES[pet]
         layout = (4, len(names) // 4) if len(names) > 5 else (5, 1)
         groups.append((pet, names, "atlas.png", layout, DIMENSIONS[pet]))
         if pet == "creeper":
             groups.append((pet, CREEPER_GAG, "explosion-atlas.png", (4, 1), DIMENSIONS[pet]))
         if pet == "squidward":
             groups.append((pet, SQUIDWARD_GAG, "machine-atlas.png", (4, 5), GAG_DIMENSIONS))
+        if pet == "ezio":
+            groups.append((pet, EZIO_GAG, "assassination-atlas.png", (4, 2), EZIO_GAG_DIMENSIONS))
     for pet, names, filename, (columns, rows), (width, height, baseline) in groups:
         with Image.open(Path(__file__).parent / pet / filename) as source:
             atlas = source.convert("RGBA")
         cell_w, cell_h = (atlas.width + columns - 1) // columns, (atlas.height + rows - 1) // rows
+        preserve_layout = pet in ("bergamini-cow", "whiplash", "anti-sergio", "squidward", "ornstein-smough") or filename == "assassination-atlas.png"
         cells = []
         for index in range(len(names)):
             col, row = index % columns, index // columns
@@ -78,8 +88,8 @@ def generate():
                 remove_specks(cell)
             bounds = cell.getbbox()
             assert bounds, (pet, col, "empty source cell")
-            cells.append(cell if pet in ("bergamini-cow", "whiplash", "anti-sergio", "squidward", "ornstein-smough") else cell.crop(bounds))
-        if pet in ("bergamini-cow", "whiplash", "anti-sergio", "squidward", "ornstein-smough"):
+            cells.append(cell if preserve_layout else cell.crop(bounds))
+        if preserve_layout:
             # Preserve horizontal space for props and companions without shifting the character.
             bounds = [cell.getbbox() for cell in cells]
             left, right = min(b[0] for b in bounds), max(b[2] for b in bounds)
