@@ -22,7 +22,7 @@ class SpriteTests(unittest.TestCase):
         sprite = self.load_generator()
         frames = sprite.generate()
         again = sprite.generate()
-        self.assertEqual(len(frames), 91)
+        self.assertEqual(len(frames), 105)
         for name, im in frames.items():
             with self.subTest(frame=name), Image.open(sprite.ROOT / "art" / f"{name}.png") as saved:
                 self.assertEqual(im.tobytes(), saved.convert("RGBA").tobytes())
@@ -48,11 +48,11 @@ class SpriteTests(unittest.TestCase):
         self.assertIn("local LARGE_W, LARGE_H, LARGE_FOOT = 64, 64, 62", runtime)
         self.assertIn("art/{pet}/{name}.png", runtime)
         self.assertEqual(list((sprite.ROOT / "art").glob("*.png")), [])
-        for motion in ("BLINK", "FLICK", "TWITCH", "THROW", "DOG", "DESTROY"):
+        for motion in ("BLINK", "FLICK", "TWITCH", "THROW", "DOG", "DESTROY", "EXPLODE"):
             body = re.search(rf"local {motion} = (.*?)(?=\n--|\nlocal)", runtime, re.S).group(1)
             names = re.findall(r'\{ "([^" ]+)", \d+ \}', body)
             self.assertTrue(names)
-            pets = {"THROW": ("whiplash",), "DOG": ("anti-sergio",), "DESTROY": ("squidward",)}.get(motion, sprite.PETS)
+            pets = {"THROW": ("whiplash",), "DOG": ("anti-sergio",), "DESTROY": ("squidward",), "EXPLODE": ("creeper",)}.get(motion, sprite.PETS)
             for pet in pets:
                 if pet == "whiplash" and motion in ("FLICK", "TWITCH"):
                     continue
@@ -74,6 +74,17 @@ class SpriteTests(unittest.TestCase):
             self.assertEqual(frames[f"squidward/{name}"].size, sprite.GAG_DIMENSIONS[:2])
         self.assertIn("local GAG_W, GAG_H, GAG_FOOT = 96, 80, 78", runtime)
         self.assertNotIn("flattened", sprite.PET_FRAMES["squidward"])
+
+    def test_creeper_explosion_keeps_character_scale(self):
+        sprite = self.load_generator()
+        frames = sprite.generate()
+        idle_height = frames["creeper/idle"].getbbox()[3] - frames["creeper/idle"].getbbox()[1]
+        for name in ("charge", "charged"):
+            bounds = frames[f"creeper/{name}"].getbbox()
+            self.assertEqual(bounds[3] - bounds[1], idle_height)
+        runtime = (sprite.ROOT / "init.luau").read_text()
+        self.assertIn('motion = EXPLODE, range = { 15, 25 }, pet = "creeper"', runtime)
+        self.assertIn('gone or busy or reduced()', runtime)
 
     def test_detached_source_specks_do_not_shift_the_scene(self):
         sprite = self.load_generator()

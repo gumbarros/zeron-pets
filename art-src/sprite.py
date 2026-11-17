@@ -7,13 +7,15 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parent.parent
-PETS = ("cat", "squidward", "darth-revan", "the-witcher", "omniman", "whiplash", "anti-sergio", "hollow-knight", "gordon-freeman", "silksong", "zombie", "ornstein-smough", "creeper")
+PETS = ("cat", "squidward", "darth-revan", "the-witcher", "omniman", "whiplash", "anti-sergio", "hollow-knight", "gordon-freeman", "silksong", "zombie", "ornstein-smough", "creeper", "grand-admiral-thrawn", "jak-and-daxter")
 FRAMES = ("idle", "blink", "tail-out", "tail-over", "ear")
 PET_FRAMES = {pet: FRAMES for pet in PETS}
 PET_FRAMES["whiplash"] = ("idle", "blink", "windup", "lift", "release", "flight", "follow-through", "recover")
 SQUIDWARD_GAG = tuple(f"machine-{i:02}" for i in range(1, 21))
 PET_FRAMES["squidward"] = (*FRAMES, *SQUIDWARD_GAG)
 PET_FRAMES["anti-sergio"] = (*FRAMES, "dog-arrive", "dog-pet", "dog-leave")
+CREEPER_GAG = ("charge", "charged", "explode", "smoke")
+PET_FRAMES["creeper"] = (*FRAMES, *CREEPER_GAG)
 WIDTH, HEIGHT, BASELINE = 40, 48, 46
 DIMENSIONS = {pet: (WIDTH, HEIGHT, BASELINE) for pet in PETS}
 DIMENSIONS["whiplash"] = DIMENSIONS["anti-sergio"] = DIMENSIONS["squidward"] = DIMENSIONS["ornstein-smough"] = (64, 64, 62)
@@ -52,9 +54,11 @@ def generate():
     sprites = {}
     groups = []
     for pet in PETS:
-        names = FRAMES if pet == "squidward" else PET_FRAMES[pet]
+        names = FRAMES if pet in ("squidward", "creeper", "grand-admiral-thrawn") else PET_FRAMES[pet]
         layout = (4, len(names) // 4) if len(names) > 5 else (5, 1)
         groups.append((pet, names, "atlas.png", layout, DIMENSIONS[pet]))
+        if pet == "creeper":
+            groups.append((pet, CREEPER_GAG, "explosion-atlas.png", (4, 1), DIMENSIONS[pet]))
         if pet == "squidward":
             groups.append((pet, SQUIDWARD_GAG, "machine-atlas.png", (4, 5), GAG_DIMENSIONS))
     for pet, names, filename, (columns, rows), (width, height, baseline) in groups:
@@ -88,7 +92,11 @@ def generate():
             strip.paste(cell, (col * cell_w, 0), cell)
         palette = strip.quantize(colors=48, method=Image.Quantize.MEDIANCUT)
         for name, cell in zip(names, cells):
-            size = (max(1, round(cell.width * ratio)), max(1, round(cell.height * ratio)))
+            frame_ratio = ratio
+            if pet == "creeper" and name in ("charge", "charged"):
+                idle_bounds = sprites["creeper/idle"].getbbox()
+                frame_ratio = (idle_bounds[3] - idle_bounds[1]) / cell.height
+            size = (max(1, round(cell.width * frame_ratio)), max(1, round(cell.height * frame_ratio)))
             small = cell.resize(size, Image.Resampling.NEAREST)
             alpha = small.getchannel("A")
             small = small.convert("RGB").quantize(palette=palette, dither=Image.Dither.NONE).convert("RGBA")

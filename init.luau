@@ -23,6 +23,7 @@ local THROW = {
 	{ "windup", 220 }, { "lift", 180 }, { "release", 100 },
 	{ "flight", 120 }, { "follow-through", 180 }, { "recover", 200 },
 }
+local EXPLODE = { { "charge", 500 }, { "charged", 600 }, { "explode", 180 }, { "smoke", 550 } }
 local DOG = { { "dog-arrive", 350 }, { "dog-pet", 2600 }, { "dog-leave", 450 } }
 local DESTROY = {
 	{ "machine-01", 500 },
@@ -65,6 +66,7 @@ local EVERY = {
 	{ motion = TWITCH, range = { 5, 9 } },
 	{ motion = THROW, range = { 10, 20 }, pet = "whiplash" },
 	{ motion = DOG, range = { 9, 16 }, pet = "anti-sergio" },
+	{ motion = EXPLODE, range = { 15, 25 }, pet = "creeper" },
 	{ motion = DESTROY, range = { 14, 25 }, pet = "squidward" },
 }
 

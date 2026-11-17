@@ -1,0 +1,4 @@
+Generated with the built-in image generator.
+Style reference: art-src/omniman/atlas.png.
+
+Create a Grand Admiral Thrawn sprite atlas matching the reference's Super Mario World / SNES pixel art: crisp square pixel clusters, dark outlines, compact palette, upper-left highlights, warm lights and cool shadows. Blue skin, red eyes, slicked-back navy-black hair, clean-shaven stern face, white Imperial grand admiral uniform, gold epaulettes, red/blue rank badge, black belt and boots. Five full-body poses in one horizontal row of equal cells: idle hands behind back, blink, small commanding hand gesture, extended command gesture, thoughtful head tilt with hand at chin. Transparent background; identical proportions, character height, pixel scale and foot baseline in all poses. No cape, weapons, text, antialiasing or smooth illustration.

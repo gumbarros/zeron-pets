@@ -1,7 +1,7 @@
 {
   "id": "zeron-pixel-pets",
   "name": "Zeron Pets",
-  "version": "0.4.6",
+  "version": "0.4.8",
   "description": "Animated pixel pets perched on your message box.",
   "entry": "init.luau",
   "permissions": [
@@ -34,12 +34,16 @@
           "label": "Gordon Freeman"
         },
         {
+          "value": "grand-admiral-thrawn",
+          "label": "Grand Admiral Thrawn"
+        },
+        {
           "value": "hollow-knight",
           "label": "Hollow Knight"
         },
         {
-          "value": "silksong",
-          "label": "Silksong"
+          "value": "jak-and-daxter",
+          "label": "Jak and Daxter"
         },
         {
           "value": "omniman",
@@ -56,6 +60,10 @@
         {
           "value": "cat",
           "label": "Siamese"
+        },
+        {
+          "value": "silksong",
+          "label": "Silksong"
         },
         {
           "value": "squidward",
@@ -103,21 +111,26 @@
     "files": {
       "AGENTS.md": "c58b9bf1da5af8c62a6b26b7ed428bd6f56573bbfacbc2fdf134c12a3243196b",
       "LICENSE": "e776600f641baae3fd37387829b40fe2d7c12d01785dc8b846658b7cbb0342e3",
-      "README.md": "e7d558ef2ef9e985d555cb5e78549b0fc0517223eeb0acb4d1848b9afcef8bbc",
+      "README.md": "df73784f568c4ddb81f68d5a93d68e3a156be73738e383c0534568797bd6a619",
       "art-src/anti-sergio/atlas.png": "093eddc3157f6429d9f38e32b93205266c31487d60db585caa18783aa351550d",
       "art-src/cat/atlas.png": "bc6217ad4aa06258858d851fc9d72bf05abfee888844f826f182fa80f955047c",
       "art-src/creeper/atlas.png": "8f65cbcbab6664988030d814c25afdf6e1f8e193aa95b9b16048283fd399b910",
+      "art-src/creeper/explosion-atlas.png": "794741aa6724654cd576bf2734cd03029926d31226a1c545b5c845cb87c67bb9",
       "art-src/darth-revan/atlas.png": "2127ca71fb061955b59319a7d236868b708fd24d586e851639f4b9b9d8ed1931",
       "art-src/gordon-freeman/atlas.png": "f7d23a116b7b2d2feaab1fec78f7c4c0c83749360e6a1fdfe8745462ae76cfae",
+      "art-src/grand-admiral-thrawn/atlas.png": "240bf2b0ca9b39f853a8299e82964802b94d7af2eec199aa5796dce484d1a41c",
+      "art-src/grand-admiral-thrawn/prompt.txt": "c630292a07957292cd86d2a3bc53d8fd8d1174d2f2cdbd45419b127dd4167f2d",
       "art-src/hollow-knight/atlas.png": "ca624aa65b78cc6f35ac0dd230cc1427e454dacae7919b06b2f6a4121c6e98a3",
+      "art-src/jak-and-daxter/atlas.png": "6d9577fa96b1a145874cf7938828470524398ddcabe8366048e208e38ade1b76",
+      "art-src/jak-and-daxter/prompt.txt": "b724718902bd426d1f7e7fa55e22ae0a595ade9a65451779deb94fcec4f54dda",
       "art-src/omniman/atlas.png": "ae0542e140b454cbde4a2cd73b4df0fd587a424a520ca841e3aea9758207b2f0",
       "art-src/ornstein-smough/atlas.png": "d7f5f7e5462916ba9082a28452f8d8911de56afec1018e59ba69aad1753feaaa",
-      "art-src/preview.png": "91d93d88abde98e8898da9a524a1d23340e4baad4c9a3feb5abcb76c5f94c5b4",
+      "art-src/preview.png": "42eb8b989344f5dea98c4538d5dc827190b6ccee4c05709720f389371a392677",
       "art-src/silksong/atlas.png": "64fc471ea3ac061046a2fe925bc619e3aa563a7c73659388fa776fa778a438f5",
-      "art-src/sprite.py": "830d59ab38c55d8c22c7a14db021ee7082b3b626a6eadb06ea8fc2e9bf669579",
+      "art-src/sprite.py": "90bae6bf738b738c865650bd78ebcb87869e9d3ce5107f5ab65c0dfa54ef1424",
       "art-src/squidward/atlas.png": "9ef598876d39cf6b38f3a0e188d99098027a78dfb9919b9e43be505ce2612565",
       "art-src/squidward/machine-atlas.png": "db62926bfe0d79b88693b8353a85f18cdec28d4e2d00161e7c4fe16718b326da",
-      "art-src/test_sprite.py": "9448971b8fc65733aa9a4ab79cfe9926c7152ce6e67d07dd1f9e3f4c33a773fe",
+      "art-src/test_sprite.py": "e35473c049e07a6feee0999e7522d7be7fdf74b3b29ff844455dfeeb77aa64fd",
       "art-src/the-witcher/atlas.png": "7f2f1dc43ac891baa750f97699fa5ad94f403a171d7a41e00254bde029825882",
       "art-src/whiplash/atlas.png": "00c309a86373c22c2fd415309be612ef4e35948c561336f23b0d74f0790c31e0",
       "art-src/zombie/atlas.png": "e550da7075cbf157cb21eb28c672e860c9c21ec8caed7165bdd5c9e28268aeda",
@@ -135,8 +148,12 @@
       "art/cat/tail-out.png": "aaacda06e0cc06b92e33d3a138fa31472ef858a1caeae480de9ebfac3b7b0f76",
       "art/cat/tail-over.png": "735001ec894d7b44cbdc9f3aa1fc384d42cfb9c57bb61aa4c3c863ebf5f49c1b",
       "art/creeper/blink.png": "2897c38583a62a8bbbd70769c693586dc90ad0049b48541362f94c3bf1b27c53",
+      "art/creeper/charge.png": "dec79dd311d8dc478805b1034da7be284c1c21e607c8ac9d39952e8a29d785c0",
+      "art/creeper/charged.png": "00f5dc977c8b4dd10d4c701af57d7ca97bb0046259ad388651563247c440bc70",
       "art/creeper/ear.png": "01b6b773dced110e0d812d72cf4f2315807f259cec22504677b7c84adfa17154",
+      "art/creeper/explode.png": "e077bb91348b7773eb47d6baa079b8dd5c10fca85e2b3fef787b89518a37a9a5",
       "art/creeper/idle.png": "aa7ac47a3e5038f2f9447609595c289f7638ccdc585d9f625229fbaaa3247759",
+      "art/creeper/smoke.png": "2914012f035aa9e98bb76421f2a1a3592f16bb705a075563ba7b25608dde2773",
       "art/creeper/tail-out.png": "2a58264fce1b685a1a2c6990dd29afde5ef4e2df7bfd70f32b198b7de3e00fc4",
       "art/creeper/tail-over.png": "853f52742925c8a858daaa81ad040cde3e08ae90cdb763a09241089eeffe0ea8",
       "art/darth-revan/blink.png": "49855e2b411e586271156c36157c83cae15d773df2aa83f4e59ee880edc35077",
@@ -149,11 +166,21 @@
       "art/gordon-freeman/idle.png": "7a109e27d78f712296cc022c31141d3523af27d6170be65ffffd68cede53876c",
       "art/gordon-freeman/tail-out.png": "825fa0fb9d25d3b2b8409ee952ad93d388a4c7e70ff8a10cfb08b675263bea92",
       "art/gordon-freeman/tail-over.png": "ea09a22443d3861f4fb20cafa21197a18f62bcaea6a6f66b016886cd82560619",
+      "art/grand-admiral-thrawn/blink.png": "90d36281dfdca3e477d2851b6bf270b70a26eed7045b335aa22db88d0e57af73",
+      "art/grand-admiral-thrawn/ear.png": "7929e92308ee16eec991880277a65d39c261e8081845272b78e34623b96c5f7c",
+      "art/grand-admiral-thrawn/idle.png": "967b70729add59dd5c40b3cb2a2d57e36d1ba7fa4575b86bc01b85237d4ede49",
+      "art/grand-admiral-thrawn/tail-out.png": "b5c851b966252660973d7b5b2264e9655357f3aeeee3067e63c6f234615322b8",
+      "art/grand-admiral-thrawn/tail-over.png": "ea3b77186404ca0d62b300f756467c844b7b44e80584061ed61f38c81fafd0d9",
       "art/hollow-knight/blink.png": "7ad99f91c8fe831802f4fbb557b6697b7312e85c42594d404f84e908ada0d5b2",
       "art/hollow-knight/ear.png": "682f448e9699ba68d8554e704b081a6bbb5ee73c1ee00a23e1787b624d75a3dc",
       "art/hollow-knight/idle.png": "df5f7f54d060c6196f4545da97bcaf682008976703bf4ea48a5ff8e6685829cc",
       "art/hollow-knight/tail-out.png": "36dd9ae76fbee1176f307964bdb8ac3d413f1f630ca4c5ffc444e95bf12e799e",
       "art/hollow-knight/tail-over.png": "6bed71c78c68520937fe827fd540a77900a76fd812023915651695962769899e",
+      "art/jak-and-daxter/blink.png": "e0cdde386175b57f0837c088245148b6c07e4cd89cfe187ba21c242f4d6d4763",
+      "art/jak-and-daxter/ear.png": "43af22dc2bce7e08a173f3ebcd1581ef711ddac79416d97edcc9a9ee3fea3e95",
+      "art/jak-and-daxter/idle.png": "4a42c321a001f47211eb650e1db2d51d1aac2efe3e15ea347e4fd6e043364228",
+      "art/jak-and-daxter/tail-out.png": "89baebd972faae5f72cd7c796a08013300c9f65bbb8d7929576913eb35bc726b",
+      "art/jak-and-daxter/tail-over.png": "5a129abdc240ee0552ff786d588d47bed948ea5bdf18362cffe4273fa04b1195",
       "art/omniman/blink.png": "f7820d414e1a05e7f4115ddacd6f7aa96ca5202c4dda501abd89ca13f228b091",
       "art/omniman/ear.png": "5bcc2c04984ca02169f996cfbdff2ca05b604d837df00285f0a9851c6f31d74f",
       "art/omniman/idle.png": "896b16ad4b7a20fc04d8abf008d0f3cad831d22caa9f1769d4c47c91ac0e16ed",
@@ -212,15 +239,15 @@
       "art/zombie/idle.png": "808849b861420e0386be8302d207d97914e384bf1ed1236e0c1b8e927d812746",
       "art/zombie/tail-out.png": "170cf5f9202c63c35ec68b17c9acb09052fe71ba2ca1259e3fd9b0d9121a9eff",
       "art/zombie/tail-over.png": "feb38dec6f189c68a4f611f0c3a6543960f313428d9cf6abe101e702219ebf1f",
-      "init.luau": "4bebe4b43ecaf898e00d72f81976d55096819fe60d7dadf4edbea9206b1ee045",
-      "locales/en.json": "0c6505747d69e37f8cb2e6ddc147ae2fc4bffa3269cda696592264e0ebf6f2f7",
-      "locales/pt.json": "b4394a37cd4a5c226e20e78f99799a0f039dac6291992988a62e47a12538c713",
+      "init.luau": "9cecdee689cb098843c3873f75559454e984b89195630ce0963b959f02583c83",
+      "locales/en.json": "ee77c9c1df4fc7e3fba5b17d0f95cf5656fdb414e46470154e9d6443cc8f1b93",
+      "locales/pt.json": "0d632fea8bbe0be2d3303483d0d9e7488347559e6874d1db276d916a9e6f4934",
       "pet-handoff.luau": "7920f1ef34621c836346e2be051565077c507a83b58566a6140203052d17d2d3",
       "pet-position.luau": "9fa28ace6287a14385fdb8be4805503dfc7028c978f781e5b7bb679ddfd06b12",
-      "pet-selection.luau": "acea86b4826e70aaa6b0d3ee91caad5df541737487cc90815ba454e0f0e1b30b",
-      "scripts/test_pet_selection.lua": "61117a7203bb4b057115f3a7ace2c6571f25e6d6639ced3fff2328d4eb879d4d",
+      "pet-selection.luau": "37c6bb7882dc0472ed5f69516c8084bd82a05b542a277c24e910830bc4a256e1",
+      "scripts/test_pet_selection.lua": "835b770daa3ea5cd060819c9b284c5c121bd4a459a14d9e8b9e001d48daed02f",
       "zeron.luau": "178b79b55566c9643b26181539b8e1348482179a169da98ba384cd66f3f8a483"
     },
-    "sig": "PpKXBrxLoTOpve5dRjuRTJRBhLBn5I5U7b9svNj0Ev3hADAiXYxyBMNiv428MDGr4_2kTVM3VWI3glU_IV-YAg"
+    "sig": "nI7To4VD6-H3vgjbOe_Chtk_IgzfFp4a8aLoFR8KjmAszEVUYx1p6YcHmjOzelZKpdLYe_qI_LdI_FqbIP4nCQ"
   }
 }

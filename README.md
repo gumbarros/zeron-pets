@@ -12,6 +12,8 @@ Choose a character in **Settings → Plugins → Zeron Pets → Pet**. **Random*
 | Creeper | <img src="art/creeper/idle.png" alt="Minecraft Creeper pixel sprite" width="80" height="96"> |
 | Darth Revan | <img src="art/darth-revan/idle.png" alt="Darth Revan pixel sprite" width="80" height="96"> |
 | Gordon Freeman | <img src="art/gordon-freeman/idle.png" alt="Gordon Freeman pixel sprite" width="80" height="96"> |
+| Grand Admiral Thrawn | <img src="art/grand-admiral-thrawn/idle.png" alt="Grand Admiral Thrawn pixel sprite" width="80" height="96"> |
+| Jak and Daxter | <img src="art/jak-and-daxter/idle.png" alt="Jak and Daxter together pixel sprite" width="80" height="96"> |
 | Hollow Knight | <img src="art/hollow-knight/idle.png" alt="Hollow Knight pixel sprite" width="80" height="96"> |
 | Silksong | <img src="art/silksong/idle.png" alt="Silksong pixel sprite" width="80" height="96"> |
 | Zombie | <img src="art/zombie/idle.png" alt="Zombie pixel sprite" width="80" height="96"> |
@@ -21,6 +23,7 @@ Choose a character in **Settings → Plugins → Zeron Pets → Pet**. **Random*
 | Squidward | <img src="art/squidward/idle.png" alt="Squidward pixel sprite" width="128" height="128"> |
 | The Witcher | <img src="art/the-witcher/idle.png" alt="The Witcher pixel sprite" width="80" height="96"> |
 | Whiplash | <img src="art/whiplash/idle.png" alt="Whiplash pixel sprite" width="128" height="128"> |
+
 
 ### Install
 
@@ -45,7 +48,7 @@ choose your pet and position again in the new plugin's settings.
 The tools below are for editing artwork and checking source code only; they
 are not installation or runtime requirements.
 
-The plugin source lives at the repository root. Each pet has its own source sheet at `art-src/<pet>/atlas.png` and runtime frames at `art/<pet>/<frame>.png`. Edit its sheet to change the artwork; `art-src/sprite.py` imports it into runtime sprites. Regenerate the 91 PNG frames with Python and Pillow:
+The plugin source lives at the repository root. Each pet has its own source sheet at `art-src/<pet>/atlas.png` and runtime frames at `art/<pet>/<frame>.png`. Edit its sheet to change the artwork; `art-src/sprite.py` imports it into runtime sprites. Regenerate the 105 PNG frames with Python and Pillow:
 
 ```sh
 python art-src/sprite.py
@@ -110,3 +113,5 @@ for plugin-rendered text.
 Zeron currently displays manifest names, descriptions, and setting options
 as literal strings. The catalogs include their translations, but showing
 those translations in the host settings requires localization support in Zeron.
+
+Creeper occasionally charges, explodes into pixel smoke and returns to idle (roughly every 18–30 seconds). Reduce Motion disables the animation.
