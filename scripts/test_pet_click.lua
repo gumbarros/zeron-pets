@@ -7,7 +7,7 @@ local scheduled = {}
 for motion, pet in source:gmatch('motion = (%u+), range = { %d+, %d+ }, pet = "([^"]+)"') do
 	scheduled[#scheduled + 1] = { pet = pet, motion = { motion } }
 end
-assert(#scheduled == 5, "Expected five special animations")
+assert(#scheduled == 7, "Expected seven special animations")
 local body = assert(source:match('local function click_motion%(%)%:.-\n(.-)\n\tend'))
 body = body:gsub('in EVERY do', 'in ipairs(EVERY) do')
 local factory = assert((loadstring or load)(
@@ -20,7 +20,7 @@ for _, each in ipairs(scheduled) do
 end
 selected = "cat"
 assert(lookup() == nil, "Normal pets must remain noninteractive")
-print("Pet click: all five special animations and noninteractive fallback passed.")
+print("Pet click: all seven special animations and noninteractive fallback passed.")
 
 -- Inert pets must not inherit the button's disabled opacity.
 assert(not source:find("disabled =", 1, true), "Disabled buttons dim decorative pets")

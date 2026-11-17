@@ -7,7 +7,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parent.parent
-PETS = ("bergamini-cow", "cat", "squidward", "darth-revan", "the-witcher", "omniman", "whiplash", "anti-sergio", "hollow-knight", "gordon-freeman", "kratos", "ellie", "joel", "la-casa-de-papel", "ezio", "silksong", "zombie", "ornstein-smough", "creeper", "grand-admiral-thrawn", "jak-and-daxter")
+PETS = ("otis", "bergamini-cow", "cat", "squidward", "darth-revan", "the-witcher", "omniman", "whiplash", "anti-sergio", "hollow-knight", "gordon-freeman", "kratos", "ellie", "joel", "la-casa-de-papel", "ezio", "silksong", "zombie", "ornstein-smough", "creeper", "grand-admiral-thrawn", "jak-and-daxter")
 FRAMES = ("idle", "blink", "tail-out", "tail-over", "ear")
 PET_FRAMES = {pet: FRAMES for pet in PETS}
 PET_FRAMES["whiplash"] = ("idle", "blink", "windup", "lift", "release", "flight", "follow-through", "recover")
@@ -20,9 +20,10 @@ BERGAMINI_GAG = ("cart-arrive", "cart-explode", "cart-smoke")
 PET_FRAMES["bergamini-cow"] = (*FRAMES, *BERGAMINI_GAG)
 EZIO_GAG = tuple(f"assassinate-{i:02}" for i in range(1, 9))
 PET_FRAMES["ezio"] = (*FRAMES, *EZIO_GAG)
+PET_FRAMES["otis"] = (*FRAMES, "milk-ready", "milk-jet", "milk-end")
 WIDTH, HEIGHT, BASELINE = 40, 48, 46
 DIMENSIONS = {pet: (WIDTH, HEIGHT, BASELINE) for pet in PETS}
-DIMENSIONS["bergamini-cow"] = DIMENSIONS["whiplash"] = DIMENSIONS["anti-sergio"] = DIMENSIONS["squidward"] = DIMENSIONS["ornstein-smough"] = (64, 64, 62)
+DIMENSIONS["otis"] = DIMENSIONS["bergamini-cow"] = DIMENSIONS["whiplash"] = DIMENSIONS["anti-sergio"] = DIMENSIONS["squidward"] = DIMENSIONS["ornstein-smough"] = (64, 64, 62)
 GAG_DIMENSIONS = (96, 80, 78)
 EZIO_GAG_DIMENSIONS = (76, 64, 62)
 SCALE, GAP, LABEL = 6, 20, 100
@@ -76,7 +77,7 @@ def generate():
         with Image.open(Path(__file__).parent / pet / filename) as source:
             atlas = source.convert("RGBA")
         cell_w, cell_h = (atlas.width + columns - 1) // columns, (atlas.height + rows - 1) // rows
-        preserve_layout = pet in ("bergamini-cow", "whiplash", "anti-sergio", "squidward", "ornstein-smough") or filename == "assassination-atlas.png"
+        preserve_layout = pet in ("otis", "bergamini-cow", "whiplash", "anti-sergio", "squidward", "ornstein-smough") or filename == "assassination-atlas.png"
         cells = []
         for index in range(len(names)):
             col, row = index % columns, index // columns

@@ -31,6 +31,7 @@ local ASSASSINATE = {
 	{ "assassinate-05", 130 }, { "assassinate-06", 200 },
 	{ "assassinate-07", 300 }, { "assassinate-08", 220 },
 }
+local MILK = { { "milk-ready", 350 }, { "milk-jet", 250 }, { "milk-end", 180 }, { "milk-jet", 250 }, { "milk-end", 350 } }
 local CART = { { "cart-arrive", 650 }, { "cart-explode", 220 }, { "cart-smoke", 850 } }
 local DOG = { { "dog-arrive", 350 }, { "dog-pet", 2600 }, { "dog-leave", 450 } }
 local DESTROY = {
@@ -69,6 +70,7 @@ local DESTROY = {
 }
 -- How often each comes (seconds, a range).
 local EVERY = {
+	{ motion = MILK, range = { 12, 20 }, pet = "otis" },
 	{ motion = BLINK, range = { 2, 4 } },
 	{ motion = FLICK, range = { 3, 6 } },
 	{ motion = TWITCH, range = { 5, 9 } },
@@ -107,7 +109,7 @@ local function Pet(session: () -> any, select_pet: any): Node
 	end
 	local function large_pet(): boolean
 		local pet = selected_pet()
-		return pet == "bergamini-cow" or pet == "whiplash" or pet == "anti-sergio" or pet == "squidward" or pet == "ornstein-smough"
+		return pet == "otis" or pet == "bergamini-cow" or pet == "whiplash" or pet == "anti-sergio" or pet == "squidward" or pet == "ornstein-smough"
 	end
 	local frame = ui.use_state("idle")
 	local motion_pet = selected_pet()
