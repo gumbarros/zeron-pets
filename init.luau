@@ -1,7 +1,7 @@
 -- Zeron Pets: animated pixel companions on the message box.
 -- Character-specific gags share the same bounded animation scheduler.
 
-local zeron = require("./zeron")("zeron-pets")
+local zeron = require("./zeron")("zeron-pixel-pets")
 local choose_pet = require("./pet-selection")
 local pet_position = require("./pet-position")
 local pet_handoff = require("./pet-handoff")
@@ -164,7 +164,7 @@ local function Pet(session: () -> any, select_pet: any): Node
 					play(each.motion)
 				end
 				turns[i] = ui.after(within(each.range), turn)
-				assert(pending() <= MOST, "zeron-pets: timers left pending")
+				assert(pending() <= MOST, "zeron-pixel-pets: timers left pending")
 			end
 			turns[i] = ui.after(within(each.range), turn)
 		end
@@ -176,7 +176,7 @@ local function Pet(session: () -> any, select_pet: any): Node
 			width:set(size.w)
 		end,
 		ui.image {
-			id = "zeron-pets",
+			id = "zeron-pixel-pets",
 			src = function(): string
 				local pet = selected_pet()
 				local name = if pet == motion_pet then frame:get() else "idle"

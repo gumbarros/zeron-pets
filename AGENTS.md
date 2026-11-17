@@ -19,29 +19,33 @@ run `PYTHONDONTWRITEBYTECODE=1 python art-src/test_sprite.py` before signing.
 
 # Plugin signing
 
-After every change to this repository, re-sign the plugin as the final file-changing
-step, including changes to docs, tests, art, scripts, or this file:
+Use Zeron's native signing and export commands; do not implement signing or
+create a separate private key. Keep Zeron running. Sign in to Zeron and claim
+a username for a publicly verified author identity.
 
-```sh
-PYTHONDONTWRITEBYTECODE=1 python scripts/test_sign.py
-python scripts/sign.py
-python scripts/sign.py --verify
-```
+After every repository change (including docs, tests and artwork):
 
-Include the updated `zeron-plugin.json` with the changes. If you edit anything
-after signing, sign and verify again before finishing or committing.
+1. Run the relevant checks and remove generated `__pycache__` folders and `.pyc` files.
+2. Sync the complete repository contents, excluding hidden files and directories,
+   to the installed `zeron-pixel-pets` folder reported by `zeron plugin list`. Remove
+   obsolete files there too. Never copy `.git` or private keys.
+3. Run `zeron plugin sign zeron-pixel-pets`. If Zeron requires consent, the user must
+   decide in Zeron's own window; never bypass consent or fall back to manual signing.
+4. Run `zeron plugin verify <installed-plugin-folder>`.
+5. Copy the signed `zeron-plugin.json` back to this repository as the final
+   repository file change, then run `zeron plugin verify .`.
 
-Requires Python 3.10+ and OpenSSL with Ed25519 support; Zeron does not need to run.
-The dedicated private key lives at `~/.config/zeron-pets/signing-key.pem`.
-Use `--key /outside/the/repository/key.pem` if it is stored elsewhere.
-Never commit, print, or copy private keys into the repository. Reuse the same key
-for future releases; do not silently generate a replacement if it is missing.
-Report a missing key as a blocker to signing.
+Include the updated manifest with every change. If anything changes afterward,
+repeat the sync, sign and verification steps before finishing or committing.
+Zeron hashes all non-hidden files regardless of `.gitignore`.
 
-Zeron hashes every non-hidden file, ignoring the root manifest itself. Git ignore
-rules do not affect signing: remove generated `__pycache__` folders and `.pyc`
-files before signing. Hidden files and directories such as `.git` are excluded.
-
+For distribution, run `zeron plugin export zeron-pixel-pets` and verify the repository
+again (export can re-sign the installed plugin). Keep the exported `.zeron-plugin`
+outside this repository; attach it to a GitHub release or send it directly.
+Publishing is a separate action. Increment the manifest version for updates.
+Preserve Zeron's signing identity: changing from the legacy standalone key may
+require existing users to reinstall and approve the plugin again.
+Never read, print, copy into the repository, or replace private signing keys.
 
 # Development
 

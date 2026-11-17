@@ -24,13 +24,26 @@ Choose a character in **Settings → Plugins → Zeron Pets → Pet**. **Random*
 
 ### Install
 
-Ask your Zeron agent:
+Install a signed `.zeron-plugin` file through **Settings → Plugins → Install…**,
+or ask your Zeron agent to install its download link or GitHub release link.
+The recipient only needs Zeron: no Git, Python, Pillow, Lua installation,
+external signing tools or manual file copying. Zeron runs the bundled Luau code
+and loads the included PNG frames inside its plugin sandbox.
 
-> Install the plugin at https://github.com/gumbarros/zeron-pets
+Then allow **Zeron Pets** in Zeron's plugin review. It requests `ui.add` to draw
+pets and `sessions.read` to keep each chat's pet stable; it does not read messages.
+Approval is required on each device.
 
-Then allow **Zeron Pets** in Zeron's plugin review. It only requests `ui.add`; no network, commands, or message access.
+This release uses the native Zeron signing identity and the new plugin ID
+`zeron-pixel-pets`. The legacy `zeron-pets` ID was signed with a standalone key
+that Zeron cannot transfer. Install this package as a new plugin and disable the
+old one to avoid duplicate pets. Settings and per-chat pet choices do not migrate;
+choose your pet and position again in the new plugin's settings.
 
 ### Develop
+
+The tools below are for editing artwork and checking source code only; they
+are not installation or runtime requirements.
 
 The plugin source lives at the repository root. Each pet has its own source sheet at `art-src/<pet>/atlas.png` and runtime frames at `art/<pet>/<frame>.png`. Edit its sheet to change the artwork; `art-src/sprite.py` imports it into runtime sprites. Regenerate the 91 PNG frames with Python and Pillow:
 
@@ -46,30 +59,44 @@ python art-src/sprite.py /tmp/pets-preview.png
 
 Run chat-selection checks with `lua scripts/test_pet_selection.lua`.
 
-Editing files invalidates the plugin signature. Sign offline using Python 3.10+
-and OpenSSL; no running Zeron or Python packages are required:
+### Sign and distribute
 
-```sh
-PYTHONDONTWRITEBYTECODE=1 python scripts/test_sign.py
-python scripts/sign.py
-python scripts/sign.py --verify
-```
+Use Zeron's native signing, with Zeron running. Sign in to Zeron and claim a
+username to identify releases as yours. A locally valid signature alone does
+not establish a publicly verified author.
 
-The private Ed25519 PEM key defaults to
-`~/.config/zeron-pets/signing-key.pem`; pass `--key /path/to/key.pem` to override.
-Keep and back up this key outside the repository. For a brand-new signing identity
-only, create it once (never overwrite an existing key):
+1. Run the relevant checks. Find the installed folder with `zeron plugin list`.
+2. Sync this repository's non-hidden contents to that folder, removing obsolete
+   files. Exclude `.git`, caches and private keys.
+3. Sign and verify the installed plugin:
 
-```sh
-mkdir -p ~/.config/zeron-pets
-(umask 077; set -C; openssl genpkey -algorithm ED25519 > ~/.config/zeron-pets/signing-key.pem)
-```
+   ```sh
+   zeron plugin sign zeron-pixel-pets
+   zeron plugin verify <installed-plugin-folder>
+   ```
 
-Commit the updated `zeron-plugin.json` with every change, and sign again if any
-file changes afterward. Zeron hashes non-hidden files regardless of `.gitignore`;
-remove generated `__pycache__` folders and `.pyc` files before signing. A new key
-changes the signer and may require reinstalling an existing plugin. An unregistered
-key appears as an unknown author; users still allow the plugin in Zeron's review.
+   If signing needs consent, decide in Zeron's window. The legacy key transition
+   must be approved there; do not bypass it with a custom signing script.
+4. Copy the installed folder's signed `zeron-plugin.json` back to the repository
+   as the final file change, then run `zeron plugin verify .`.
+5. Export the installed plugin:
+
+   ```sh
+   zeron plugin export zeron-pixel-pets
+   ```
+
+   Keep the returned `.zeron-plugin` file outside the repository and attach it
+   to a GitHub release, or send it directly. Verify the repository again after
+   export; if its signature changed, copy the exported plugin's manifest back
+   from the installed folder and verify again.
+
+Commit the signed manifest with the changes. Any later edit requires signing
+again. Increment the version for each update and preserve the native signing
+identity. Zeron hashes every non-hidden file regardless of `.gitignore`; remove
+`__pycache__` and `.pyc` files before signing. Never copy private keys into the
+repository or to recipients.
+
+See Zeron's [sharing and installation guide](https://github.com/zeronsh/zeron/blob/main/apps/zgx/docs/plugins.md#sharing-and-installing).
 
 Adapted from Zeron's [Composer Cat development plugin](https://github.com/zeronsh/zeron/tree/main/apps/zgx/plugins-dev/composer-cat). Original MIT license retained in [LICENSE](LICENSE).
 
