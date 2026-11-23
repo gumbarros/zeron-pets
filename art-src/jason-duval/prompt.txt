@@ -1,0 +1,5 @@
+Built-in image generator. References: art-src/omniman/atlas.png and art-src/lara-croft/atlas.png for the shared style.
+
+Create Jason Duval from Grand Theft Auto VI as a transparent five-pose horizontal atlas: idle, blink, cautious wave, holding a car key fob, and head tilt. Jason is a fit adult man with short brown hair and light stubble, a pale beige sleeveless shirt, faded blue jeans, brown belt, and work boots. Use the established Super Mario World / SNES pixel art: crisp square clusters, dark outlines, compact palette, upper-left warm highlights and cool shadows. Keep his scale, palette, and foot baseline fixed in every full-body pose; no text, logos, smoothing, gradients, or backdrop.
+
+The separate car-theft-atlas.png is a 4x2 transparent sequence: cautious look, key fob, headlights flash, car door opens, drives away in a small red convertible, exits, then fading tire marks. It is a nonviolent fictional vehicle theft, without weapons, people, police, injury, or blood. Each cell reserves room for the car and uses the same 100x80 logical scene size.

@@ -1,0 +1,5 @@
+Built-in image generator. References: art-src/omniman/atlas.png and art-src/lara-croft/atlas.png for the shared style.
+
+Create Lucia Caminos from Grand Theft Auto VI as a transparent five-pose horizontal atlas: idle, blink, confident wave, holding a duffel bag, and head tilt. Lucia is a fit adult Latina woman with warm tan skin, a dark-brown ponytail, cropped salmon-pink top, light-blue jeans, brown belt, gold hoop earrings, and brown boots. Use the established Super Mario World / SNES pixel art: crisp square clusters, dark outlines, compact palette, upper-left warm highlights and cool shadows. Keep her scale, palette, and foot baseline fixed in every full-body pose; no text, logos, smoothing, gradients, or backdrop.
+
+The separate heist-atlas.png is a 4x2 transparent sequence: cautious look with bag, ski mask, cash-register counter gesture without a weapon, bills placed into bag, zip bag, turn, leave, then fading bills. It is a nonviolent fictional robbery, without weapons, people, police, injury, or blood. Each cell reserves room for the counter and uses the same 100x80 logical scene size.

@@ -15,6 +15,7 @@ local FOOT = 62 * PIXEL
 local WIDE_W = 96
 local TALL_H, TALL_FOOT = 96, 94
 local EZIO_GAG_W, EZIO_GAG_H, EZIO_GAG_FOOT = 100, 80, 78
+local CRIME_GAG_W, CRIME_GAG_H, CRIME_GAG_FOOT = 100, 80, 78
 local GAG_W, GAG_H, GAG_FOOT = 96, 80, 78
 
 -- Each motion: its frames and how long each shows (ms), back to idle after.
@@ -37,6 +38,18 @@ local RELIC = {
 	{ "relic-03", 220 }, { "relic-04", 230 },
 	{ "relic-05", 280 }, { "relic-06", 350 },
 	{ "relic-07", 420 }, { "relic-08", 300 },
+}
+local CAR_THEFT = {
+	{ "car-theft-01", 280 }, { "car-theft-02", 260 },
+	{ "car-theft-03", 300 }, { "car-theft-04", 360 },
+	{ "car-theft-05", 340 }, { "car-theft-06", 250 },
+	{ "car-theft-07", 220 }, { "car-theft-08", 300 },
+}
+local HEIST = {
+	{ "heist-01", 280 }, { "heist-02", 280 },
+	{ "heist-03", 340 }, { "heist-04", 340 },
+	{ "heist-05", 240 }, { "heist-06", 300 },
+	{ "heist-07", 240 }, { "heist-08", 300 },
 }
 local MILK = { { "milk-ready", 350 }, { "milk-jet", 250 }, { "milk-end", 180 }, { "milk-jet", 250 }, { "milk-end", 350 } }
 local CART = { { "cart-arrive", 650 }, { "cart-explode", 220 }, { "cart-smoke", 850 } }
@@ -87,6 +100,8 @@ local EVERY = {
 	{ motion = EXPLODE, range = { 15, 25 }, pet = "creeper" },
 	{ motion = ASSASSINATE, range = { 14, 24 }, pet = "ezio" },
 	{ motion = RELIC, range = { 14, 24 }, pet = "lara-croft" },
+	{ motion = CAR_THEFT, range = { 16, 26 }, pet = "jason-duval" },
+	{ motion = HEIST, range = { 16, 26 }, pet = "lucia-caminos" },
 	{ motion = DESTROY, range = { 14, 25 }, pet = "squidward" },
 }
 
@@ -129,6 +144,10 @@ local function Pet(session: () -> any, select_pet: any): Node
 	end
 	local function assassination_playing(): boolean
 		return selected_pet() == "ezio" and motion_pet == "ezio" and string.sub(frame:get(), 1, 12) == "assassinate-"
+	end
+	local function crime_playing(): boolean
+		local pet, name = selected_pet(), frame:get()
+		return pet == motion_pet and ((pet == "jason-duval" and string.sub(name, 1, 10) == "car-theft-") or (pet == "lucia-caminos" and string.sub(name, 1, 6) == "heist-"))
 	end
 	-- Each motion's next turn (its one pending timer, replaced as it fires),
 	-- and the playing motion's frame timers (let go when it ends).
@@ -233,19 +252,19 @@ local function Pet(session: () -> any, select_pet: any): Node
 			end,
 			absolute = true,
 			left = function(): number
-				local sprite_width = (if gag_playing() then GAG_W elseif assassination_playing() then EZIO_GAG_W elseif wide_pet() then WIDE_W else GRID_W) * PIXEL
+				local sprite_width = (if gag_playing() then GAG_W elseif assassination_playing() then EZIO_GAG_W elseif crime_playing() then CRIME_GAG_W elseif wide_pet() then WIDE_W else GRID_W) * PIXEL
 				local current = session()
 				local fraction = pet_position(position_setting:get(), if current then current.id else nil, position:get()) or 0
 				return math.floor(fraction * math.max(0, width:get() - sprite_width))
 			end,
 			top = function(): number
-				return if gag_playing() then -GAG_FOOT * PIXEL elseif assassination_playing() then -EZIO_GAG_FOOT * PIXEL elseif tall_pet() then -TALL_FOOT * PIXEL else -FOOT
+				return if gag_playing() then -GAG_FOOT * PIXEL elseif assassination_playing() then -EZIO_GAG_FOOT * PIXEL elseif crime_playing() then -CRIME_GAG_FOOT * PIXEL elseif tall_pet() then -TALL_FOOT * PIXEL else -FOOT
 			end,
 			w = function(): number
-				return (if gag_playing() then GAG_W elseif assassination_playing() then EZIO_GAG_W elseif wide_pet() then WIDE_W else GRID_W) * PIXEL
+				return (if gag_playing() then GAG_W elseif assassination_playing() then EZIO_GAG_W elseif crime_playing() then CRIME_GAG_W elseif wide_pet() then WIDE_W else GRID_W) * PIXEL
 			end,
 			h = function(): number
-				return (if gag_playing() then GAG_H elseif assassination_playing() then EZIO_GAG_H elseif tall_pet() then TALL_H else GRID_H) * PIXEL
+				return (if gag_playing() then GAG_H elseif assassination_playing() then EZIO_GAG_H elseif crime_playing() then CRIME_GAG_H elseif tall_pet() then TALL_H else GRID_H) * PIXEL
 			end,
 			ui.image {
 				src = function(): string

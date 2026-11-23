@@ -22,7 +22,7 @@ class SpriteTests(unittest.TestCase):
         sprite = self.load_generator()
         frames = sprite.generate()
         again = sprite.generate()
-        self.assertEqual(len(frames), 167)
+        self.assertEqual(len(frames), 193)
         for name, im in frames.items():
             with self.subTest(frame=name), Image.open(sprite.ROOT / "art" / f"{name}.png") as saved:
                 self.assertEqual(im.tobytes(), saved.convert("RGBA").tobytes())
@@ -56,11 +56,11 @@ class SpriteTests(unittest.TestCase):
         self.assertIn("local WIDE_W = 96", runtime)
         self.assertIn("art/{pet}/{name}.png", runtime)
         self.assertEqual(list((sprite.ROOT / "art").glob("*.png")), [])
-        for motion in ("BLINK", "FLICK", "TWITCH", "THROW", "DOG", "DESTROY", "EXPLODE", "CART", "ASSASSINATE", "RELIC", "MILK"):
+        for motion in ("BLINK", "FLICK", "TWITCH", "THROW", "DOG", "DESTROY", "EXPLODE", "CART", "ASSASSINATE", "RELIC", "CAR_THEFT", "HEIST", "MILK"):
             body = re.search(rf"local {motion} = (.*?)(?=\n--|\nlocal)", runtime, re.S).group(1)
             names = re.findall(r'\{ "([^" ]+)", \d+ \}', body)
             self.assertTrue(names)
-            pets = {"MILK": ("otis",), "CART": ("bergamini-cow",), "THROW": ("whiplash",), "DOG": ("anti-sergio",), "DESTROY": ("squidward",), "EXPLODE": ("creeper",), "ASSASSINATE": ("ezio",), "RELIC": ("lara-croft",)}.get(motion, sprite.PETS)
+            pets = {"MILK": ("otis",), "CART": ("bergamini-cow",), "THROW": ("whiplash",), "DOG": ("anti-sergio",), "DESTROY": ("squidward",), "EXPLODE": ("creeper",), "ASSASSINATE": ("ezio",), "RELIC": ("lara-croft",), "CAR_THEFT": ("jason-duval",), "HEIST": ("lucia-caminos",)}.get(motion, sprite.PETS)
             for pet in pets:
                 if pet == "whiplash" and motion in ("FLICK", "TWITCH"):
                     continue

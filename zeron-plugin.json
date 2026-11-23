@@ -1,149 +1,155 @@
 {
-  "id": "zeron-pixel-pets",
-  "name": "Zeron Pets",
-  "version": "0.4.28",
   "description": "Animated pixel pets perched on your message box.",
   "entry": "init.luau",
+  "id": "zeron-pixel-pets",
+  "name": "Zeron Pets",
   "permissions": [
     "ui.add",
     "sessions.read"
   ],
   "settings": [
     {
+      "default": "random",
+      "description": "Choose the pet perched on your message box.",
       "id": "pet",
       "kind": "choice",
       "label": "Pet",
-      "description": "Choose the pet perched on your message box.",
-      "style": "select",
-      "default": "random",
       "options": [
         {
-          "value": "anti-sergio",
-          "label": "Anti Sergio"
+          "label": "Anti Sergio",
+          "value": "anti-sergio"
         },
         {
-          "value": "bergamini-cow",
-          "label": "Bergamini Cow"
+          "label": "Bergamini Cow",
+          "value": "bergamini-cow"
         },
         {
-          "value": "creeper",
-          "label": "Creeper"
+          "label": "Creeper",
+          "value": "creeper"
         },
         {
-          "value": "darth-revan",
-          "label": "Darth Revan"
+          "label": "Darth Revan",
+          "value": "darth-revan"
         },
         {
-          "value": "ellie",
-          "label": "Ellie"
+          "label": "Ellie",
+          "value": "ellie"
         },
         {
-          "value": "ezio",
-          "label": "Ezio"
+          "label": "Ezio",
+          "value": "ezio"
         },
         {
-          "value": "gordon-freeman",
-          "label": "Gordon Freeman"
+          "label": "Gordon Freeman",
+          "value": "gordon-freeman"
         },
         {
-          "value": "grand-admiral-thrawn",
-          "label": "Grand Admiral Thrawn"
+          "label": "Grand Admiral Thrawn",
+          "value": "grand-admiral-thrawn"
         },
         {
-          "value": "hollow-knight",
-          "label": "Hollow Knight"
+          "label": "Hollow Knight",
+          "value": "hollow-knight"
         },
         {
-          "value": "jak-and-daxter",
-          "label": "Jak and Daxter"
+          "label": "Jak and Daxter",
+          "value": "jak-and-daxter"
         },
         {
-          "value": "joel",
-          "label": "Joel"
+          "label": "Jason Duval",
+          "value": "jason-duval"
         },
         {
-          "value": "kratos",
-          "label": "Kratos"
+          "label": "Joel",
+          "value": "joel"
         },
         {
-          "value": "la-casa-de-papel",
-          "label": "La Casa de Papel"
+          "label": "Kratos",
+          "value": "kratos"
         },
         {
-          "value": "lara-croft",
-          "label": "Lara Croft"
+          "label": "La Casa de Papel",
+          "value": "la-casa-de-papel"
         },
         {
-          "value": "omniman",
-          "label": "Omniman"
+          "label": "Lara Croft",
+          "value": "lara-croft"
         },
         {
-          "value": "ornstein-smough",
-          "label": "Ornstein & Smough"
+          "label": "Lucia Caminos",
+          "value": "lucia-caminos"
         },
         {
-          "value": "otis",
-          "label": "Otis the Cow"
+          "label": "Omniman",
+          "value": "omniman"
         },
         {
-          "value": "random",
-          "label": "Random"
+          "label": "Ornstein & Smough",
+          "value": "ornstein-smough"
         },
         {
-          "value": "cat",
-          "label": "Siamese"
+          "label": "Otis the Cow",
+          "value": "otis"
         },
         {
-          "value": "silksong",
-          "label": "Silksong"
+          "label": "Random",
+          "value": "random"
         },
         {
-          "value": "squidward",
-          "label": "Squidward"
+          "label": "Siamese",
+          "value": "cat"
         },
         {
-          "value": "the-witcher",
-          "label": "The Witcher"
+          "label": "Silksong",
+          "value": "silksong"
         },
         {
-          "value": "whiplash",
-          "label": "Whiplash"
+          "label": "Squidward",
+          "value": "squidward"
         },
         {
-          "value": "zombie",
-          "label": "Zombie"
+          "label": "The Witcher",
+          "value": "the-witcher"
+        },
+        {
+          "label": "Whiplash",
+          "value": "whiplash"
+        },
+        {
+          "label": "Zombie",
+          "value": "zombie"
         }
-      ]
+      ],
+      "style": "select"
     },
     {
+      "default": "right",
+      "description": "Choose where your pet appears in an existing chat.",
       "id": "position",
       "kind": "choice",
       "label": "Pet position",
-      "description": "Choose where your pet appears in an existing chat.",
-      "style": "select",
-      "default": "right",
       "options": [
         {
-          "value": "right",
-          "label": "Message box Â· Right"
+          "label": "Message box Â· Right",
+          "value": "right"
         },
         {
-          "value": "left",
-          "label": "Message box Â· Left"
+          "label": "Message box Â· Left",
+          "value": "left"
         },
         {
-          "value": "random",
-          "label": "Message box Â· Random"
+          "label": "Message box Â· Random",
+          "value": "random"
         }
-      ]
+      ],
+      "style": "select"
     }
   ],
   "signature": {
-    "key": "V4_WrL-_VOR23Mv03SjNPUcWyN9EHlLqu2AENLKQOWY",
     "files": {
       "AGENTS.md": "da66050dd1ac910a940494697a4291b98b4bac924bc877ffb65ee327e30340bc",
       "LICENSE": "2c46b021915b3fd3dafc4e87b5c0ad38afb7f4e95cdd9fab1fd9e71c1f7c2a83",
-      "README.md": "97d5c98cf64e738c5f3daf7ce9ede8b5a42dfc7eb2273fed15f958804eab9b22",
+      "README.md": "bda177ade0e93cc0ea7284cd5683c301a195be4256cc3e3980b7965c151192b0",
       "art-src/anti-sergio/atlas.png": "093eddc3157f6429d9f38e32b93205266c31487d60db585caa18783aa351550d",
       "art-src/bergamini-cow/atlas.png": "a72bd11b50734e166eab7a58ae7bc3acb91c74ea11a0906a79ef1457e51209c7",
       "art-src/bergamini-cow/prompt.txt": "8ca4d264d65b76fd320c455a16d7bb68e98eb7c8b59dac5bc47a0dc9cbe54f41",
@@ -160,21 +166,27 @@
       "art-src/hollow-knight/atlas.png": "ca624aa65b78cc6f35ac0dd230cc1427e454dacae7919b06b2f6a4121c6e98a3",
       "art-src/jak-and-daxter/atlas.png": "6d9577fa96b1a145874cf7938828470524398ddcabe8366048e208e38ade1b76",
       "art-src/jak-and-daxter/prompt.txt": "8fcf43bdc7fe6db0eb8e3fb63712d0755b49eb44cef939c86a904fa86c5d3383",
+      "art-src/jason-duval/atlas.png": "8d5ececbf811916eb12968c1fdc04034e310d9b1aa28af7409e4e96c7668bb89",
+      "art-src/jason-duval/car-theft-atlas.png": "ac20a69d340fec3accf7751a3d00f86ab734737eece2b5aae96c3b4cb2b5d5f1",
+      "art-src/jason-duval/prompt.txt": "760e7143863f0dd5d379ec4cd5dec2d0745483a6fab3b1afd0953fb85e9e424d",
       "art-src/joel/atlas.png": "c3a3d3986005fd2d7678ed0125d0389ed1469074d475093c4aa40fb35f11e039",
       "art-src/kratos/atlas.png": "08ea118ce66f1f48b2cfa1c85f083b51c83f8f84d6c12c98ef6b20fe154cbbad",
       "art-src/la-casa-de-papel/atlas.png": "3e25dc753c01250766fddede9c874aa9ab70161c2a55443d6eaf608aa3a77dc0",
       "art-src/lara-croft/atlas.png": "443d1be6710b9abdeef81aead0a46acb4b97dff99e792d2c02d38c388b125bf6",
       "art-src/lara-croft/relic-atlas.png": "52849fafa5b70af72eff6483307bc3635800b9b068830af4d63ff4bdaf3699e0",
+      "art-src/lucia-caminos/atlas.png": "af08db3a00c1b19fa3c7b3ce91267d2a1f065cce0a9e58fc963ecab5b505505e",
+      "art-src/lucia-caminos/heist-atlas.png": "2d813a64e253d3222adee4dccad215990be0010728ace44b2fea25c2a3d0fbb4",
+      "art-src/lucia-caminos/prompt.txt": "882b235b454fe72795a5e4cda336f54b0126f6501144e70d09693f972358285f",
       "art-src/omniman/atlas.png": "ae0542e140b454cbde4a2cd73b4df0fd587a424a520ca841e3aea9758207b2f0",
       "art-src/ornstein-smough/atlas.png": "d7f5f7e5462916ba9082a28452f8d8911de56afec1018e59ba69aad1753feaaa",
       "art-src/otis/atlas.png": "7a80a03fa65bc0bf08afdb6d9446eee911e7fd4acf396d41e9a2a9448283a206",
       "art-src/otis/prompt.txt": "cac49d3899c512249b833660fd53f5b61284b56c325211a9376f4c5a4dbf225c",
-      "art-src/preview.png": "84a7561816ee0c75900ae649093f8b8e3195411c91b7e51e8b5f1781c641dc03",
+      "art-src/preview.png": "74ed7a1ffe0b822e9bda3a2e62c6edff65be84cdfd9500c3a9b3ed989ce55d0c",
       "art-src/silksong/atlas.png": "64fc471ea3ac061046a2fe925bc619e3aa563a7c73659388fa776fa778a438f5",
-      "art-src/sprite.py": "c82e2c4c8ae764a533ad5d914192b0822332d21189c9cd7d048513bf0efcc837",
+      "art-src/sprite.py": "d7f90e7f2ed3a34f385754d3e91e1447969b95d48e2f855c4bcc9cdfbdc3a13f",
       "art-src/squidward/atlas.png": "9ef598876d39cf6b38f3a0e188d99098027a78dfb9919b9e43be505ce2612565",
       "art-src/squidward/machine-atlas.png": "db62926bfe0d79b88693b8353a85f18cdec28d4e2d00161e7c4fe16718b326da",
-      "art-src/test_sprite.py": "93888165f7a76f19a96d6f38c1dd734ea874c0eced2f6dc1d7d24deb56ed8117",
+      "art-src/test_sprite.py": "6e53355632aa370e16a111924bc714909971f9e34ce15340af5aa27706358d69",
       "art-src/the-witcher/atlas.png": "7f2f1dc43ac891baa750f97699fa5ad94f403a171d7a41e00254bde029825882",
       "art-src/whiplash/atlas.png": "00c309a86373c22c2fd415309be612ef4e35948c561336f23b0d74f0790c31e0",
       "art-src/zombie/atlas.png": "e550da7075cbf157cb21eb28c672e860c9c21ec8caed7165bdd5c9e28268aeda",
@@ -251,6 +263,19 @@
       "art/jak-and-daxter/idle.png": "4e5ddc4d13c4a3a6ace6f8b00aed1746855a9a3fd6e8ff0658ae9766890d3154",
       "art/jak-and-daxter/tail-out.png": "a7445d584446810dd4182b41c2f661755dda08f65668204f2584046a7ee36565",
       "art/jak-and-daxter/tail-over.png": "45f63279ba2fd01cd7f66e8552d83935336cf94a3a0616afe7e2490dcf5fd7a9",
+      "art/jason-duval/blink.png": "a4601828f7e79ea708063b2416271d96bb5100e4475d25563a165dfc3fc19d4f",
+      "art/jason-duval/car-theft-01.png": "9e269e8c662a6d023fc62a46ba44209ceaed4f7a342e587fd9d29308b0271706",
+      "art/jason-duval/car-theft-02.png": "73fd3352be23fb3be923776a62e92f801e0caf762664e2d040e65385ef15f6f6",
+      "art/jason-duval/car-theft-03.png": "3024d04738b1785381e4a063876e1b3a7058ebbf7e85a005064decab62b8800d",
+      "art/jason-duval/car-theft-04.png": "cc87ff3f1843e65e4519500ff482a288462d087b8b9685392a263d90a65eb673",
+      "art/jason-duval/car-theft-05.png": "91dba1804a796c592bf9d6f3c502909cc80b218083cf21a542b9adac70b17393",
+      "art/jason-duval/car-theft-06.png": "86111d8610203992fe5983b39099849f79a95b15a62597e680d84c574ec39028",
+      "art/jason-duval/car-theft-07.png": "1a60eafb5868d0279c0f9136cd565bb0490716c935baa22cc4865f656fe214df",
+      "art/jason-duval/car-theft-08.png": "6d08a46d1c99c29ff9f7af83ba937051daf5b875c3111df8a5f4c05adf0fd15f",
+      "art/jason-duval/ear.png": "7af947a6da5375fc0f673a6edf960bf8ad66fe3889c3c0446906a33fcb23f014",
+      "art/jason-duval/idle.png": "9e1d171bbd429227bb77bbe5f3ecb6087a4dec2ec66b96c2eeb34813f244ab34",
+      "art/jason-duval/tail-out.png": "fe47e88fb10647ddf774740899e4b80e0e3ec5bc5e9ee8b34d0ea19eafad3394",
+      "art/jason-duval/tail-over.png": "736c9960359f8fce9630484cfed4c7cf4504502cf16445f0db122917f69e185e",
       "art/joel/blink.png": "b3f2efe2b84691e751e1b61f55cf496b2ad1c71614eb2a2fbc94f029ff613f77",
       "art/joel/ear.png": "80a94d509b93328cc89874669a958a899a68f8b52cbb11a39ffa0674329c0ff6",
       "art/joel/idle.png": "80ec56e1bd7ebb17176a01003f2e3d78de58d1e5cdb0450eb2450efae5e7a833",
@@ -279,6 +304,19 @@
       "art/lara-croft/relic-08.png": "cd9ac3d53aeeaf73e2a22cb2684e533cd487ec5743c22e328beb7918470db7fd",
       "art/lara-croft/tail-out.png": "ab576b67a042597eb24770e2f9498f7c8a1e47f2d2b6cf3bc7ecb9228b65a563",
       "art/lara-croft/tail-over.png": "5c4e19fb3bb3b14728082c88243224169e43afacbc79c5152b74b593b71ed143",
+      "art/lucia-caminos/blink.png": "3a7fa805a3db4d877c4d897b1f3a6a869853c06bab80e2658ec12ba3e6d351b2",
+      "art/lucia-caminos/ear.png": "82d8e0408ef5a33aec1693268951c6f9af12acef079e56427afb856d8617b590",
+      "art/lucia-caminos/heist-01.png": "7a2dcb7c84c21c8456c33f78a6614211cf969f52de1a2e682b5b314e787fa59c",
+      "art/lucia-caminos/heist-02.png": "6c646b866c195a496850ccc54cc48963221746a373faff0cd7ab57f83bc38251",
+      "art/lucia-caminos/heist-03.png": "9dab6a0f8a22be69e1a3254b57ddeb02f334d9e2f0759157f606afaaa9b14c0c",
+      "art/lucia-caminos/heist-04.png": "027148a387ac1f7953eadf380f2eba10434f17ed691c12782f2820a5d5eae57a",
+      "art/lucia-caminos/heist-05.png": "0b7e676495524bf9d9978f7f1af24e716802b45c63ae1dfa73ebed3ff88fd967",
+      "art/lucia-caminos/heist-06.png": "893d4458a6f28a63a18f3564a948be2f7907af46ce3d910627d331131573e957",
+      "art/lucia-caminos/heist-07.png": "3ce9a2a52ed4c181b8f8d8254e35cb712dd9c2aab8a859e6903114f8e5d4e08a",
+      "art/lucia-caminos/heist-08.png": "f043be31d2262dbb605c73c192f684d82d5eaa154386e9f9b796749bfaa69da3",
+      "art/lucia-caminos/idle.png": "f899bae959b565179c03c4081c79df24772909560991c8d711cf9ac9823b0a36",
+      "art/lucia-caminos/tail-out.png": "9309ba4698a6fd1c62f6c4f783865d2677a43ad5d377dcefa49c1db553466573",
+      "art/lucia-caminos/tail-over.png": "d09192b17214610ddc5f72dbca42b1a76b18117e405f113d1aedff18f08371c3",
       "art/omniman/blink.png": "3cff3292f1a52d0b99f6fd29405e426010eb93e5e46d084d711e8ba5fab7bd2a",
       "art/omniman/ear.png": "e23def436721f96e5c36264ed67bcc86de8065e13067372e382ff7c300c08adc",
       "art/omniman/idle.png": "c3bf2865355832df53ebb36a503496bf1b2c3a7131b15ec76c4486b104cd3184",
@@ -306,25 +344,25 @@
       "art/squidward/ear.png": "c186b7dfca3ac0f5be6bd96459a40bc1f5b22853cd15c253aec0697a3ae4aaec",
       "art/squidward/idle.png": "38e3f9924134a47886bcc156791cc05565d3fb89a1cd67a0a5973c79fe539514",
       "art/squidward/machine-01.png": "7938d2e3cccfadcc01d3c84c30f70fb390ce69bdf3f7e074d90230121e2f7d1c",
-      "art/squidward/machine-02.png": "0b3df481ca96c256b76d8720d55bc5293a5510b344bf15527eecd83baa4919b5",
-      "art/squidward/machine-03.png": "9f54a53b182bfa1c35ad327f9625ff352b152dafdeb71f753e2bd493a19b5585",
+      "art/squidward/machine-02.png": "62a5638e026c24a8ce5bf29a2319758030dc20da23ed009dc21843f5a6a18d56",
+      "art/squidward/machine-03.png": "d2174e44603b85e23e48943d293cfdf700077fcda135c2b677c0afabea0f9155",
       "art/squidward/machine-04.png": "db96aed24043374cfb5df2072f8c16a497d17b378b948c986ebd51280a011915",
-      "art/squidward/machine-05.png": "e240589f7e0be2d58d7b830e4f2dc87c7e0406ccf7d8381e3cab57407ec44ac7",
-      "art/squidward/machine-06.png": "dd2f0c08b615fe18c17e2ba0a7a7cc2f4b710cdb508effae90ae2b2b2ed38c56",
-      "art/squidward/machine-07.png": "48c3d6a7d1e3f71e8443030d72dbf0d9637af272605e7a44e7955c4d9e187ec8",
-      "art/squidward/machine-08.png": "a681e33b3a8a0924e26d8637374c0cb3ef8b0718d05e5451093ed6d25dc10d85",
-      "art/squidward/machine-09.png": "f7248d7afd7e8802e9cec1508b657b2615f69c36b726fdbb0372fa00fc493841",
-      "art/squidward/machine-10.png": "b7051a16b1b908303445cf70c1ef7e1127dc51117ec7803b32217a99a979ec22",
-      "art/squidward/machine-11.png": "5f6e0fae8d6fb0140a163c7ec7c1c0f8f5798b2971c4a7900e631439e1bf946a",
-      "art/squidward/machine-12.png": "47b994549cc5b09b3b80fe3890de9e9edf09bed22487107a98756eed2445f794",
+      "art/squidward/machine-05.png": "0c2866dee1ec4c9e6fdc1b444c6f27139864642e5176acb9cefb4a42c99c4b74",
+      "art/squidward/machine-06.png": "e8c8c006a9a1c5a4b477b4652d1cd59208dbe1362fc1f422b2347bdaf6a827e9",
+      "art/squidward/machine-07.png": "4fc14077b2f29f1bf260ee48be55ebc809119d86c29107aaaa5b58a7de140c00",
+      "art/squidward/machine-08.png": "6c91d242de56e3bd7d84db115b05ff948e044b58270778bd10764484bdd17b82",
+      "art/squidward/machine-09.png": "33bba83362d4afa6321a6e51b3bc6938b39ad6744c14465f72bb5bedd0635417",
+      "art/squidward/machine-10.png": "c6eebb46673cd6a053480710e93e613cc4da3deb89e8783315fd091cf0076587",
+      "art/squidward/machine-11.png": "142e09c4caf699a80fe90f2bbc26aabbe41794e698f1a9ebbe361003fec79793",
+      "art/squidward/machine-12.png": "9a72687f0cea71d0d393c4282128b403b4818b0538e1dbb14c34150ca56a1ca7",
       "art/squidward/machine-13.png": "d0fbec108c729e2496363e05feaaf59bb056734f1bf930f066a5d1ba0f7ef06e",
       "art/squidward/machine-14.png": "c69e85d3dc90f6692d82455d0d930713bb0a983dc8d4c70dd0db55b9f152e1ce",
       "art/squidward/machine-15.png": "7c5077f8f5208690a3e7ece02b0f6dde89deaf7aaacbf814d66126eb6ce08e55",
       "art/squidward/machine-16.png": "edd05c774c1d1f5ee6a525962a26a6c532b7bf4dac95a0abaaf69981fc05eb49",
       "art/squidward/machine-17.png": "301cc9915a56720dc74caa67c3e02bdea9f1f4406639140f6e0881900059f733",
-      "art/squidward/machine-18.png": "9c472aee1fb8f00181897c860fac34cc8bea51f211ec35f879e334a2ec765935",
+      "art/squidward/machine-18.png": "8e57de8c8621e48569ec3966b3318579257716d65b9486b6bf03752692732ebc",
       "art/squidward/machine-19.png": "58699974d871791fe426f009cb4c276b2c0aba65cd7f42a67117aea6767f898c",
-      "art/squidward/machine-20.png": "4e4b9c2b49e34da37096034be4e3dcc9927f6d7311166aed864e8092845b368d",
+      "art/squidward/machine-20.png": "87c2e18a113bd8304eb00be0f3a5b590fe1809cf454394040bc1e377636c0146",
       "art/squidward/tail-out.png": "476dea1a3f98643d11b7dd2be2f83357304494a1a8c9dc4f06dcdc553f836964",
       "art/squidward/tail-over.png": "2699f2627a88e473a6b69651b9885578893eba43fe2d9fa6e9f69964aedf8a65",
       "art/the-witcher/blink.png": "c762e8612913ffcddd2c8b3ea6eb7919f0dec1acf459810f3d640a6e30158039",
@@ -345,16 +383,18 @@
       "art/zombie/idle.png": "dde7f58e4ba1f952122991a733a14724739aab5464b0a65c0f52556e34f116ee",
       "art/zombie/tail-out.png": "649e394ba3540c6a5d2879f0e39081ce9368aa65a987eb22fc2b0987689a6d6d",
       "art/zombie/tail-over.png": "304152cf3328be73a65432399696a728a4a55f2d05595ec4890a8ab9e6bf1254",
-      "init.luau": "8995550f171cfe888891116a49e0f8a6680e2a8acfca72f3d9130999cb19251a",
+      "init.luau": "5036e309d9423dbdbf456a13e0fc95e5e9f83aa06fe09548ed684a8b62de0f42",
       "locales/en.json": "d9cac8d7410dffa9811f9166e2a2674c7136f38d1b9f44f490e73c20eeaa3ca9",
       "locales/pt.json": "4d87efc7bdd02dd43dff5f8b557d7f32aa30b39c87be30094d6f3e270196a6f7",
       "pet-handoff.luau": "1b6bd01bcf5fcf25f69a687ae5abe2b2378995d498d8180fd65aa2bb947be500",
       "pet-position.luau": "7a53b8b9a6e069d1eafb4984b944cfab735d3f27485633933cab369db2878263",
       "pet-selection.luau": "4700ea425c21fcbccd49d59d8ad028812bb188c4cfbfe2f18b8b37870b95bd4e",
-      "scripts/test_pet_click.lua": "5b98e653368c5cb8fdac8e4f40f726db830ea5396df3607ac47e5e6e12dc726f",
-      "scripts/test_pet_selection.lua": "28dd1e48acca7415085f13923923fde8728acd8d5844fdba79186e09fd122b49",
+      "scripts/test_pet_click.lua": "51054f07d6fd86ea9fb780dfa5b6004fec7700f5dba34e10845e3e14f5ff7606",
+      "scripts/test_pet_selection.lua": "94f6ca7c6aaf80740707582b8982520b64dd6472c8be10634b51a13d103fb072",
       "zeron.luau": "b7b603c0b2e2e4d51a5ed3764141038d12a2c2af96ac793a09843ad3b7ff0d39"
     },
-    "sig": "98wWNJef7oPMWgvxKyrJaM3b3CZTkUn7TdHUS687jo702WRaj_R8A6i1LHrL7BU9SFRb1G-2SeAC_984NuYVAQ"
-  }
+    "key": "V4_WrL-_VOR23Mv03SjNPUcWyN9EHlLqu2AENLKQOWY",
+    "sig": "qIIM7JOlV27EeAYUtBteiwPWeadZ6xDlXbUPd9rYjZxbjEdVvft6eV_fDTTNo_QoHi3-lRKaWkGXhH4YB4EoCQ"
+  },
+  "version": "0.4.30"
 }
