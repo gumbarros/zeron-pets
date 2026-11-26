@@ -22,7 +22,7 @@ class SpriteTests(unittest.TestCase):
         sprite = self.load_generator()
         frames = sprite.generate()
         again = sprite.generate()
-        self.assertEqual(len(frames), 198)
+        self.assertEqual(len(frames), 203)
         for name, im in frames.items():
             with self.subTest(frame=name), Image.open(sprite.ROOT / "art" / f"{name}.png") as saved:
                 self.assertEqual(im.tobytes(), saved.convert("RGBA").tobytes())

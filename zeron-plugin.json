@@ -80,6 +80,10 @@
           "value": "lucia-caminos"
         },
         {
+          "label": "Mano Ygor",
+          "value": "mano-ygor"
+        },
+        {
           "label": "Omniman",
           "value": "omniman"
         },
@@ -153,7 +157,7 @@
     "files": {
       "AGENTS.md": "a2cafa470482102bc689b03fc1a106b573e7cc53d45d0935a33b7831f968cc2b",
       "LICENSE": "e776600f641baae3fd37387829b40fe2d7c12d01785dc8b846658b7cbb0342e3",
-      "README.md": "b2f564f97c33c1dcf64125ffaf32b8b2916527dc0e9a6eebd8af45171bb27779",
+      "README.md": "f5376b9e29ca9978813e29c7fcb5f11507b5478dd8e66aa21ab441d02159e909",
       "art-src/anti-sergio/atlas.png": "093eddc3157f6429d9f38e32b93205266c31487d60db585caa18783aa351550d",
       "art-src/bergamini-cow/atlas.png": "a72bd11b50734e166eab7a58ae7bc3acb91c74ea11a0906a79ef1457e51209c7",
       "art-src/bergamini-cow/prompt.txt": "82340c27fb87fcdd021fce102f1e72c81cf32fc53eecf1ccfbd2c6f10bc67b52",
@@ -181,18 +185,20 @@
       "art-src/lucia-caminos/atlas.png": "af08db3a00c1b19fa3c7b3ce91267d2a1f065cce0a9e58fc963ecab5b505505e",
       "art-src/lucia-caminos/heist-atlas.png": "2d813a64e253d3222adee4dccad215990be0010728ace44b2fea25c2a3d0fbb4",
       "art-src/lucia-caminos/prompt.txt": "882b235b454fe72795a5e4cda336f54b0126f6501144e70d09693f972358285f",
+      "art-src/mano-ygor/atlas.png": "c4ba360f34da9f26d23f78bcb86ebd413ea2ccf0f43e5affa84e7c7c75b7a28e",
+      "art-src/mano-ygor/source.txt": "2588ff31fe9e413bfc26306c8a8b337a18b98adcc554e158912faac95a710d7e",
       "art-src/omniman/atlas.png": "ae0542e140b454cbde4a2cd73b4df0fd587a424a520ca841e3aea9758207b2f0",
       "art-src/ornstein-smough/atlas.png": "d7f5f7e5462916ba9082a28452f8d8911de56afec1018e59ba69aad1753feaaa",
       "art-src/otis/atlas.png": "7a80a03fa65bc0bf08afdb6d9446eee911e7fd4acf396d41e9a2a9448283a206",
       "art-src/otis/prompt.txt": "73629d3bf56c37ce35d338dcb8ff8111892b53dedf5c02ac797cb254dad3b5ca",
-      "art-src/preview.png": "35aa163db10f5c2ebb6dae9b1d14e11789a12f640b5e7e2c223ba6f93aff0174",
+      "art-src/preview.png": "09d516a65ed1b8b504bc440a93e90cd2345474d6cb5474b1a84fc88df08b9bd6",
       "art-src/silksong/atlas.png": "64fc471ea3ac061046a2fe925bc619e3aa563a7c73659388fa776fa778a438f5",
-      "art-src/sprite.py": "f7ac9ec5d5286450b21a55bd8d81527a744ef3039ec0435dd84a7b4fe6ea625c",
+      "art-src/sprite.py": "66643aa21d5014497e3a483af3cced3757752e49f76d21fec2bb4055a3d7a46c",
       "art-src/squidward/atlas.png": "9ef598876d39cf6b38f3a0e188d99098027a78dfb9919b9e43be505ce2612565",
       "art-src/squidward/machine-atlas.png": "db62926bfe0d79b88693b8353a85f18cdec28d4e2d00161e7c4fe16718b326da",
       "art-src/stormtrooper/atlas.png": "2b4a9184f03c9760996b089da2686ab9db4623258b12da74a602d5e507bb56cf",
       "art-src/stormtrooper/prompt.txt": "0591f09d20bbf315a62f419ac76930dbeb27a94950d8c87051e8043d7966aeba",
-      "art-src/test_sprite.py": "c63224fced4b1f09ff0c0691e242c7933b6ba0812ebfbf13693767908366b053",
+      "art-src/test_sprite.py": "7dd9397efbfe79466e27b02e0676bb2adaf582be9f2bb7f0fae43e38a957e9a7",
       "art-src/the-witcher/atlas.png": "7f2f1dc43ac891baa750f97699fa5ad94f403a171d7a41e00254bde029825882",
       "art-src/whiplash/atlas.png": "00c309a86373c22c2fd415309be612ef4e35948c561336f23b0d74f0790c31e0",
       "art-src/zombie/atlas.png": "e550da7075cbf157cb21eb28c672e860c9c21ec8caed7165bdd5c9e28268aeda",
@@ -323,6 +329,11 @@
       "art/lucia-caminos/idle.png": "f899bae959b565179c03c4081c79df24772909560991c8d711cf9ac9823b0a36",
       "art/lucia-caminos/tail-out.png": "9309ba4698a6fd1c62f6c4f783865d2677a43ad5d377dcefa49c1db553466573",
       "art/lucia-caminos/tail-over.png": "d09192b17214610ddc5f72dbca42b1a76b18117e405f113d1aedff18f08371c3",
+      "art/mano-ygor/blink.png": "7cbc8e8ecc3581be9911089b7166e837a2e2d58516887fe859822b64ea931737",
+      "art/mano-ygor/ear.png": "a2c56cce964529425c11f83580c03d3ff6f2f8f9f1060e44ef8e650a11fcce42",
+      "art/mano-ygor/idle.png": "74319aab5f4a61edb6750d8ff13d9c2a70ca2e7bf6850ad7b0c580d0438da466",
+      "art/mano-ygor/tail-out.png": "a82b961f8ecb5caf8156508023a8e617d748e233d094851c677b0a7eb28dba82",
+      "art/mano-ygor/tail-over.png": "81bfa2cf3bfa13f38d61db286c06f85867f56959c1becca06db86eb20290c8c6",
       "art/omniman/blink.png": "3cff3292f1a52d0b99f6fd29405e426010eb93e5e46d084d711e8ba5fab7bd2a",
       "art/omniman/ear.png": "e23def436721f96e5c36264ed67bcc86de8065e13067372e382ff7c300c08adc",
       "art/omniman/idle.png": "c3bf2865355832df53ebb36a503496bf1b2c3a7131b15ec76c4486b104cd3184",
@@ -395,17 +406,17 @@
       "art/zombie/tail-out.png": "649e394ba3540c6a5d2879f0e39081ce9368aa65a987eb22fc2b0987689a6d6d",
       "art/zombie/tail-over.png": "304152cf3328be73a65432399696a728a4a55f2d05595ec4890a8ab9e6bf1254",
       "init.luau": "54b62ac1b5b8bb6229db0400ee6e807a248fac972dd42662ae301923fc0fadb0",
-      "locales/en.json": "6fa489df742b91f5dd60176dd332f244af14c3e12f41bf0ff7aef31aaf153710",
-      "locales/pt.json": "1e3585e0ca5a4240df094ac9c7630cc72723d5df87dcc996f5e6a5468743155d",
+      "locales/en.json": "5a50702618b8d524b6e77d67e5b5396ace1be72106a9957054fa3d6577f711c7",
+      "locales/pt.json": "b83355b78a9b832720adfa45c38c0968a5d60caf8418a8544da91f12c347f05a",
       "pet-handoff.luau": "703ac82e83f4b3bbe6a7edeb4608db81783cc2c3a7862e09084fdf98fb7c4ea4",
       "pet-position.luau": "9fa28ace6287a14385fdb8be4805503dfc7028c978f781e5b7bb679ddfd06b12",
-      "pet-selection.luau": "daa3714f3473a4f09d7cfd7489a3b45efd955923753b2b94248acf5949070812",
+      "pet-selection.luau": "b75c859513770e5367f5d2a7d18ddb46a77e397149f3086d83872e6f6e8d61bf",
       "scripts/test_pet_click.lua": "aea11de0fedca77394398eb8e618cc6535aff9ba065dbfcc2fa6dbed14fa5ce1",
-      "scripts/test_pet_selection.lua": "b04e30f528617e6e421aeba92dd652272c5fefab6c8776ad697732f689b2eff3",
+      "scripts/test_pet_selection.lua": "b4770e4c3e7b104aa62d91ada375f6f352b0dd49957b5394cca24da098ddefeb",
       "zeron.luau": "178b79b55566c9643b26181539b8e1348482179a169da98ba384cd66f3f8a483"
     },
     "key": "fZunXRtD2N1sJBeX-wM280h4o3K1A2btmY2o7JybW-Q",
-    "sig": "mcUzKQcpr6_GoZu1w02_Ap0CrfCmYaJzyS2cmUAJf9vhU5v9jocdxlxXA3SI0up3Xlnz-sHWlfuvQLAzlrYOBw"
+    "sig": "v1YWkW_twxdWjhjF-c4-HYsl6GHoldv7aV8QTwaf9U2HZIMifNm92V3erSl8J3BHKJAulXD2RULGa0Wp8tMFCw"
   },
-  "version": "0.4.32"
+  "version": "0.4.34"
 }

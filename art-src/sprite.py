@@ -7,7 +7,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parent.parent
-PETS = ("otis", "bergamini-cow", "cat", "squidward", "darth-revan", "the-witcher", "omniman", "whiplash", "anti-sergio", "hollow-knight", "gordon-freeman", "kratos", "ellie", "joel", "la-casa-de-papel", "ezio", "lara-croft", "silksong", "zombie", "ornstein-smough", "creeper", "grand-admiral-thrawn", "jak-and-daxter", "jason-duval", "lucia-caminos", "stormtrooper")
+PETS = ("otis", "bergamini-cow", "cat", "squidward", "darth-revan", "the-witcher", "omniman", "whiplash", "anti-sergio", "hollow-knight", "gordon-freeman", "kratos", "ellie", "joel", "la-casa-de-papel", "ezio", "lara-croft", "silksong", "zombie", "ornstein-smough", "creeper", "grand-admiral-thrawn", "jak-and-daxter", "jason-duval", "lucia-caminos", "stormtrooper", "mano-ygor")
 FRAMES = ("idle", "blink", "tail-out", "tail-over", "ear")
 PET_FRAMES = {pet: FRAMES for pet in PETS}
 PET_FRAMES["whiplash"] = ("idle", "blink", "windup", "lift", "release", "flight", "follow-through", "recover")
@@ -98,7 +98,7 @@ def generate():
         with Image.open(Path(__file__).parent / pet / filename) as source:
             atlas = source.convert("RGBA")
         cell_w, cell_h = (atlas.width + columns - 1) // columns, (atlas.height + rows - 1) // rows
-        preserve_layout = pet in ("otis", "bergamini-cow", "whiplash", "anti-sergio", "squidward", "ornstein-smough", "stormtrooper") or filename in ("assassination-atlas.png", "relic-atlas.png", "car-theft-atlas.png", "heist-atlas.png")
+        preserve_layout = pet in ("otis", "bergamini-cow", "whiplash", "anti-sergio", "squidward", "ornstein-smough", "stormtrooper", "mano-ygor") or filename in ("assassination-atlas.png", "relic-atlas.png", "car-theft-atlas.png", "heist-atlas.png")
         cells = []
         for index in range(len(names)):
             col, row = index % columns, index // columns

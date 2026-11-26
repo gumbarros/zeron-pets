@@ -1,0 +1,9 @@
+Mano Ygor uses the five pixel-art PNGs supplied by the user.
+The atlas preserves the images at their original scale and aligns the shoes.
+
+Atlas cells from left to right
+1. Idle (attachment 1)
+2. Blink (attachment 3)
+3. Typing (attachment 2)
+4. Typing with a raised hand (attachment 4)
+5. Alternate look (attachment 5)
