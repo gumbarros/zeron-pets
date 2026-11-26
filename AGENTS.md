@@ -128,8 +128,9 @@ lua scripts/test_pet_click.lua
 
 Random selection uses chat IDs and persists across reopening and restarting.
 Different chats can share a pet; roster changes can remap Random choices.
-A new-chat preview ignores the configured character, then keeps its pet when
-that chat is created. Explicit setting changes override the inherited choice.
+A configured character appears in every chat, including new drafts. With
+Random, a draft keeps its companion when that chat is created. An explicit
+selection overrides pets saved by earlier versions.
 The `sessions.read` permission reads IDs, not messages; `ui.add` draws the pet.
 
 Click animations reuse the bounded scheduler in `init.luau`: one motion at a

@@ -108,6 +108,10 @@
           "value": "squidward"
         },
         {
+          "label": "Stormtrooper",
+          "value": "stormtrooper"
+        },
+        {
           "label": "The Witcher",
           "value": "the-witcher"
         },
@@ -147,12 +151,12 @@
   ],
   "signature": {
     "files": {
-      "AGENTS.md": "da66050dd1ac910a940494697a4291b98b4bac924bc877ffb65ee327e30340bc",
-      "LICENSE": "2c46b021915b3fd3dafc4e87b5c0ad38afb7f4e95cdd9fab1fd9e71c1f7c2a83",
-      "README.md": "bda177ade0e93cc0ea7284cd5683c301a195be4256cc3e3980b7965c151192b0",
+      "AGENTS.md": "a2cafa470482102bc689b03fc1a106b573e7cc53d45d0935a33b7831f968cc2b",
+      "LICENSE": "e776600f641baae3fd37387829b40fe2d7c12d01785dc8b846658b7cbb0342e3",
+      "README.md": "b2f564f97c33c1dcf64125ffaf32b8b2916527dc0e9a6eebd8af45171bb27779",
       "art-src/anti-sergio/atlas.png": "093eddc3157f6429d9f38e32b93205266c31487d60db585caa18783aa351550d",
       "art-src/bergamini-cow/atlas.png": "a72bd11b50734e166eab7a58ae7bc3acb91c74ea11a0906a79ef1457e51209c7",
-      "art-src/bergamini-cow/prompt.txt": "8ca4d264d65b76fd320c455a16d7bb68e98eb7c8b59dac5bc47a0dc9cbe54f41",
+      "art-src/bergamini-cow/prompt.txt": "82340c27fb87fcdd021fce102f1e72c81cf32fc53eecf1ccfbd2c6f10bc67b52",
       "art-src/cat/atlas.png": "bc6217ad4aa06258858d851fc9d72bf05abfee888844f826f182fa80f955047c",
       "art-src/creeper/atlas.png": "8f65cbcbab6664988030d814c25afdf6e1f8e193aa95b9b16048283fd399b910",
       "art-src/creeper/explosion-atlas.png": "794741aa6724654cd576bf2734cd03029926d31226a1c545b5c845cb87c67bb9",
@@ -162,10 +166,10 @@
       "art-src/ezio/atlas.png": "da40173addb35a744ddeb7077f6610ab3b3c8f9ebd40ea797092883545a37051",
       "art-src/gordon-freeman/atlas.png": "f7d23a116b7b2d2feaab1fec78f7c4c0c83749360e6a1fdfe8745462ae76cfae",
       "art-src/grand-admiral-thrawn/atlas.png": "240bf2b0ca9b39f853a8299e82964802b94d7af2eec199aa5796dce484d1a41c",
-      "art-src/grand-admiral-thrawn/prompt.txt": "dfdccc24a4c6271e088b23b8022f0bc6d923c2d803f85332d9790be84213de37",
+      "art-src/grand-admiral-thrawn/prompt.txt": "c630292a07957292cd86d2a3bc53d8fd8d1174d2f2cdbd45419b127dd4167f2d",
       "art-src/hollow-knight/atlas.png": "ca624aa65b78cc6f35ac0dd230cc1427e454dacae7919b06b2f6a4121c6e98a3",
       "art-src/jak-and-daxter/atlas.png": "6d9577fa96b1a145874cf7938828470524398ddcabe8366048e208e38ade1b76",
-      "art-src/jak-and-daxter/prompt.txt": "8fcf43bdc7fe6db0eb8e3fb63712d0755b49eb44cef939c86a904fa86c5d3383",
+      "art-src/jak-and-daxter/prompt.txt": "b724718902bd426d1f7e7fa55e22ae0a595ade9a65451779deb94fcec4f54dda",
       "art-src/jason-duval/atlas.png": "8d5ececbf811916eb12968c1fdc04034e310d9b1aa28af7409e4e96c7668bb89",
       "art-src/jason-duval/car-theft-atlas.png": "ac20a69d340fec3accf7751a3d00f86ab734737eece2b5aae96c3b4cb2b5d5f1",
       "art-src/jason-duval/prompt.txt": "760e7143863f0dd5d379ec4cd5dec2d0745483a6fab3b1afd0953fb85e9e424d",
@@ -180,13 +184,15 @@
       "art-src/omniman/atlas.png": "ae0542e140b454cbde4a2cd73b4df0fd587a424a520ca841e3aea9758207b2f0",
       "art-src/ornstein-smough/atlas.png": "d7f5f7e5462916ba9082a28452f8d8911de56afec1018e59ba69aad1753feaaa",
       "art-src/otis/atlas.png": "7a80a03fa65bc0bf08afdb6d9446eee911e7fd4acf396d41e9a2a9448283a206",
-      "art-src/otis/prompt.txt": "cac49d3899c512249b833660fd53f5b61284b56c325211a9376f4c5a4dbf225c",
-      "art-src/preview.png": "74ed7a1ffe0b822e9bda3a2e62c6edff65be84cdfd9500c3a9b3ed989ce55d0c",
+      "art-src/otis/prompt.txt": "73629d3bf56c37ce35d338dcb8ff8111892b53dedf5c02ac797cb254dad3b5ca",
+      "art-src/preview.png": "35aa163db10f5c2ebb6dae9b1d14e11789a12f640b5e7e2c223ba6f93aff0174",
       "art-src/silksong/atlas.png": "64fc471ea3ac061046a2fe925bc619e3aa563a7c73659388fa776fa778a438f5",
-      "art-src/sprite.py": "d7f90e7f2ed3a34f385754d3e91e1447969b95d48e2f855c4bcc9cdfbdc3a13f",
+      "art-src/sprite.py": "f7ac9ec5d5286450b21a55bd8d81527a744ef3039ec0435dd84a7b4fe6ea625c",
       "art-src/squidward/atlas.png": "9ef598876d39cf6b38f3a0e188d99098027a78dfb9919b9e43be505ce2612565",
       "art-src/squidward/machine-atlas.png": "db62926bfe0d79b88693b8353a85f18cdec28d4e2d00161e7c4fe16718b326da",
-      "art-src/test_sprite.py": "6e53355632aa370e16a111924bc714909971f9e34ce15340af5aa27706358d69",
+      "art-src/stormtrooper/atlas.png": "2b4a9184f03c9760996b089da2686ab9db4623258b12da74a602d5e507bb56cf",
+      "art-src/stormtrooper/prompt.txt": "0591f09d20bbf315a62f419ac76930dbeb27a94950d8c87051e8043d7966aeba",
+      "art-src/test_sprite.py": "c63224fced4b1f09ff0c0691e242c7933b6ba0812ebfbf13693767908366b053",
       "art-src/the-witcher/atlas.png": "7f2f1dc43ac891baa750f97699fa5ad94f403a171d7a41e00254bde029825882",
       "art-src/whiplash/atlas.png": "00c309a86373c22c2fd415309be612ef4e35948c561336f23b0d74f0790c31e0",
       "art-src/zombie/atlas.png": "e550da7075cbf157cb21eb28c672e860c9c21ec8caed7165bdd5c9e28268aeda",
@@ -365,6 +371,11 @@
       "art/squidward/machine-20.png": "87c2e18a113bd8304eb00be0f3a5b590fe1809cf454394040bc1e377636c0146",
       "art/squidward/tail-out.png": "476dea1a3f98643d11b7dd2be2f83357304494a1a8c9dc4f06dcdc553f836964",
       "art/squidward/tail-over.png": "2699f2627a88e473a6b69651b9885578893eba43fe2d9fa6e9f69964aedf8a65",
+      "art/stormtrooper/blink.png": "08171de7a1a95dca4436e403de326542b1e95ecc38154b65e411a8d6ab8f4e90",
+      "art/stormtrooper/ear.png": "21ad3a184fc6468eea9afd443ead630f6deb0e9821724c8348b6acdfacb28786",
+      "art/stormtrooper/idle.png": "8dc004342e0d810c3fba56321ad1214b84f2490685ab993f81bab204ce0163d5",
+      "art/stormtrooper/tail-out.png": "1935eb8d1064793ade2477fb6e0559d312f5e862e847189b2aa995c881c2d232",
+      "art/stormtrooper/tail-over.png": "f145b9fae12f59cdf62e5ed86466f05ac6436c0577a6e03b6693389a57fc7944",
       "art/the-witcher/blink.png": "c762e8612913ffcddd2c8b3ea6eb7919f0dec1acf459810f3d640a6e30158039",
       "art/the-witcher/ear.png": "c5d74628a03fcad7540797ef8af3a77cbdd44d8f76536277f0dd4da23bb6fd0b",
       "art/the-witcher/idle.png": "f2605778eb379d2fc31b4904c153ec5da376d92c971ed7a1d0e36a1609b82068",
@@ -383,18 +394,18 @@
       "art/zombie/idle.png": "dde7f58e4ba1f952122991a733a14724739aab5464b0a65c0f52556e34f116ee",
       "art/zombie/tail-out.png": "649e394ba3540c6a5d2879f0e39081ce9368aa65a987eb22fc2b0987689a6d6d",
       "art/zombie/tail-over.png": "304152cf3328be73a65432399696a728a4a55f2d05595ec4890a8ab9e6bf1254",
-      "init.luau": "5036e309d9423dbdbf456a13e0fc95e5e9f83aa06fe09548ed684a8b62de0f42",
-      "locales/en.json": "d9cac8d7410dffa9811f9166e2a2674c7136f38d1b9f44f490e73c20eeaa3ca9",
-      "locales/pt.json": "4d87efc7bdd02dd43dff5f8b557d7f32aa30b39c87be30094d6f3e270196a6f7",
-      "pet-handoff.luau": "1b6bd01bcf5fcf25f69a687ae5abe2b2378995d498d8180fd65aa2bb947be500",
-      "pet-position.luau": "7a53b8b9a6e069d1eafb4984b944cfab735d3f27485633933cab369db2878263",
-      "pet-selection.luau": "4700ea425c21fcbccd49d59d8ad028812bb188c4cfbfe2f18b8b37870b95bd4e",
-      "scripts/test_pet_click.lua": "51054f07d6fd86ea9fb780dfa5b6004fec7700f5dba34e10845e3e14f5ff7606",
-      "scripts/test_pet_selection.lua": "94f6ca7c6aaf80740707582b8982520b64dd6472c8be10634b51a13d103fb072",
-      "zeron.luau": "b7b603c0b2e2e4d51a5ed3764141038d12a2c2af96ac793a09843ad3b7ff0d39"
+      "init.luau": "54b62ac1b5b8bb6229db0400ee6e807a248fac972dd42662ae301923fc0fadb0",
+      "locales/en.json": "6fa489df742b91f5dd60176dd332f244af14c3e12f41bf0ff7aef31aaf153710",
+      "locales/pt.json": "1e3585e0ca5a4240df094ac9c7630cc72723d5df87dcc996f5e6a5468743155d",
+      "pet-handoff.luau": "703ac82e83f4b3bbe6a7edeb4608db81783cc2c3a7862e09084fdf98fb7c4ea4",
+      "pet-position.luau": "9fa28ace6287a14385fdb8be4805503dfc7028c978f781e5b7bb679ddfd06b12",
+      "pet-selection.luau": "daa3714f3473a4f09d7cfd7489a3b45efd955923753b2b94248acf5949070812",
+      "scripts/test_pet_click.lua": "aea11de0fedca77394398eb8e618cc6535aff9ba065dbfcc2fa6dbed14fa5ce1",
+      "scripts/test_pet_selection.lua": "b04e30f528617e6e421aeba92dd652272c5fefab6c8776ad697732f689b2eff3",
+      "zeron.luau": "178b79b55566c9643b26181539b8e1348482179a169da98ba384cd66f3f8a483"
     },
-    "key": "V4_WrL-_VOR23Mv03SjNPUcWyN9EHlLqu2AENLKQOWY",
-    "sig": "qIIM7JOlV27EeAYUtBteiwPWeadZ6xDlXbUPd9rYjZxbjEdVvft6eV_fDTTNo_QoHi3-lRKaWkGXhH4YB4EoCQ"
+    "key": "fZunXRtD2N1sJBeX-wM280h4o3K1A2btmY2o7JybW-Q",
+    "sig": "mcUzKQcpr6_GoZu1w02_Ap0CrfCmYaJzyS2cmUAJf9vhU5v9jocdxlxXA3SI0up3Xlnz-sHWlfuvQLAzlrYOBw"
   },
-  "version": "0.4.30"
+  "version": "0.4.32"
 }

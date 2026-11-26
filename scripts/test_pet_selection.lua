@@ -1,6 +1,6 @@
 -- Run from the repository root: lua scripts/test_pet_selection.lua
 local choose = dofile("pet-selection.luau")
-local pets = { "otis", "bergamini-cow", "anti-sergio", "cat", "darth-revan", "ellie", "ezio", "gordon-freeman", "hollow-knight", "jason-duval", "joel", "kratos", "la-casa-de-papel", "lara-croft", "lucia-caminos", "omniman", "squidward", "the-witcher", "whiplash", "silksong", "zombie", "ornstein-smough", "creeper", "grand-admiral-thrawn", "jak-and-daxter" }
+local pets = { "otis", "bergamini-cow", "anti-sergio", "cat", "darth-revan", "ellie", "ezio", "gordon-freeman", "hollow-knight", "jason-duval", "joel", "kratos", "la-casa-de-papel", "lara-croft", "lucia-caminos", "omniman", "squidward", "the-witcher", "whiplash", "silksong", "zombie", "ornstein-smough", "creeper", "grand-admiral-thrawn", "jak-and-daxter", "stormtrooper" }
 local seen = {}
 for _, pet in ipairs(pets) do
 	seen[pet] = 0
@@ -26,7 +26,7 @@ end
 for i, pet in ipairs(pets) do
 	local random = (i - 0.5) / #pets
 	for _, id in ipairs({ false, "" }) do
-		assert(choose("cat", id or nil, random) == pet, "New-chat preview must ignore the configured pet")
+		assert(choose("stormtrooper", id or nil, random) == "stormtrooper", "New-chat preview must show the configured pet")
 		assert(choose("random", id or nil, random) == pet, "New-chat preview must keep its random pet")
 	end
 end
@@ -55,15 +55,15 @@ local function new_selector()
 end
 local select = new_selector()
 local existing = { ["chat-a"] = {} }
-local preview = select("cat", nil, 0.01, existing)
-assert(select("cat", "", 0.99, existing) == preview, "Preview changed during rendering")
-assert(select("cat", "created", 0.99, existing) == preview, "Starting a chat replaced its preview")
-assert(select("cat", "chat-a", 0.5, existing) == "cat", "Existing chat setting changed")
-assert(select("cat", "created", 0.5, existing) == preview, "Returning to a chat lost its pet")
-assert(new_selector()("cat", "created", 0.5, existing) == preview, "Restart lost the inherited pet")
-assert(select("omniman", "created", 0.5, existing) == "omniman", "Changing settings must override inheritance")
-select("cat", nil, 0.01, existing)
-assert(select("cat", "chat-a", 0.5, existing) == "cat", "Navigating from a draft overwrote an existing chat")
+local preview = select("random", nil, 0.01, existing)
+assert(select("random", "", 0.99, existing) == preview, "Preview changed during rendering")
+assert(select("random", "created", 0.99, existing) == preview, "Starting a chat replaced its preview")
+assert(select("random", "chat-a", 0.5, existing) == choose("random", "chat-a"), "Existing chat pet changed")
+assert(select("random", "created", 0.5, existing) == preview, "Returning to a chat lost its pet")
+assert(new_selector()("random", "created", 0.5, existing) == preview, "Restart lost the inherited pet")
+assert(select("stormtrooper", "created", 0.5, existing) == "stormtrooper", "Changing settings must override inheritance")
+select("random", nil, 0.01, existing)
+assert(select("random", "chat-a", 0.5, existing) == choose("random", "chat-a"), "Navigating from a draft overwrote an existing chat")
 assert(saved["chat-a"] == nil, "Existing chat must not inherit a draft pet")
 for _, configured in ipairs({ "random", false }) do
 	local id = "created-" .. tostring(configured)
@@ -71,12 +71,21 @@ for _, configured in ipairs({ "random", false }) do
 	assert(select(configured or nil, id, 0.01, existing) == pet)
 	assert(new_selector()(configured or nil, id, 0.5, existing) == pet)
 end
+assert(select("stormtrooper", nil, 0.01, existing) == "stormtrooper", "Draft must use the configured pet")
+assert(select("cat", "", 0.99, existing) == "cat", "Draft must react to a setting change")
+assert(select("stormtrooper", "configured-chat", 0.99, existing) == "stormtrooper", "Starting a chat must respect the current setting")
+assert(saved["configured-chat"] == nil, "Explicit settings do not need per-chat persistence")
+select("random", nil, 0.01, existing)
+assert(select("stormtrooper", "switched-chat", 0.99, existing) == "stormtrooper", "A previous random preview must not override the setting")
+assert(saved["switched-chat"] == nil, "A superseded random preview must not be saved")
+saved["legacy-explicit"] = { pet = "cat", configured = "stormtrooper" }
+assert(new_selector()("stormtrooper", "legacy-explicit", 0.5, existing) == "stormtrooper", "Older saves must not override explicit settings")
 print("Pet handoff: creation, reopening, restart, setting changes and existing-chat navigation passed.")
 
 local delayed = handoff(choose, function() return nil end, function() end)
-local delayed_pet = delayed("cat", nil, 0.01, {})
-assert(delayed("cat", "pending-save", 0.99, {}) == delayed_pet)
-assert(delayed("cat", "pending-save", 0.99, {}) == delayed_pet, "Pending persistence must not cause a pet switch")
+local delayed_pet = delayed("random", nil, 0.01, {})
+assert(delayed("random", "pending-save", 0.99, {}) == delayed_pet)
+assert(delayed("random", "pending-save", 0.99, {}) == delayed_pet, "Pending persistence must not cause a pet switch")
 
 assert(choose("hornet", "chat-a") == "silksong", "Legacy Hornet setting must resolve to Silksong")
 local legacy = handoff(choose, function() return { pet = "hornet", configured = "random" } end, function() end)
