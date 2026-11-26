@@ -11,7 +11,7 @@ return function(choose, load, save)
 			if preview == nil then
 				preview = choose(configured, nil, random)
 				existing = {}
-				for id in pairs(sessions) do
+				for id in pairs(sessions()) do
 					existing[id] = true
 				end
 			end

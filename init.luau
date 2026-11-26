@@ -107,28 +107,25 @@ local EVERY = {
 
 local function reduced(): boolean
 	local p = (ui :: any).prefers
-	return p ~= nil and p.reduced_motion ~= nil and p.reduced_motion:peek() == true
+	return p ~= nil and p.reduced_motion ~= nil and p.reduced_motion:get() == true
 end
 
 local function within(range: { number }): number
 	return (range[1] + math.random() * (range[2] - range[1])) * 1200
 end
 
--- At most this many timers are ever pending (checked as each motion comes
--- round): one per motion's next turn, and its frames and
--- its end. Fired timers are let go, so a composer left open all day holds
--- no more than at its first minute.
-local LONGEST = 0
-for _, each in EVERY do
-	LONGEST = math.max(LONGEST, #each.motion)
+local function applies_to(each, pet: string): boolean
+	return each.pet == pet or (each.pet == nil and (pet ~= "whiplash" or each.motion == BLINK))
 end
-local MOST = #EVERY + LONGEST + 1
 
 local function Pet(session: () -> any, select_pet: any): Node
 	local preview_random = math.random()
-	local function selected_pet(): string
+	local selection = ui.computed(function(): string
 		local current = session()
-		return select_pet(pet_setting:get(), if current then current.id else nil, preview_random, zeron.sessions())
+		return select_pet(pet_setting:get(), if current then current.id else nil, preview_random, zeron.sessions)
+	end)
+	local function selected_pet(): string
+		return selection:get()
 	end
 	local function wide_pet(): boolean
 		local pet = selected_pet()
@@ -157,26 +154,23 @@ local function Pet(session: () -> any, select_pet: any): Node
 	local position = ui.use_state(math.random())
 	local busy = false
 	local gone = false
-	local function pending(): number
-		local n = #steps
-		for i = 1, #EVERY do
-			if turns[i] then
-				n += 1
-			end
+	local function cancel_turns()
+		for _, cancel in turns do
+			cancel()
 		end
-		return n
+		turns = {}
 	end
-	ui.on_cleanup(function()
-		gone = true
-		for i = 1, #EVERY do
-			local cancel = turns[i]
-			if cancel then
-				cancel()
-			end
-		end
+	local function cancel_steps()
 		for _, cancel in steps do
 			cancel()
 		end
+		steps = {}
+		busy = false
+	end
+	ui.on_cleanup(function()
+		gone = true
+		cancel_turns()
+		cancel_steps()
 	end)
 	-- A motion's frames one after another, then idle. (One at a time: one
 	-- that comes while another plays waits for its next turn.)
@@ -202,20 +196,31 @@ local function Pet(session: () -> any, select_pet: any): Node
 			steps = {}
 		end))
 	end
-	if not reduced() then
+	local scheduled_pet: string? = nil
+	local scheduled_reduced: boolean? = nil
+	ui.effect(function()
+		local pet, no_motion = selected_pet(), reduced()
+		if gone or (scheduled_pet == pet and scheduled_reduced == no_motion) then
+			return
+		end
+		scheduled_pet, scheduled_reduced = pet, no_motion
+		cancel_turns()
+		cancel_steps()
+		frame:set("idle")
+		if no_motion then
+			return
+		end
 		for i, each in EVERY do
-			local function turn()
-				turns[i] = nil
-				local pet = selected_pet()
-				if each.pet == pet or (each.pet == nil and (pet ~= "whiplash" or each.motion == BLINK)) then
+			if applies_to(each, pet) then
+				local function turn()
+					turns[i] = nil
 					play(each.motion)
+					turns[i] = ui.after(within(each.range), turn)
 				end
 				turns[i] = ui.after(within(each.range), turn)
-				assert(pending() <= MOST, "zeron-pixel-pets: timers left pending")
 			end
-			turns[i] = ui.after(within(each.range), turn)
 		end
-	end
+	end)
 	local function click_motion(): { { any } }?
 		local pet = selected_pet()
 		for _, each in EVERY do
@@ -289,7 +294,7 @@ zeron.place { at = "#composer-toolbar", before = function(): Node
 	end)
 	return ui.presence(function(): string?
 		local current = session()
-		select_pet(pet_setting:get(), if current then current.id else nil, math.random(), zeron.sessions())
+		select_pet(pet_setting:get(), if current then current.id else nil, math.random(), zeron.sessions)
 		return if current and current.id and current.id ~= "" then current.id else "new-chat"
 	end, function(): Node
 		return Pet(session, select_pet)
