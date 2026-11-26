@@ -38,13 +38,17 @@ After every repository change (including docs, tests and artwork):
 Include the updated manifest with every change. If anything changes afterward,
 repeat the sync, sign and verification steps before finishing or committing.
 Zeron hashes all non-hidden files regardless of `.gitignore`.
+Sign from a checkout with the LF line endings set in `.gitattributes`. Finish
+all edits, including README changes, before signing.
 
 For distribution, run `zeron plugin export zeron-pixel-pets` and verify the repository
 again (export can re-sign the installed plugin). Keep the exported `.zeron-plugin`
-outside this repository; attach it to a GitHub release or send it directly.
-Publishing is a separate action. Increment the manifest version for updates.
-Preserve Zeron's signing identity: changing from the legacy standalone key may
-require existing users to reinstall and approve the plugin again.
+outside this repository. Before publishing, verify a fresh clone of the exact
+commit being released with `zeron plugin verify <clone-folder>`. Attach the
+export to a GitHub release tagged `v<version>` for that commit. Publishing is
+a separate action. Increment the manifest version for updates.
+Reuse the current signing device or a verified key registered to the same Zeron
+account. A different author can require users to remove and reinstall the plugin.
 Never read, print, copy into the repository, or replace private signing keys.
 
 # Development

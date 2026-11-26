@@ -35,7 +35,7 @@ GAG_DIMENSIONS = (96, 80, 78)
 EZIO_GAG_DIMENSIONS = (100, 80, 78)
 LARA_GAG_DIMENSIONS = (64, 64, 62)
 CRIME_GAG_DIMENSIONS = (100, 80, 78)
-SCALE, GAP, LABEL = 4, 20, 100
+SCALE, GAP, LABEL = 2, 20, 100
 
 
 def remove_specks(cell):
@@ -75,7 +75,9 @@ def generate():
     """Use one scale and palette per character and anchor every pose at its feet."""
     manifest = json.loads((ROOT / "zeron-plugin.json").read_text())
     options = next(s["options"] for s in manifest["settings"] if s["id"] == "pet")
-    assert {option["value"] for option in options} == set(PETS) | {"random"}, "Pet settings and artwork differ"
+    assert len(options) <= 40, "Zeron only displays 40 options per setting"
+    values = [option["value"] for option in options]
+    assert len(values) == len(set(values)) and set(values) == set(PETS) | {"random"}, "Pet settings and artwork differ"
     sprites = {}
     groups = []
     for pet in PETS:

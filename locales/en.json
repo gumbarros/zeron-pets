@@ -15,15 +15,12 @@
         "cat": "Siamese",
         "squidward": "Squidward",
         "darth-revan": "Darth Revan",
-        "the-witcher": "The Witcher",
         "omniman": "Omniman",
-        "whiplash": "Whiplash",
         "anti-sergio": "Anti Sergio",
         "random": "Random",
         "hollow-knight": "Hollow Knight",
         "gordon-freeman": "Gordon Freeman",
         "silksong": "Silksong",
-        "zombie": "Zombie",
         "ornstein-smough": "Ornstein & Smough",
         "creeper": "Creeper",
         "grand-admiral-thrawn": "Grand Admiral Thrawn",
@@ -31,7 +28,12 @@
         "mano-ygor": "Mano Ygor",
         "jak-and-daxter": "Jak and Daxter",
         "bergamini-cow": "Bergamini Cow",
-        "otis": "Otis the Cow"
+        "otis": "Otis the Cow",
+        "jason-duval": "Jason Duval",
+        "lucia-caminos": "Lucia Caminos",
+        "the-witcher": "The Witcher",
+        "whiplash": "Whiplash",
+        "zombie": "Zombie"
       }
     },
     "position": {
