@@ -185,9 +185,9 @@
       "art-src/ornstein-smough/atlas.png": "d7f5f7e5462916ba9082a28452f8d8911de56afec1018e59ba69aad1753feaaa",
       "art-src/otis/atlas.png": "7a80a03fa65bc0bf08afdb6d9446eee911e7fd4acf396d41e9a2a9448283a206",
       "art-src/otis/prompt.txt": "73629d3bf56c37ce35d338dcb8ff8111892b53dedf5c02ac797cb254dad3b5ca",
-      "art-src/preview.png": "35aa163db10f5c2ebb6dae9b1d14e11789a12f640b5e7e2c223ba6f93aff0174",
+      "art-src/preview.png": "63041839610b65f5b9e1dbc7b4c9d007388950229ba0a9bb065ae0dd1531f99e",
       "art-src/silksong/atlas.png": "64fc471ea3ac061046a2fe925bc619e3aa563a7c73659388fa776fa778a438f5",
-      "art-src/sprite.py": "f7ac9ec5d5286450b21a55bd8d81527a744ef3039ec0435dd84a7b4fe6ea625c",
+      "art-src/sprite.py": "473bc4717fa4f3cc67abd1db7772a6e0f2f024c78e95150c140d3d47bc6787a6",
       "art-src/squidward/atlas.png": "9ef598876d39cf6b38f3a0e188d99098027a78dfb9919b9e43be505ce2612565",
       "art-src/squidward/machine-atlas.png": "db62926bfe0d79b88693b8353a85f18cdec28d4e2d00161e7c4fe16718b326da",
       "art-src/stormtrooper/atlas.png": "2b4a9184f03c9760996b089da2686ab9db4623258b12da74a602d5e507bb56cf",
@@ -394,18 +394,18 @@
       "art/zombie/idle.png": "dde7f58e4ba1f952122991a733a14724739aab5464b0a65c0f52556e34f116ee",
       "art/zombie/tail-out.png": "649e394ba3540c6a5d2879f0e39081ce9368aa65a987eb22fc2b0987689a6d6d",
       "art/zombie/tail-over.png": "304152cf3328be73a65432399696a728a4a55f2d05595ec4890a8ab9e6bf1254",
-      "init.luau": "54b62ac1b5b8bb6229db0400ee6e807a248fac972dd42662ae301923fc0fadb0",
+      "init.luau": "99cfe14ca93ee29aff64ce1224b25c7e98b72935969f619f930a30c765e308ef",
       "locales/en.json": "6fa489df742b91f5dd60176dd332f244af14c3e12f41bf0ff7aef31aaf153710",
       "locales/pt.json": "1e3585e0ca5a4240df094ac9c7630cc72723d5df87dcc996f5e6a5468743155d",
-      "pet-handoff.luau": "703ac82e83f4b3bbe6a7edeb4608db81783cc2c3a7862e09084fdf98fb7c4ea4",
+      "pet-handoff.luau": "42e0cf9b4a2b0bfecf618c7d5f5a8fb041b8592ca8fc8dacca650f6008e4d1d2",
       "pet-position.luau": "9fa28ace6287a14385fdb8be4805503dfc7028c978f781e5b7bb679ddfd06b12",
       "pet-selection.luau": "daa3714f3473a4f09d7cfd7489a3b45efd955923753b2b94248acf5949070812",
-      "scripts/test_pet_click.lua": "aea11de0fedca77394398eb8e618cc6535aff9ba065dbfcc2fa6dbed14fa5ce1",
-      "scripts/test_pet_selection.lua": "b04e30f528617e6e421aeba92dd652272c5fefab6c8776ad697732f689b2eff3",
+      "scripts/test_pet_click.lua": "37d65eb7606a9726fc291a15c7127dd3cfb7273678195c5d576fc3af0a4b9389",
+      "scripts/test_pet_selection.lua": "8b8257d11ebb9d0773a4a4a6b5d7792343a17981fe00c2ce041d0ef13450b287",
       "zeron.luau": "178b79b55566c9643b26181539b8e1348482179a169da98ba384cd66f3f8a483"
     },
     "key": "1jDunS9-dlIPgQ7b0NK0rNHseSw1sRVqDSr32YzmnEc",
-    "sig": "dDrAUzFmUSr2mHl_BgDCOHFO_k-UGTZ8G-mlr_SbJIocUp4JJvliPnOQ9vzFBwLrCb9F4RXFGQBiF1DsX8bSBw"
+    "sig": "vSxUnJ2y5IiQZZdzcH41V8_XhptBXy3LRWM6aOQQ3EVBQLnGsF4081ozwHOIZ-1gxzNFvcR3vM2p-2B4NqyZDg"
   },
   "version": "0.4.34"
 }
