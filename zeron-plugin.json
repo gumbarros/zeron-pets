@@ -151,9 +151,9 @@
   ],
   "signature": {
     "files": {
-      "AGENTS.md": "a2cafa470482102bc689b03fc1a106b573e7cc53d45d0935a33b7831f968cc2b",
+      "AGENTS.md": "3825f1c4a2a001d2f681902b15f0eb2464e42618ead18fe5c23daec1f1614551",
       "LICENSE": "e776600f641baae3fd37387829b40fe2d7c12d01785dc8b846658b7cbb0342e3",
-      "README.md": "b2f564f97c33c1dcf64125ffaf32b8b2916527dc0e9a6eebd8af45171bb27779",
+      "README.md": "438f64e126f8e1858c57429a6ef9eac2a113ad7f33e0e769c12c5d1bfd638fbd",
       "art-src/anti-sergio/atlas.png": "093eddc3157f6429d9f38e32b93205266c31487d60db585caa18783aa351550d",
       "art-src/bergamini-cow/atlas.png": "a72bd11b50734e166eab7a58ae7bc3acb91c74ea11a0906a79ef1457e51209c7",
       "art-src/bergamini-cow/prompt.txt": "82340c27fb87fcdd021fce102f1e72c81cf32fc53eecf1ccfbd2c6f10bc67b52",
@@ -404,8 +404,8 @@
       "scripts/test_pet_selection.lua": "b04e30f528617e6e421aeba92dd652272c5fefab6c8776ad697732f689b2eff3",
       "zeron.luau": "178b79b55566c9643b26181539b8e1348482179a169da98ba384cd66f3f8a483"
     },
-    "key": "fZunXRtD2N1sJBeX-wM280h4o3K1A2btmY2o7JybW-Q",
-    "sig": "mcUzKQcpr6_GoZu1w02_Ap0CrfCmYaJzyS2cmUAJf9vhU5v9jocdxlxXA3SI0up3Xlnz-sHWlfuvQLAzlrYOBw"
+    "key": "1jDunS9-dlIPgQ7b0NK0rNHseSw1sRVqDSr32YzmnEc",
+    "sig": "dDrAUzFmUSr2mHl_BgDCOHFO_k-UGTZ8G-mlr_SbJIocUp4JJvliPnOQ9vzFBwLrCb9F4RXFGQBiF1DsX8bSBw"
   },
-  "version": "0.4.32"
+  "version": "0.4.33"
 }

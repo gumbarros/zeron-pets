@@ -4,11 +4,13 @@ Animated pixel companions for [Zeron](https://github.com/zeronsh/zeron), perched
 
 ## Install
 
-Ask your Zeron agent:
+If a `.zeron-plugin` file is available in [GitHub Releases](https://github.com/gumbarros/zeron-pets/releases), download it and select it under **Settings → Plugins → Install…** in Zeron. This method works without Git.
+
+If Git is installed on your device, you can also ask your Zeron agent:
 
 > Install Zeron Pets from https://github.com/gumbarros/zeron-pets
 
-Approve **Zeron Pets** when prompted. Repeat on each device. Only Zeron is required.
+Approve **Zeron Pets** when prompted. Repeat on each device. To check for an update, use **Settings → Plugins**. If Zeron refuses an update because the signer changed, removing and reinstalling the plugin clears its saved settings and per-chat pet choices.
 
 The plugin displays pets and uses chat IDs to remember your companion. It does not read your messages.
 
